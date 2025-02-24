@@ -1,0 +1,21 @@
+baseURL = "https://unfoundbox.com/"
+title = "UnfoundBox"
+theme = "ananke"
+
+[params]
+  description = "Developer journey through startups and beyond"
+  socialIcons = [
+    { platform = "github", url = "https://github.com/Saurabh619" },
+    { platform = "linkedin", url = "https://www.linkedin.com/in/saurabh-nandwana" },
+    { platform = "twitter", url = "https://x.com/619_saurabh" },
+    { platform = "instagram", url = "https://www.instagram.com/_unfoundbox" },
+  ]
+
+[menu]
+  [[menu.main]]
+    identifier = "posts"
+    name = "Posts"
+    url = "/posts/"
+    weight = 10
+
+  
