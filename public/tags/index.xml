@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on unfoundBox</title>
-    <link>http://localhost:61822/tags/</link>
+    <link>http://localhost:62548/tags/</link>
     <description>Recent content in Tags on unfoundBox</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Mon, 24 Feb 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:61822/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 24 Feb 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:62548/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Career</title>
-      <link>http://localhost:61822/tags/career/</link>
+      <link>http://localhost:62548/tags/career/</link>
       <pubDate>Mon, 24 Feb 2025 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:61822/tags/career/</guid>
+      <guid>http://localhost:62548/tags/career/</guid>
       
       <description></description>
       
@@ -20,10 +20,10 @@
     
     <item>
       <title>Development</title>
-      <link>http://localhost:61822/tags/development/</link>
+      <link>http://localhost:62548/tags/development/</link>
       <pubDate>Mon, 24 Feb 2025 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:61822/tags/development/</guid>
+      <guid>http://localhost:62548/tags/development/</guid>
       
       <description></description>
       
@@ -31,10 +31,10 @@
     
     <item>
       <title>Sabbatical</title>
-      <link>http://localhost:61822/tags/sabbatical/</link>
+      <link>http://localhost:62548/tags/sabbatical/</link>
       <pubDate>Mon, 24 Feb 2025 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:61822/tags/sabbatical/</guid>
+      <guid>http://localhost:62548/tags/sabbatical/</guid>
       
       <description></description>
       
@@ -42,10 +42,10 @@
     
     <item>
       <title>Nomading</title>
-      <link>http://localhost:61822/tags/nomading/</link>
+      <link>http://localhost:62548/tags/nomading/</link>
       <pubDate>Sun, 12 Jan 2025 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:61822/tags/nomading/</guid>
+      <guid>http://localhost:62548/tags/nomading/</guid>
       
       <description></description>
       
@@ -53,10 +53,10 @@
     
     <item>
       <title>Travel</title>
-      <link>http://localhost:61822/tags/travel/</link>
+      <link>http://localhost:62548/tags/travel/</link>
       <pubDate>Sun, 12 Jan 2025 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:61822/tags/travel/</guid>
+      <guid>http://localhost:62548/tags/travel/</guid>
       
       <description></description>
       

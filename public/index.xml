@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Home on unfoundBox</title>
-    <link>http://localhost:61822/</link>
+    <link>http://localhost:62548/</link>
     <description>Recent content in Home on unfoundBox</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Mon, 24 Feb 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:61822/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 24 Feb 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:62548/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How I Went from a Small Town Kid to Working on Cutting-Edge AI</title>
-      <link>http://localhost:61822/posts/sabattical/sabbatical/</link>
+      <link>http://localhost:62548/posts/sabattical/sabbatical/</link>
       <pubDate>Mon, 24 Feb 2025 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:61822/posts/sabattical/sabbatical/</guid>
+      <guid>http://localhost:62548/posts/sabattical/sabbatical/</guid>
       
       <description>&lt;p&gt;So here&amp;rsquo;s my story - I grew up in a small town in Rajasthan, raised by my kickass single mom and elder sister. School was my thing, and when I hit 11th grade, I fell hard for C++ programming. Like every other Indian kid with decent grades, I ended up at Allen Institute Kota for IIT-JEE prep. Spoiler alert: The pressure cooker environment there? Yeah, not my scene.&lt;/p&gt;
 &lt;p&gt;Landed at BIT Bangalore for telecommunications engineering instead. Failed a year - but honestly? That turned out to be a blessing in disguise. Instead of moping around, I hit the gym and dove deep into programming classes. Best decision ever.&lt;/p&gt;</description>
@@ -21,26 +21,27 @@
     
     <item>
       <title>Nomading</title>
-      <link>http://localhost:61822/posts/nomading/nomading/</link>
+      <link>http://localhost:62548/pages/nomading/nomading/</link>
       <pubDate>Sun, 12 Jan 2025 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:61822/posts/nomading/nomading/</guid>
+      <guid>http://localhost:62548/pages/nomading/nomading/</guid>
       
       <description>&lt;p&gt;vectorly team offsite in koh phangan&lt;/p&gt;
 &lt;p&gt;hopin team offsite in cancun&lt;/p&gt;
 &lt;p&gt;mini euro trip&lt;/p&gt;
 &lt;p&gt;digital nomading in south east asia&lt;/p&gt;
 &lt;p&gt;living in bangkok for 3 months&lt;/p&gt;
-&lt;p&gt;living in da nang for 1 month&lt;/p&gt;</description>
+&lt;p&gt;living in da nang for 1 month&lt;/p&gt;
+&lt;!-- insert image of me in da nang --&gt;</description>
       
     </item>
     
     <item>
       <title>About</title>
-      <link>http://localhost:61822/pages/about/</link>
+      <link>http://localhost:62548/pages/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:61822/pages/about/</guid>
+      <guid>http://localhost:62548/pages/about/</guid>
       
       <description>&lt;p&gt;Hey there fellow startup builder! I have been an early stage engineer with some product chops for around 8 years now having worked with a half dozen startups from bootstrapped/pre-seed funded to unicorns.&lt;/p&gt;
 &lt;p&gt;My base is in my hometown Udaipur, India and I have been exploring digital nomad lifestyle traveling around south east Asia from last couple of years.&lt;/p&gt;
