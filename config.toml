@@ -1,6 +1,9 @@
 baseURL = "https://unfoundbox.com/"
 title = "UnfoundBox"
 theme = "ananke"
+enableGitInfo = true
+[permalinks]
+  posts = "/:year/:month/:slug/"
 
 [params]
   description = "Developer journey through startups and beyond"
