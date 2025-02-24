@@ -1,19 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Development on UnfoundBox</title>
-    <link>http://localhost:54174/tags/development/</link>
-    <description>Recent content in Development on UnfoundBox</description>
-    <generator>Hugo</generator>
-    <language>en</language>
-    <lastBuildDate>Mon, 24 Feb 2025 11:38:42 +0530</lastBuildDate>
-    <atom:link href="http://localhost:54174/tags/development/index.xml" rel="self" type="application/rss+xml" />
+    <title>Development on unfoundBox</title>
+    <link>http://localhost:61822/tags/development/</link>
+    <description>Recent content in Development on unfoundBox</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Mon, 24 Feb 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:61822/tags/development/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How I Went from a Small Town Kid to Working on Cutting-Edge AI (And Everything That Happened Along the Way)</title>
-      <link>http://localhost:54174/2025/02/how-i-went-from-a-small-town-kid-to-working-on-cutting-edge-ai-and-everything-that-happened-along-the-way/</link>
+      <link>http://localhost:61822/posts/sabattical/sabbatical/</link>
       <pubDate>Mon, 24 Feb 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:54174/2025/02/how-i-went-from-a-small-town-kid-to-working-on-cutting-edge-ai-and-everything-that-happened-along-the-way/</guid>
-      <description>&lt;p&gt;So here&amp;rsquo;s my story - I grew up in a small town in Rajasthan, raised by my kickass single mom and elder sister. School was my thing, and when I hit 11th grade, I fell hard for C++ programming. Like every other Indian kid with decent grades, I ended up at Allen Institute Kota for IIT-JEE prep. Spoiler alert: The pressure cooker environment there? Yeah, not my scene.&lt;/p&gt;&#xA;&lt;p&gt;Landed at BIT Bangalore for telecommunications engineering instead. Failed a year - but honestly? That turned out to be a blessing in disguise. Instead of moping around, I hit the gym and dove deep into programming classes. Best decision ever.&lt;/p&gt;</description>
+      
+      <guid>http://localhost:61822/posts/sabattical/sabbatical/</guid>
+      
+      <description>&lt;p&gt;So here&amp;rsquo;s my story - I grew up in a small town in Rajasthan, raised by my kickass single mom and elder sister. School was my thing, and when I hit 11th grade, I fell hard for C++ programming. Like every other Indian kid with decent grades, I ended up at Allen Institute Kota for IIT-JEE prep. Spoiler alert: The pressure cooker environment there? Yeah, not my scene.&lt;/p&gt;
+&lt;p&gt;Landed at BIT Bangalore for telecommunications engineering instead. Failed a year - but honestly? That turned out to be a blessing in disguise. Instead of moping around, I hit the gym and dove deep into programming classes. Best decision ever.&lt;/p&gt;</description>
+      
     </item>
+    
   </channel>
 </rss>

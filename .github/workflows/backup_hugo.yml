@@ -60,10 +60,6 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./public
-      - name: Build with Hugo
-        run: |
-          hugo --minify --gc --cleanDestinationDir
-          echo "unfoundbox.com" > public/CNAME
 
   # Deployment job
   deploy:

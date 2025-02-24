@@ -2,27 +2,40 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:54174/tags/career/</loc>
-    <lastmod>2025-02-24T11:38:42+05:30</lastmod>
+    <loc>http://localhost:61822/tags/career/</loc>
+    <lastmod>2025-02-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:54174/tags/development/</loc>
-    <lastmod>2025-02-24T11:38:42+05:30</lastmod>
+    <loc>http://localhost:61822/tags/development/</loc>
+    <lastmod>2025-02-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:54174/2025/02/how-i-went-from-a-small-town-kid-to-working-on-cutting-edge-ai-and-everything-that-happened-along-the-way/</loc>
-    <lastmod>2025-02-24T11:38:42+05:30</lastmod>
+    <loc>http://localhost:61822/</loc>
+    <lastmod>2025-02-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:54174/posts/</loc>
-    <lastmod>2025-02-24T11:38:42+05:30</lastmod>
+    <loc>http://localhost:61822/posts/sabattical/sabbatical/</loc>
+    <lastmod>2025-02-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:54174/tags/sabbatical/</loc>
-    <lastmod>2025-02-24T11:38:42+05:30</lastmod>
+    <loc>http://localhost:61822/posts/</loc>
+    <lastmod>2025-02-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:54174/tags/</loc>
-    <lastmod>2025-02-24T11:38:42+05:30</lastmod>
+    <loc>http://localhost:61822/tags/sabbatical/</loc>
+    <lastmod>2025-02-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:54174/</loc>
-    <lastmod>2025-02-24T11:38:42+05:30</lastmod>
+    <loc>http://localhost:61822/tags/</loc>
+    <lastmod>2025-02-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:54174/categories/</loc>
+    <loc>http://localhost:61822/tags/nomading/</loc>
+    <lastmod>2025-01-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:61822/posts/nomading/nomading/</loc>
+    <lastmod>2025-01-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:61822/tags/travel/</loc>
+    <lastmod>2025-01-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:61822/pages/about/</loc>
+  </url><url>
+    <loc>http://localhost:61822/categories/</loc>
+  </url><url>
+    <loc>http://localhost:61822/pages/</loc>
   </url>
 </urlset>
