@@ -26,5 +26,5 @@ To run locally:
 3. Run `hugo server`
 4. Open your browser and navigate to `http://localhost:1313`
 
-[Live Demo](https://unfoundbox.com) • [View Posts](/posts)
+ [Live Demo](https://unfoundbox.com) • [View Posts](/posts)
 

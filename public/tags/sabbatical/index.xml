@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Sabbatical on UnfoundBox</title>
-    <link>http://localhost:1313/tags/sabbatical/</link>
+    <link>http://localhost:52747/tags/sabbatical/</link>
     <description>Recent content in Sabbatical on UnfoundBox</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 20 Mar 2024 15:22:00 +0530</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/sabbatical/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 24 Feb 2025 11:38:42 +0530</lastBuildDate>
+    <atom:link href="http://localhost:52747/tags/sabbatical/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Why I Chose a Sabbatical</title>
-      <link>http://localhost:1313/posts/first-post/</link>
-      <pubDate>Wed, 20 Mar 2024 15:22:00 +0530</pubDate>
-      <guid>http://localhost:1313/posts/first-post/</guid>
-      <description>&lt;h1 id=&#34;how-i-went-from-a-small-town-kid-to-working-on-cutting-edge-ai-and-everything-that-happened-along-the-way&#34;&gt;How I Went from a Small Town Kid to Working on Cutting-Edge AI (And Everything That Happened Along the Way)&lt;/h1&gt;&#xA;&lt;p&gt;So here&amp;rsquo;s my story - I grew up in a small town in Rajasthan, raised by my kickass single mom and elder sister. School was my thing, and when I hit 11th grade, I fell hard for C++ programming. Like every other Indian kid with decent grades, I ended up at Allen Institute Kota for IIT-JEE prep. Spoiler alert: The pressure cooker environment there? Yeah, not my scene.&lt;/p&gt;</description>
+      <title>How I Went from a Small Town Kid to Working on Cutting-Edge AI (And Everything That Happened Along the Way)</title>
+      <link>http://localhost:52747/2025/02/how-i-went-from-a-small-town-kid-to-working-on-cutting-edge-ai-and-everything-that-happened-along-the-way/</link>
+      <pubDate>Mon, 24 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:52747/2025/02/how-i-went-from-a-small-town-kid-to-working-on-cutting-edge-ai-and-everything-that-happened-along-the-way/</guid>
+      <description>&lt;p&gt;So here&amp;rsquo;s my story - I grew up in a small town in Rajasthan, raised by my kickass single mom and elder sister. School was my thing, and when I hit 11th grade, I fell hard for C++ programming. Like every other Indian kid with decent grades, I ended up at Allen Institute Kota for IIT-JEE prep. Spoiler alert: The pressure cooker environment there? Yeah, not my scene.&lt;/p&gt;&#xA;&lt;p&gt;Landed at BIT Bangalore for telecommunications engineering instead. Failed a year - but honestly? That turned out to be a blessing in disguise. Instead of moping around, I hit the gym and dove deep into programming classes. Best decision ever.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
