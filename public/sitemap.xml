@@ -2,41 +2,41 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:62548/tags/career/</loc>
+    <loc>http://localhost:1313/tags/career/</loc>
     <lastmod>2025-02-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:62548/tags/development/</loc>
+    <loc>http://localhost:1313/tags/development/</loc>
     <lastmod>2025-02-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:62548/</loc>
+    <loc>http://localhost:1313/</loc>
     <lastmod>2025-02-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:62548/posts/sabattical/sabbatical/</loc>
+    <loc>http://localhost:1313/posts/sabattical/sabbatical/</loc>
     <lastmod>2025-02-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:62548/posts/</loc>
+    <loc>http://localhost:1313/posts/</loc>
     <lastmod>2025-02-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:62548/tags/sabbatical/</loc>
+    <loc>http://localhost:1313/tags/sabbatical/</loc>
     <lastmod>2025-02-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:62548/tags/</loc>
+    <loc>http://localhost:1313/tags/</loc>
     <lastmod>2025-02-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:62548/tags/nomading/</loc>
+    <loc>http://localhost:1313/tags/nomading/</loc>
     <lastmod>2025-01-12T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:62548/pages/nomading/nomading/</loc>
+    <loc>http://localhost:1313/pages/nomading/nomading/</loc>
     <lastmod>2025-01-12T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:62548/pages/</loc>
+    <loc>http://localhost:1313/pages/</loc>
     <lastmod>2025-01-12T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:62548/tags/travel/</loc>
+    <loc>http://localhost:1313/tags/travel/</loc>
     <lastmod>2025-01-12T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:62548/pages/about/</loc>
+    <loc>http://localhost:1313/pages/about/</loc>
   </url><url>
-    <loc>http://localhost:62548/categories/</loc>
+    <loc>http://localhost:1313/categories/</loc>
   </url>
 </urlset>

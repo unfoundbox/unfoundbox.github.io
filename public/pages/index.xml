@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Pages on unfoundBox</title>
-    <link>http://localhost:62548/pages/</link>
+    <link>http://localhost:1313/pages/</link>
     <description>Recent content in Pages on unfoundBox</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Sun, 12 Jan 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:62548/pages/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 12 Jan 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/pages/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Nomading</title>
-      <link>http://localhost:62548/pages/nomading/nomading/</link>
+      <link>http://localhost:1313/pages/nomading/nomading/</link>
       <pubDate>Sun, 12 Jan 2025 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:62548/pages/nomading/nomading/</guid>
+      <guid>http://localhost:1313/pages/nomading/nomading/</guid>
       
       <description>&lt;p&gt;vectorly team offsite in koh phangan&lt;/p&gt;
 &lt;p&gt;hopin team offsite in cancun&lt;/p&gt;
@@ -26,10 +26,10 @@
     
     <item>
       <title>About</title>
-      <link>http://localhost:62548/pages/about/</link>
+      <link>http://localhost:1313/pages/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:62548/pages/about/</guid>
+      <guid>http://localhost:1313/pages/about/</guid>
       
       <description>&lt;p&gt;Hey there fellow startup builder! I have been an early stage engineer with some product chops for around 8 years now having worked with a half dozen startups from bootstrapped/pre-seed funded to unicorns.&lt;/p&gt;
 &lt;p&gt;My base is in my hometown Udaipur, India and I have been exploring digital nomad lifestyle traveling around south east Asia from last couple of years.&lt;/p&gt;
