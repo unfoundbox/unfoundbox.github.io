@@ -1,8 +1,11 @@
+---
+title: "Ideas at the intersection of newer web standards"
+date: 2025-03-01
+draft: false
+tags: ['web-apis', 'new-markets', 'development']
+---
+
 # Web API Market Opportunity Analysis Report
-
-## Executive Summary
-
-This report analyzes market opportunities for innovative applications combining cutting-edge web APIs including WebGPU, WebTransport, WebCodecs, WebNN, and other emerging browser technologies. We've identified and evaluated 10 high-potential concepts across various dimensions including market size, technical feasibility, and monetization potential, with three additional breakthrough concepts that represent particularly compelling opportunities.
 
 ## Opportunity Analysis Matrix
 
