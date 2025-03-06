@@ -118,7 +118,7 @@ theme = "hugo-blog-awesome"
 
 [[params.socialIcons]]
 name = "github"
-url = "https://github.com/Saurabh619"
+url = "https://github.com/unfoundbox"
 
 [[params.socialIcons]]
 name = "twitter"
