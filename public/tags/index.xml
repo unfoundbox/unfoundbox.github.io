@@ -1,29 +1,51 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on unfoundBox</title>
+    <title>Tags on saurabh</title>
     <link>http://localhost:1313/tags/</link>
-    <description>Recent content in Tags on unfoundBox</description>
+    <description>Recent content in Tags on saurabh</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Mon, 24 Feb 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 01 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Career</title>
-      <link>http://localhost:1313/tags/career/</link>
-      <pubDate>Mon, 24 Feb 2025 00:00:00 +0000</pubDate>
+      <title>Development</title>
+      <link>http://localhost:1313/tags/development/</link>
+      <pubDate>Sat, 01 Mar 2025 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/career/</guid>
+      <guid>http://localhost:1313/tags/development/</guid>
       
       <description></description>
       
     </item>
     
     <item>
-      <title>Development</title>
-      <link>http://localhost:1313/tags/development/</link>
+      <title>New-Markets</title>
+      <link>http://localhost:1313/tags/new-markets/</link>
+      <pubDate>Sat, 01 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/new-markets/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Web-Apis</title>
+      <link>http://localhost:1313/tags/web-apis/</link>
+      <pubDate>Sat, 01 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/web-apis/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Career</title>
+      <link>http://localhost:1313/tags/career/</link>
       <pubDate>Mon, 24 Feb 2025 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/development/</guid>
+      <guid>http://localhost:1313/tags/career/</guid>
       
       <description></description>
       
@@ -57,6 +79,61 @@
       <pubDate>Sun, 12 Jan 2025 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/tags/travel/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Craftsmen</title>
+      <link>http://localhost:1313/tags/craftsmen/</link>
+      <pubDate>Wed, 03 Apr 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/craftsmen/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>India</title>
+      <link>http://localhost:1313/tags/india/</link>
+      <pubDate>Wed, 03 Apr 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/india/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Startup</title>
+      <link>http://localhost:1313/tags/startup/</link>
+      <pubDate>Wed, 03 Apr 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/startup/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Voice-Tech</title>
+      <link>http://localhost:1313/tags/voice-tech/</link>
+      <pubDate>Wed, 03 Apr 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/voice-tech/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Whatsapp</title>
+      <link>http://localhost:1313/tags/whatsapp/</link>
+      <pubDate>Wed, 03 Apr 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/whatsapp/</guid>
       
       <description></description>
       
