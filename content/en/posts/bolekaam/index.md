@@ -39,13 +39,13 @@ Three converging trends create our opportunity window:
 - **WhatsApp penetration**: 96% of smartphone users in tier 2-4 cities use it daily
 - **Digital discovery shift**: Even in tier 2-4 cities, 73% of customers now search online before hiring
 
-## Market Research: House Building Companies Loyalty Programs
+<!-- ## Market Research: House Building Companies Loyalty Programs
 
 Here's a snapshot of loyalty programs in the house building and construction sector in India:
 
-![House Building Companies Loyalty Programs](house-building-loyalty.png)
+![House Building Companies Loyalty Programs](house-building-loyalty.png) -->
 
-This research shows that most major companies in the sector have established loyalty programs, particularly targeting professionals in the construction industry. This validates the market need for professional networking and rewards in the construction sector.
+<!-- This research shows that most major companies in the sector have established loyalty programs, particularly targeting professionals in the construction industry. This validates the market need for professional networking and rewards in the construction sector. -->
 
 ## Market Opportunity
 
@@ -80,3 +80,25 @@ Bolekaam isn't just a platform—it's a movement to bring the digital economy to
 - **Traditional Platforms**: Text-heavy interfaces that create barriers for craftsmen
 
 Our key differentiator is our voice-first approach, specifically designed for craftsmen in tier 2-4 cities, focusing on trust-building between clients and craftsmen while enabling greater reach and income potential. 
+
+---
+
+## Update : 20th June 2025
+
+### Challenges
+
+Skill quality verification remains the biggest hurdle. 
+
+- what's in it for the workers
+  - A channel for online visibility to showcase their work and get more through online word-of-mouth
+
+- what's in it for the home builders
+  - access to local verified skilled workers
+
+- what's in it for the material brands/vendors
+  - marketing avenue for growth expansion
+
+TBD
+
+
+
