@@ -1,0 +1,73 @@
+{{ define "main" }}
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">{{ .Title }}</h1>
+                {{ $configDateFormat := .Site.Params.dateFormat | default "2 Jan 2006" }}
+                {{ with .Date }}
+                <div class="post-meta">
+                    <time datetime="{{ $.ISO_time := dateFormat "2006-01-02T15:04:05-07:00" . }}{{ $.ISO_time }}" itemprop="datePublished">{{ .Format $configDateFormat }}</time>
+                </div>
+                {{end}}
+            </header>
+            {{ partial "toc.html" .}}
+            <div class="page-content">
+                {{ .Content }}
+            </div>
+        </article>
+        {{- partial "comments.html" . -}}
+
+        {{/* Related Posts Section */}}
+        {{ $related := .Site.RegularPages.Related . | first 3 }}
+        {{ with $related }}
+        <section class="related-posts">
+            <h3 class="related-posts__title">Related Posts</h3>
+            <ul class="related-posts__list">
+                {{ range . }}
+                <li>
+                    <a href="{{ .Permalink }}">{{ .Title }}</a>
+                    <span class="related-posts__date">{{ .Date.Format "Jan 2, 2006" }}</span>
+                </li>
+                {{ end }}
+            </ul>
+        </section>
+        {{ end }}
+    </main>
+</div>
+
+<style>
+.related-posts {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color, #e5e7eb);
+}
+.related-posts__title {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+.related-posts__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.related-posts__list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.related-posts__list a {
+  font-weight: 500;
+}
+.related-posts__date {
+  font-size: 0.8rem;
+  opacity: 0.6;
+  white-space: nowrap;
+}
+</style>
+{{ end }}
