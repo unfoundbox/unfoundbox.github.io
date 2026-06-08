@@ -1,0 +1,59 @@
+{{- /* OneSignal Web Push Notifications
+   Instructions:
+   1. Sign up at https://onesignal.com (free)
+   2. Add a new app, choose Web Push > Custom Code
+   3. Set your Site URL to https://unfoundbox.com
+   4. Copy your App ID and replace YOUR_ONESIGNAL_APP_ID below
+   5. Download the SDK files (OneSignalSDKWorker.js) and place in /static/
+*/ -}}
+
+{{- if not .Site.IsServer -}}
+<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+<script>
+  window.OneSignalDeferred = window.OneSignalDeferred || [];
+  OneSignalDeferred.push(async function(OneSignal) {
+    await OneSignal.init({
+      appId: "YOUR_ONESIGNAL_APP_ID",
+      safari_web_id: "web.onesignal.auto.YOUR_SAFARI_ID",
+      notifyButton: {
+        enable: true,
+        size: 'medium',
+        theme: 'default',
+        position: 'bottom-right',
+        text: {
+          'tip.state.unsubscribed': 'Subscribe to notifications',
+          'tip.state.subscribed': "You're subscribed",
+          'tip.state.blocked': 'You blocked notifications',
+          'message.prenotify': 'Click to subscribe to notifications',
+          'message.action.subscribed': 'Thanks for subscribing!',
+          'message.action.resubscribed': 'You are now subscribed',
+          'message.action.unsubscribed': 'You will no longer receive notifications',
+          'dialog.main.title': 'Manage notifications',
+          'dialog.main.button.subscribe': 'SUBSCRIBE',
+          'dialog.main.button.unsubscribe': 'UNSUBSCRIBE',
+          'dialog.blocked.title': 'Unblock Notifications',
+          'dialog.blocked.message': 'Follow these instructions to allow notifications:'
+        }
+      },
+      welcomeNotification: {
+        title: "unfoundbox",
+        message: "Thanks for subscribing! You'll be notified when new posts are published.",
+      },
+      promptOptions: {
+        slidedown: {
+          prompts: [
+            {
+              type: "push",
+              autoPrompt: true,
+              delay: {
+                timeDelay: 5,
+                pageViews: 2
+              }
+            }
+          ]
+        }
+      }
+    });
+  });
+</script>
+{{- end -}}
