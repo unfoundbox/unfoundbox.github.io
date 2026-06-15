@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Gemma on saurabh</title>
-    <link>https://saurabhnandwana.com/tags/gemma/</link>
+    <link>https://unfoundbox.com/tags/gemma/</link>
     <description>Recent content in Gemma on saurabh</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Tue, 09 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://saurabhnandwana.com/tags/gemma/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 09 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://unfoundbox.com/tags/gemma/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>DIY Smart Robot With a Local Gemma Brain</title>
-      <link>https://saurabhnandwana.com/posts/diy-smart-robot-gemma/</link>
+      <link>https://unfoundbox.com/posts/diy-smart-robot-gemma/</link>
       <pubDate>Tue, 09 Jun 2026 00:00:00 +0000</pubDate>
       
-      <guid>https://saurabhnandwana.com/posts/diy-smart-robot-gemma/</guid>
+      <guid>https://unfoundbox.com/posts/diy-smart-robot-gemma/</guid>
       
       <description>&lt;h1 id=&#34;diy-smart-robot-with-a-local-gemma-brain&#34;&gt;DIY Smart Robot With a Local Gemma Brain&lt;/h1&gt;
-&lt;p&gt;&lt;img src=&#34;https://saurabhnandwana.com/posts/diy-smart-robot-gemma/cover.png&#34; alt=&#34;A finished reference build: small rover, local AI workstation, camera, distance sensor, speaker, and safe wiring.&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://unfoundbox.com/posts/diy-smart-robot-gemma/cover.png&#34; alt=&#34;A finished reference build: small rover, local AI workstation, camera, distance sensor, speaker, and safe wiring.&#34;&gt;&lt;/p&gt;
 &lt;p&gt;The best way to build a small AI robot is to keep the architecture boring.&lt;/p&gt;
 &lt;p&gt;Use the local model for high-level reasoning, explanations, and plans. Use deterministic firmware for timing, motor control, watchdogs, limits, and emergency stop. The model should never drive motors directly.&lt;/p&gt;
 &lt;p&gt;That separation is the whole project.&lt;/p&gt;</description>

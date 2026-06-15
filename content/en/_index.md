@@ -23,3 +23,5 @@ This blog is where I make the work legible:
 Right now I am especially interested in small models at the edge, AI video workflows, India-scale infrastructure, and products that turn raw model capability into useful systems.
 
 The archive is a mix of polished essays and working notes. That is intentional. I would rather publish the map while the terrain is still moving.
+
+Standalone visual drafts and research pages live here: [Research HTML](/research/).

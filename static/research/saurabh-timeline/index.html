@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saurabh Nandwana — A Timeline</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Source+Sans+3:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#ffffff;
+    --ink:#1a1a1a;
+    --ink-soft:#3d3d3d;
+    --gray:#6b6b6b;
+    --gray-light:#9a9a9a;
+    --hair:#e6e6e6;
+    --accent:#d8612a;      /* restrained orange */
+    --accent-soft:#f7ede6;
+    --blue:#2f5fa8;        /* secondary */
+    --blue-soft:#eef2f8;
+    --serif:'Newsreader', Georgia, serif;
+    --sans:'Source Sans 3', system-ui, sans-serif;
+    --mono:'IBM Plex Mono', monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    font-family:var(--serif);
+    color:var(--ink);
+    background:var(--paper);
+    -webkit-font-smoothing:antialiased;
+    overflow:hidden;
+  }
+
+  /* ---------- intro header (fixed, left) ---------- */
+  .masthead{
+    position:fixed;top:0;left:0;
+    width:340px;height:100%;
+    padding:48px 40px;
+    display:flex;flex-direction:column;
+    background:linear-gradient(90deg,var(--paper) 78%, rgba(255,255,255,0) 100%);
+    z-index:20;
+    pointer-events:none;
+  }
+  .masthead .eyebrow{
+    font-family:var(--mono);
+    font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--accent);margin-bottom:22px;pointer-events:auto;
+    opacity:0;animation:fadeUp .7s ease .1s both;
+  }
+  .masthead h1{
+    font-family:var(--serif);font-weight:600;
+    font-size:40px;line-height:1.08;letter-spacing:-.01em;
+    margin-bottom:16px;pointer-events:auto;
+    opacity:0;animation:fadeUp .8s ease .22s both;
+  }
+  .masthead .sub{
+    font-family:var(--serif);font-size:18px;line-height:1.5;
+    color:var(--gray);font-style:italic;margin-bottom:auto;pointer-events:auto;
+    opacity:0;animation:fadeUp .8s ease .36s both;
+  }
+  .masthead .byline{
+    font-family:var(--sans);font-size:13px;color:var(--gray-light);
+    border-top:1px solid var(--hair);padding-top:14px;pointer-events:auto;
+    opacity:0;animation:fadeUp .8s ease .5s both;
+  }
+  @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+  .masthead .byline strong{color:var(--ink-soft);font-weight:600}
+  .scroll-hint{
+    font-family:var(--mono);font-size:11px;color:var(--gray-light);
+    margin-top:14px;display:flex;align-items:center;gap:8px;pointer-events:auto;
+  }
+  .scroll-hint .arrow{animation:nudge 1.6s ease-in-out infinite}
+  @keyframes nudge{0%,100%{transform:translateX(0)}50%{transform:translateX(6px)}}
+
+  /* ---------- scroll track ---------- */
+  .stage{height:100%;overflow-x:auto;overflow-y:hidden;scroll-behavior:smooth}
+  .stage::-webkit-scrollbar{height:8px}
+  .stage::-webkit-scrollbar-track{background:transparent}
+  .stage::-webkit-scrollbar-thumb{background:var(--hair);border-radius:8px}
+  .stage::-webkit-scrollbar-thumb:hover{background:var(--gray-light)}
+
+  .track{
+    position:relative;height:100%;
+    display:flex;align-items:center;
+    padding-left:380px;padding-right:160px;
+    width:max-content;
+  }
+
+  /* the baseline */
+  .baseline{
+    position:absolute;left:380px;top:50%;height:2px;
+    background:var(--hair);transform:translateY(-1px);
+    z-index:0;
+  }
+  .baseline-fill{
+    position:absolute;left:380px;top:50%;height:2px;
+    background:var(--accent);transform:translateY(-1px);
+    width:0;z-index:1;transition:width .12s linear;
+  }
+  .baseline-fill::after{
+    content:"";position:absolute;right:0;top:-1px;height:4px;width:60px;
+    background:linear-gradient(90deg,rgba(216,97,42,0),var(--accent));
+    filter:blur(2px);
+  }
+  .progress-dot{
+    position:absolute;top:50%;width:11px;height:11px;border-radius:50%;
+    background:var(--accent);transform:translate(-50%,-50%);
+    z-index:6;box-shadow:0 0 0 5px var(--accent-soft);
+    transition:left .12s linear;
+  }
+  .progress-dot::before{
+    content:"";position:absolute;inset:-4px;border-radius:50%;
+    border:1.5px solid var(--accent);opacity:.5;
+    animation:breathe 2.4s ease-in-out infinite;
+  }
+  @keyframes breathe{0%,100%{transform:scale(1);opacity:.5}50%{transform:scale(1.5);opacity:0}}
+
+  /* ---------- era bands ---------- */
+  .era{
+    position:absolute;top:0;height:100%;z-index:0;
+    display:flex;align-items:flex-start;
+    pointer-events:none;
+  }
+  .era-label{
+    font-family:var(--mono);font-size:10px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--gray-light);
+    margin-top:64px;padding-left:14px;
+    border-left:1px solid var(--hair);
+  }
+
+  /* ---------- milestone node ---------- */
+  .node{
+    position:relative;z-index:5;
+    width:300px;flex:0 0 300px;
+    height:100%;
+    display:flex;flex-direction:column;justify-content:center;
+  }
+  .node:not(:last-child){margin-right:56px}
+
+  .dot{
+    position:absolute;top:50%;left:0;
+    width:13px;height:13px;border-radius:50%;
+    background:var(--paper);border:2px solid var(--gray-light);
+    transform:translate(-50%,-50%) scale(.6);
+    opacity:0;transition:all .5s cubic-bezier(.2,.8,.2,1);
+    z-index:5;
+  }
+  .node.lit .dot{
+    opacity:1;transform:translate(-50%,-50%) scale(1);
+    border-color:var(--accent);
+  }
+  .node.lit .dot::after{
+    content:"";position:absolute;inset:-7px;border-radius:50%;
+    border:1.5px solid var(--accent);opacity:0;
+    animation:pulse 1.6s ease-out 1;
+  }
+  @keyframes pulse{0%{opacity:.6;transform:scale(.7)}100%{opacity:0;transform:scale(1.7)}}
+
+  /* card alternates above / below the line */
+  .card{
+    position:relative;
+    padding:0 4px;
+    opacity:0;transform:translateY(22px);filter:blur(4px);
+    transition:opacity .7s ease,transform .7s cubic-bezier(.2,.85,.25,1),filter .7s ease;
+  }
+  .node.up .card{margin-bottom:auto;padding-top:78px}
+  .node.down .card{margin-top:auto;padding-bottom:78px}
+  .node.lit .card{opacity:1;transform:translateY(0);filter:blur(0)}
+
+  /* connector from card to line */
+  .stem{
+    position:absolute;left:0;width:1px;background:var(--hair);
+    transform:scaleY(0);transition:transform .5s ease .1s;
+  }
+  .node.up .stem{top:50%;height:0}
+  .node.lit .stem{transform:scaleY(1)}
+
+  .date{
+    font-family:var(--mono);font-size:12px;letter-spacing:.04em;
+    color:var(--accent);margin-bottom:6px;
+    transition-delay:.05s;
+  }
+  .place{
+    font-family:var(--sans);font-size:11px;color:var(--gray-light);
+    letter-spacing:.04em;margin-left:8px;
+  }
+  .title{
+    font-family:var(--serif);font-weight:600;font-size:23px;
+    line-height:1.18;letter-spacing:-.01em;margin-bottom:8px;
+  }
+  .body{
+    font-family:var(--serif);font-size:16px;line-height:1.55;
+    color:var(--ink-soft);
+  }
+  .body em{color:var(--gray);font-style:italic}
+  .tag{
+    display:inline-block;font-family:var(--sans);font-size:11px;font-weight:600;
+    color:var(--blue);background:var(--blue-soft);
+    padding:2px 9px;border-radius:3px;margin-top:10px;letter-spacing:.02em;
+  }
+  .tag.now{color:var(--accent);background:var(--accent-soft)}
+
+  /* staggered children */
+  .node.lit .date{animation:rise .5s ease .12s both}
+  .node.lit .title{animation:riseTitle .6s cubic-bezier(.2,.85,.25,1) .20s both}
+  .node.lit .body{animation:rise .5s ease .30s both}
+  .node.lit .tag{animation:rise .5s ease .40s both}
+  @keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes riseTitle{from{opacity:0;transform:translateY(12px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
+
+  /* end cap */
+  .endcap{
+    flex:0 0 auto;width:260px;height:100%;
+    display:flex;flex-direction:column;justify-content:center;
+    padding-left:40px;
+  }
+  .endcap .big{
+    font-family:var(--serif);font-style:italic;font-size:26px;
+    line-height:1.3;color:var(--ink);
+  }
+  .endcap .small{
+    font-family:var(--mono);font-size:11px;color:var(--gray-light);
+    letter-spacing:.14em;text-transform:uppercase;margin-top:16px;
+  }
+
+  /* bottom scrub bar */
+  .scrub{
+    position:fixed;bottom:18px;left:380px;right:60px;height:3px;
+    background:var(--hair);border-radius:3px;z-index:30;
+  }
+  .scrub-fill{position:absolute;left:0;top:0;height:100%;width:0;background:var(--accent);border-radius:3px;transition:width .1s linear}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important;transition:none !important}
+    .dot,.card,.stem{opacity:1;transform:none}
+    .baseline-fill,.progress-dot{transition:none}
+  }
+
+  /* mobile fallback: vertical stack */
+  @media (max-width:720px){
+    body{overflow:auto}
+    .masthead{position:relative;width:100%;height:auto;padding:36px 24px 20px;background:none}
+    .masthead h1{font-size:32px}
+    .scrub{display:none}
+    .stage{overflow:visible;height:auto}
+    .track{display:block;width:auto;padding:0 24px 60px}
+    .baseline,.baseline-fill,.progress-dot,.era{display:none}
+    .node{width:auto;flex:none;height:auto;margin:0 0 4px !important;
+      border-left:2px solid var(--hair);padding-left:24px;padding-bottom:28px;justify-content:flex-start}
+    .node.lit{border-left-color:var(--accent)}
+    .node .dot{left:-1px;top:6px;transform:translate(-50%,0) scale(1);opacity:1}
+    .node.lit .dot{transform:translate(-50%,0) scale(1)}
+    .card{padding:0 !important;margin:0 !important;opacity:1;transform:none}
+    .stem{display:none}
+    .endcap{height:auto;padding:20px 0 40px 24px;border-left:2px solid var(--accent)}
+  }
+</style>
+</head>
+<body>
+
+  <header class="masthead">
+    <div class="eyebrow">A life in build logs</div>
+    <h1>From a small town in Rajasthan to the frontier of AI</h1>
+    <p class="sub">Thirty years, a dropped year, a few startups, one sabbatical — and a kid who fell hard for C++ at sixteen.</p>
+    <div class="byline">
+      <strong>Saurabh Nandwana</strong><br>
+      <span style="font-family:var(--sans);font-size:12px;color:var(--gray-light)">unfoundbox.com</span>
+      <div class="scroll-hint">scroll across <span class="arrow">→</span></div>
+    </div>
+  </header>
+
+  <main class="stage" id="stage">
+    <div class="track" id="track">
+      <div class="baseline" id="baseline"></div>
+      <div class="baseline-fill" id="baselineFill"></div>
+      <div class="progress-dot" id="progressDot"></div>
+      <!-- nodes injected by JS -->
+    </div>
+  </main>
+
+  <div class="scrub"><div class="scrub-fill" id="scrubFill"></div></div>
+
+<script>
+const milestones = [
+  { date:"1994", place:"Rajsamand", title:"Born in a small town", body:"Raised in Rajasthan by a single mom and an elder sister. School was always my thing.", era:"Roots", up:true },
+  { date:"2004–08", place:"Rajasthan Board", title:"Hindi medium & cricket", body:"Hindi-medium schooling on the Rajasthan board, with most afternoons spent on the cricket field.", up:false },
+  { date:"2009", place:"CBSE · Class 9", title:"English-medium switch", body:"Moved into the English-medium CBSE track — the first real gear change.", up:true },
+  { date:"2011", place:"CBSE · Class 11", title:"Fell hard for C++", body:"Picked PCM + Computer Science. Programming clicked, and it never let go.", era:"Foundations", up:false },
+  { date:"2012–13", place:"Allen, Kota", title:"IIT-JEE pressure cooker", body:"The Kota grind for engineering entrance. <em>Spoiler: not my scene.</em>", up:true },
+  { date:"2013–16", place:"BIT, Bangalore", title:"Engineering — and a failed year", body:"Telecom engineering. Failed a year, then hit the gym and dove deep into code. Best detour ever.", era:"University", up:false },
+  { date:"2016", place:"Bangalore", title:"First break: Mobisy intern", body:"Hybrid mobile dev on the Bizom app, plus an OCR + ML side project for brand discovery.", up:true },
+  { date:"2016–17", place:"Bangalore", title:"Founding engineer, Signzy", body:"Engineer #1 at a digital-KYC startup. Built the API stack and repped the team at fintech accelerators.", era:"Startup engineer + PM", up:false },
+  { date:"2018", place:"Bangalore", title:"Artoo · then Protodit", body:"LMS and collection modules using IndiaStack (eSign, eKYC), then a solo run at automating financial audits.", up:true },
+  { date:"2018–19", place:"Bangalore", title:"Founder / tinkerer", body:"Built a conversational-AI MVP for HR-tech on RASA — secured an LOI from a US health-tech giant in three months.", up:false },
+  { date:"2019–21", place:"Remote", title:"Founding engineer, Vectorly", body:"Video-compression SaaS out of MIT. Built the API platform and web SDKs; acqui-hired into Hopin.", up:true },
+  { date:"2021–24", place:"Remote", title:"Senior applied AI, Hopin / StreamYard", body:"Full-stack ML team: datasets, evals, SDK integrations, and an LLM-powered smart clip-detection algorithm.", up:false },
+  { date:"2024", place:"Sabbatical", title:"A year off, on purpose", body:"After layoffs, chose to slow down — healthy habits, healing burnout, advising katana.video on the side.", era:"Builder", up:true, tag:"Reset" },
+  { date:"2025 →", place:"Indie", title:"Building in the open", body:"Solopreneur shipping agentic AI products — now building Launchy, a launch-video generator on Remotion.", up:false, tag:"Now", now:true },
+];
+
+const track = document.getElementById('track');
+const NODE_W = 300, GAP = 56, LEAD = 380;
+
+milestones.forEach((m,i)=>{
+  const el = document.createElement('div');
+  el.className = `node ${m.up?'up':'down'}`;
+  el.innerHTML = `
+    <span class="dot"></span>
+    <span class="stem" style="${m.up?'bottom:50%;height:78px':'top:50%;height:78px'}"></span>
+    <div class="card">
+      <div class="date">${m.date}${m.place?`<span class="place">${m.place}</span>`:''}</div>
+      <div class="title">${m.title}</div>
+      <div class="body">${m.body}</div>
+      ${m.tag?`<span class="tag ${m.now?'now':''}">${m.tag}</span>`:''}
+    </div>`;
+  track.appendChild(el);
+});
+
+// end cap
+const cap = document.createElement('div');
+cap.className='endcap';
+cap.innerHTML=`<div class="big">“That kid struggling in Kota would never believe where tech would take him.”</div><div class="small">— and I'm just getting started</div>`;
+track.appendChild(cap);
+
+// era bands (positioned over their starting node)
+const nodes = [...document.querySelectorAll('.node')];
+milestones.forEach((m,i)=>{
+  if(!m.era) return;
+  const band = document.createElement('div');
+  band.className='era';
+  band.innerHTML=`<div class="era-label">${m.era}</div>`;
+  band.style.left = (LEAD + i*(NODE_W+GAP)) + 'px';
+  track.appendChild(band);
+});
+
+// geometry for baseline + progress
+function dotCenter(i){ return LEAD + i*(NODE_W+GAP) + 6; }
+const stage = document.getElementById('stage');
+const baseline = document.getElementById('baseline');
+const baselineFill = document.getElementById('baselineFill');
+const progressDot = document.getElementById('progressDot');
+const scrubFill = document.getElementById('scrubFill');
+
+function layout(){
+  const last = dotCenter(milestones.length-1);
+  baseline.style.width = (last - LEAD + 40) + 'px';
+}
+layout();
+
+// reveal + progress on scroll
+function update(){
+  const sl = stage.scrollLeft;
+  const vw = stage.clientWidth;
+  const trigger = sl + vw*0.62;          // reveal point
+  let litMax = 0;
+  nodes.forEach((n,i)=>{
+    if(dotCenter(i) <= trigger){ n.classList.add('lit'); litMax = i; }
+  });
+  // baseline fill + dot follow the furthest lit node, clamped to view
+  const head = Math.min(dotCenter(litMax), sl+vw*0.62);
+  baselineFill.style.width = Math.max(0, head - LEAD) + 'px';
+  progressDot.style.left = head + 'px';
+  // scrub bar
+  const max = stage.scrollWidth - vw;
+  scrubFill.style.width = (max>0 ? (sl/max*100) : 0) + '%';
+}
+stage.addEventListener('scroll', update, {passive:true});
+window.addEventListener('resize', ()=>{layout();update();});
+update();
+
+// wheel -> horizontal (so vertical mouse wheels work)
+stage.addEventListener('wheel', e=>{
+  if(Math.abs(e.deltaY) > Math.abs(e.deltaX)){
+    stage.scrollLeft += e.deltaY;
+    e.preventDefault();
+  }
+},{passive:false});
+
+// keyboard
+window.addEventListener('keydown', e=>{
+  if(e.key==='ArrowRight') stage.scrollLeft += 320;
+  if(e.key==='ArrowLeft') stage.scrollLeft -= 320;
+});
+</script>
+</body>
+</html>

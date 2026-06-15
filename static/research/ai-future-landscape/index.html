@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Future of AI — A Landscape of Expert Opinion</title>
+<style>
+  :root{
+    --ink:#1a1a1a;
+    --ink-soft:#3f3f46;
+    --gray:#6b7280;
+    --gray-light:#9ca3af;
+    --line:#e7e5e4;
+    --line-soft:#f0efed;
+    --paper:#ffffff;
+    --tint:#faf9f7;
+    --orange:#ea580c;
+    --orange-deep:#c2410c;
+    --orange-wash:#fff5ef;
+    --blue:#2563eb;
+    --blue-deep:#1d4ed8;
+    --blue-wash:#eff4ff;
+    --slate:#334155;
+    --serif: "Iowan Old Style", "Charter", Georgia, "Times New Roman", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--serif);
+    font-size:20px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  .wrap{max-width:720px;margin:0 auto;padding:0 24px;}
+  .wide{max-width:960px;margin-left:auto;margin-right:auto;padding:0 24px;}
+
+  /* ---- header ---- */
+  header.masthead{padding:72px 0 0;}
+  .kicker{
+    font-family:var(--sans);
+    font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--orange-deep);margin-bottom:22px;
+  }
+  h1.title{
+    font-family:var(--sans);
+    font-weight:800;
+    font-size:42px;
+    line-height:1.12;
+    letter-spacing:-.02em;
+    margin:0 0 18px;
+    color:#111;
+  }
+  .subtitle{
+    font-family:var(--serif);
+    font-style:italic;
+    font-size:22px;
+    line-height:1.45;
+    color:var(--gray);
+    margin:0 0 30px;
+    font-weight:400;
+  }
+  .byline{
+    font-family:var(--sans);
+    font-size:14px;
+    color:var(--gray);
+    display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;
+    padding-bottom:30px;border-bottom:1px solid var(--line);
+  }
+  .byline strong{color:var(--ink);font-weight:600;}
+  .byline .dot{color:var(--line);}
+
+  /* ---- body type ---- */
+  section.body{padding-top:8px;}
+  p{margin:0 0 22px;}
+  .lead p:first-of-type{font-size:21px;}
+  .lead p:first-of-type::first-letter{
+    font-family:var(--sans);
+    font-weight:800;
+    font-size:62px;
+    float:left;
+    line-height:.82;
+    padding:6px 10px 0 0;
+    color:var(--orange);
+  }
+  h2.sec{
+    font-family:var(--sans);
+    font-weight:800;
+    font-size:15px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--orange-deep);
+    margin:64px 0 6px;
+    padding-top:30px;
+    border-top:1px solid var(--line);
+  }
+  h3.head{
+    font-family:var(--sans);
+    font-weight:800;
+    font-size:27px;
+    line-height:1.2;
+    letter-spacing:-.01em;
+    color:#141414;
+    margin:6px 0 18px;
+  }
+  h4.sub{
+    font-family:var(--sans);
+    font-weight:700;
+    font-size:18px;
+    color:var(--slate);
+    margin:34px 0 10px;
+  }
+  a{color:var(--blue-deep);text-decoration:none;border-bottom:1px solid #c7d6f5;}
+  strong{font-weight:700;color:#111;}
+  em{font-style:italic;}
+
+  /* ---- pull quote ---- */
+  blockquote.pull{
+    margin:36px 0;
+    padding:6px 0 6px 26px;
+    border-left:3px solid var(--orange);
+    font-family:var(--serif);
+    font-style:italic;
+    font-size:25px;
+    line-height:1.4;
+    color:#2a2a2a;
+  }
+  blockquote.pull .who{
+    display:block;margin-top:12px;
+    font-family:var(--sans);font-style:normal;
+    font-size:14px;font-weight:600;letter-spacing:.02em;color:var(--gray);
+  }
+
+  /* ---- crux callout ---- */
+  .crux{
+    background:var(--tint);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:22px 24px;
+    margin:30px 0;
+    font-family:var(--sans);
+    font-size:16px;
+    line-height:1.55;
+  }
+  .crux .label{
+    font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--orange-deep);margin-bottom:8px;display:block;
+  }
+  .crux b{color:#111;}
+
+  /* ---- figures ---- */
+  figure{margin:42px 0;}
+  .figtitle{
+    font-family:var(--sans);
+    font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--slate);margin-bottom:4px;
+  }
+  .figsub{
+    font-family:var(--sans);font-size:14px;color:var(--gray);margin-bottom:16px;line-height:1.45;
+  }
+  .figbox{
+    background:linear-gradient(180deg,#fefefe,#fbfaf8);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:26px 24px;
+  }
+  figcaption{
+    font-family:var(--sans);font-size:13px;color:var(--gray-light);
+    margin-top:14px;line-height:1.5;
+  }
+  svg{display:block;width:100%;height:auto;}
+  .svg-sans{font-family:var(--sans);}
+
+  /* ---- voices row ---- */
+  .voices{display:flex;flex-wrap:wrap;gap:8px;margin:24px 0 6px;}
+  .voice{
+    font-family:var(--sans);font-size:13px;font-weight:600;
+    padding:5px 11px;border-radius:999px;border:1px solid var(--line);
+    background:#fff;color:var(--slate);
+  }
+  .voice.bull{border-color:#f6c9a8;background:var(--orange-wash);color:var(--orange-deep);}
+  .voice.bear{border-color:#bfd0f6;background:var(--blue-wash);color:var(--blue-deep);}
+
+  /* ---- two-col cards ---- */
+  .cards2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:28px 0;}
+  .card{border:1px solid var(--line);border-radius:12px;padding:20px 20px;font-family:var(--sans);}
+  .card.bull{border-top:3px solid var(--orange);}
+  .card.bear{border-top:3px solid var(--blue);}
+  .card h5{margin:0 0 10px;font-size:16px;font-weight:800;color:#111;}
+  .card.bull h5{color:var(--orange-deep);}
+  .card.bear h5{color:var(--blue-deep);}
+  .card p{font-size:15px;line-height:1.5;margin:0 0 10px;color:var(--ink-soft);}
+  .card p:last-child{margin-bottom:0;}
+
+  /* ---- recommendation list ---- */
+  ol.recs{counter-reset:r;list-style:none;padding:0;margin:24px 0;}
+  ol.recs > li{
+    position:relative;padding:0 0 22px 56px;margin:0;
+    font-family:var(--sans);font-size:16px;line-height:1.55;color:var(--ink-soft);
+  }
+  ol.recs > li::before{
+    counter-increment:r;content:counter(r);
+    position:absolute;left:0;top:-2px;
+    width:38px;height:38px;border-radius:9px;
+    background:var(--orange);color:#fff;
+    font-weight:800;font-size:18px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  ol.recs b{color:#111;}
+
+  /* ---- caveats ---- */
+  .caveats{font-family:var(--sans);font-size:15px;line-height:1.55;}
+  .caveats li{margin-bottom:12px;color:var(--ink-soft);}
+  .caveats b{color:#111;}
+
+  /* ---- key findings strip ---- */
+  .kf{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:30px 0 6px;}
+  .kf .item{border:1px solid var(--line);border-radius:12px;padding:18px;font-family:var(--sans);background:#fff;}
+  .kf .num{font-size:30px;font-weight:800;color:var(--orange);line-height:1;margin-bottom:8px;}
+  .kf .lab{font-size:13.5px;color:var(--ink-soft);line-height:1.45;}
+
+  /* ---- sources ---- */
+  .src{font-family:var(--sans);font-size:14px;line-height:1.5;color:var(--gray);}
+  .src li{margin-bottom:9px;}
+  .src b{color:var(--slate);}
+
+  footer.end{
+    margin-top:64px;padding:30px 0 80px;border-top:1px solid var(--line);
+    font-family:var(--sans);font-size:13px;color:var(--gray-light);line-height:1.6;
+  }
+
+  @media (max-width:760px){
+    body{font-size:18px;}
+    h1.title{font-size:32px;}
+    h3.head{font-size:23px;}
+    .cards2{grid-template-columns:1fr;}
+    .kf{grid-template-columns:1fr;}
+    .lead p:first-of-type::first-letter{font-size:52px;}
+    .figbox{padding:18px 14px;}
+  }
+</style>
+</head>
+<body>
+<header class="masthead">
+  <div class="wrap">
+    <div class="kicker">Landscape Report · Expert Opinion</div>
+    <h1 class="title">The Future of AI and the Digital World</h1>
+    <p class="subtitle">What the people who understand it most deeply actually believe about the risks, the challenges, and the opportunities — and, more revealingly, where they disagree.</p>
+    <div class="byline">
+      <span><strong>Researched synthesis</strong></span>
+      <span class="dot">●</span>
+      <span>40+ leaders, researchers &amp; economists</span>
+      <span class="dot">●</span>
+      <span>June 2026</span>
+      <span class="dot">●</span>
+      <span>~22 min read</span>
+    </div>
+  </div>
+</header>
+
+<section class="body">
+  <div class="wrap lead">
+    <p>The smartest people in artificial intelligence agree on remarkably little beyond a single sentence: <em>this matters enormously.</em> Past that point, the consensus dissolves. Ask when machines match human intelligence and you get answers ranging from "next year" to "not on this path at all." Ask whether the trajectory bends toward a handful of god-like labs or a commodity sold by the gallon, and equally serious people point in opposite directions. The honest map of this field is not a forecast. It is a map of <em>disagreement</em> between people who have each thought about it longer and harder than almost anyone alive.</p>
+
+    <p>This report walks the major cruxes — the load-bearing questions where the experts split — and tries to give the strongest version of each side rather than flattening them into a fake middle. It is organized to be read by someone building in this space, so it ends where it should: with what actually follows for the work.</p>
+
+    <div class="crux">
+      <span class="label">The deepest crux</span>
+      The single disagreement that organizes most of the others is <b>takeoff dynamics</b> — how fast and how suddenly capability compounds once AI starts improving AI. A continuous-but-fast camp (Christiano, Cotra, most lab leaders) sits between a discontinuous "FOOM" camp (Yudkowsky) and a large skeptical wing (Marcus, LeCun, Acemoglu, Cowen) who argue the whole trajectory is overhyped and bottlenecked by physics, institutions, and the limits of today's architectures.
+    </div>
+
+    <div class="kf">
+      <div class="item"><div class="num">~2030</div><div class="lab">Where lab leaders cluster for AGI. Hassabis: 50% by 2030. Economists like Cowen see a ~20-year horizon instead.</div></div>
+      <div class="item"><div class="num">80–100×</div><div class="lab">Price gap between open-weight frontier-minus-one models and closed frontier APIs — and closing fast.</div></div>
+      <div class="item"><div class="num">&lt;1% → 99%</div><div class="lab">The range of expert p(doom) — from LeCun to Yampolskiy. Lab CEOs sit at 10–25% and keep building.</div></div>
+    </div>
+  </div>
+  <div class="wrap">
+    <h2 class="sec">01 · The Engine</h2>
+    <h3 class="head">Recursive self-improvement and the question of where the loop breaks</h3>
+
+    <div class="voices">
+      <span class="voice bull">Aschenbrenner</span>
+      <span class="voice bull">Christiano</span>
+      <span class="voice bull">Cotra</span>
+      <span class="voice">Yudkowsky</span>
+      <span class="voice bear">LeCun</span>
+      <span class="voice bear">Cowen</span>
+      <span class="voice bear">Marcus</span>
+    </div>
+
+    <p>The core idea is a loop: each generation of AI compresses the design cycle of the next — not just the next model, but the hardware it runs on. The most aggressive case is Leopold Aschenbrenner's <em>Situational Awareness</em> (2024): training compute and algorithmic efficiency each climb roughly half an order of magnitude per year, and once AI can do AI research, hundreds of millions of automated researchers could fold a decade of progress into a single year. Aschenbrenner put his money where his thesis is — his AGI-themed fund reportedly grew from a few hundred million to several billion in about a year, making him the market's most visible embodiment of the bull case.</p>
+
+    <p>But a loop is only as fast as its slowest step. And the moment you trace the loop into the physical world, the binding constraint stops being cognition and becomes <em>fabrication, power, and ops</em>. A model can design a better chip in an afternoon; you still wait years for a fab to make it and for a grid to power it. This is the single most important structural picture in the whole debate:</p>
+  </div>
+
+  <div class="wide">
+    <figure>
+      <div class="figtitle">The Recursive Loop — and where it meets the physical world</div>
+      <div class="figsub">The top and right edges of the loop are cognitive and compress with intelligence. The bottom and left edges are physical and resist compression. The bull and skeptic camps are really arguing about which edge is binding.</div>
+      <div class="figbox">
+        <svg viewBox="0 0 900 400" class="svg-sans" role="img" aria-label="Diagram of the recursive AI self-improvement loop with physical bottlenecks">
+          <defs>
+            <marker id="arrO" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#ea580c"/></marker>
+            <marker id="arrB" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#2563eb"/></marker>
+          </defs>
+
+          <!-- nodes -->
+          <g>
+            <rect x="20" y="60" width="190" height="58" rx="11" fill="#fff5ef" stroke="#ea580c" stroke-width="1.5"/>
+            <text x="115" y="85" text-anchor="middle" font-size="15" font-weight="800" fill="#c2410c">Smarter model</text>
+            <text x="115" y="104" text-anchor="middle" font-size="12.5" fill="#9a5535">the output of the loop</text>
+
+            <rect x="290" y="60" width="190" height="58" rx="11" fill="#fff5ef" stroke="#ea580c" stroke-width="1.5"/>
+            <text x="385" y="85" text-anchor="middle" font-size="15" font-weight="800" fill="#c2410c">Automates AI research</text>
+            <text x="385" y="104" text-anchor="middle" font-size="12.5" fill="#9a5535">writes &amp; runs experiments</text>
+
+            <rect x="290" y="300" width="190" height="58" rx="11" fill="#eff4ff" stroke="#2563eb" stroke-width="1.5"/>
+            <text x="385" y="325" text-anchor="middle" font-size="15" font-weight="800" fill="#1d4ed8">Designs next-gen chips</text>
+            <text x="385" y="344" text-anchor="middle" font-size="12.5" fill="#475c8a">+ training methods</text>
+
+            <rect x="20" y="300" width="190" height="58" rx="11" fill="#eff4ff" stroke="#2563eb" stroke-width="1.5"/>
+            <text x="115" y="325" text-anchor="middle" font-size="15" font-weight="800" fill="#1d4ed8">More, cheaper compute</text>
+            <text x="115" y="344" text-anchor="middle" font-size="12.5" fill="#475c8a">deployed at scale</text>
+          </g>
+
+          <!-- arrows -->
+          <line x1="212" y1="89" x2="286" y2="89" stroke="#ea580c" stroke-width="2.4" marker-end="url(#arrO)"/>
+          <text x="249" y="80" text-anchor="middle" font-size="12" fill="#c2410c" font-weight="600">cognitive</text>
+
+          <line x1="385" y1="120" x2="385" y2="296" stroke="#ea580c" stroke-width="2.4" marker-end="url(#arrO)"/>
+          <text x="397" y="212" font-size="12" fill="#c2410c" font-weight="600">design</text>
+
+          <line x1="288" y1="329" x2="214" y2="329" stroke="#2563eb" stroke-width="2.4" marker-end="url(#arrB)"/>
+          <text x="251" y="320" text-anchor="middle" font-size="12" fill="#1d4ed8" font-weight="600">fab · build</text>
+
+          <line x1="115" y1="298" x2="115" y2="122" stroke="#2563eb" stroke-width="2.4" marker-end="url(#arrB)"/>
+          <text x="103" y="212" text-anchor="end" font-size="12" fill="#1d4ed8" font-weight="600">power</text>
+
+          <text x="250" y="208" text-anchor="middle" font-size="12.5" fill="#9ca3af" font-style="italic">compresses with</text>
+          <text x="250" y="224" text-anchor="middle" font-size="12.5" fill="#9ca3af" font-style="italic">intelligence ↑</text>
+
+          <!-- divider -->
+          <line x1="520" y1="40" x2="520" y2="372" stroke="#e7e5e4" stroke-width="1"/>
+
+          <!-- right panel -->
+          <text x="548" y="58" font-size="13" font-weight="800" fill="#334155" letter-spacing="0.5">WHERE IT HITS THE PHYSICAL WORLD</text>
+          <text x="548" y="78" font-size="12.5" fill="#9ca3af">Bar length ≈ time each step takes.</text>
+
+          <!-- rows -->
+          <g font-size="13.5" fill="#1f2937" font-weight="700">
+            <text x="548" y="118">Fabs &amp; EUV lithography</text>
+            <text x="548" y="170">Data-center construction</text>
+            <text x="548" y="222">Grid interconnection</text>
+            <text x="548" y="274">Robotics / physical ops</text>
+          </g>
+          <g>
+            <rect x="548" y="128" width="70" height="13" rx="3" fill="#2563eb" opacity="0.85"/>
+            <text x="626" y="139" font-size="12.5" fill="#475c8a">~2 yrs / generation</text>
+
+            <rect x="548" y="180" width="52" height="13" rx="3" fill="#2563eb" opacity="0.85"/>
+            <text x="608" y="191" font-size="12.5" fill="#475c8a">~18 months</text>
+
+            <rect x="548" y="232" width="290" height="13" rx="3" fill="#1d4ed8"/>
+            <text x="548" y="262" font-size="12.5" fill="#475c8a">4–10 years — often the true gate</text>
+
+            <rect x="548" y="284" width="316" height="13" rx="3" fill="#1e3a8a"/>
+            <text x="548" y="314" font-size="12.5" fill="#475c8a">unsolved — gates the "ops" corner entirely</text>
+          </g>
+
+          <!-- legend -->
+          <g transform="translate(548,348)">
+            <rect x="0" y="-9" width="13" height="13" rx="3" fill="#ea580c"/>
+            <text x="20" y="2" font-size="12.5" fill="#6b7280">compressible by intelligence</text>
+            <rect x="210" y="-9" width="13" height="13" rx="3" fill="#2563eb"/>
+            <text x="230" y="2" font-size="12.5" fill="#6b7280">physical bottleneck</text>
+          </g>
+        </svg>
+      </div>
+      <figcaption>Synthesis of Aschenbrenner (<em>Situational Awareness</em>), Epoch AI compute/energy analysis, and IEA/WEF grid-interconnection estimates. The "novelty bottleneck" critique adds a fifth gate: genuine architectural innovation may be inherently <em>serial</em> and resist parallelization across many AI instances.</figcaption>
+    </figure>
+  </div>
+
+  <div class="wrap">
+    <p>The classic theoretical fight is Eliezer Yudkowsky versus Paul Christiano on <em>takeoff speed</em>. Christiano's continuous view holds that before there is AI great at self-improvement, there will be AI that is mediocre at it — so the curve bends sharply but smoothly, and even his "slow" takeoff is like the industrial revolution compressed roughly a hundredfold. Yudkowsky's discontinuous view says a system running a million times faster than us simply will not wait a year and a half to build its next hardware generation. The crux is not clock-speed; it is <em>locality and discontinuity</em> — whether the jump happens inside one system, suddenly, or across the whole economy, gradually.</p>
+
+    <blockquote class="pull">
+      "Before there is AI that is great at self-improvement there will be AI that is mediocre at it."
+      <span class="who">— Paul Christiano, paraphrasing his continuous-takeoff thesis</span>
+    </blockquote>
+
+    <p>Where does each serious thinker actually stand? The spectrum below is the most useful way to hold them in your head at once — and it doubles as a map of the whole field, because takeoff speed correlates tightly with almost every other view a person holds.</p>
+  </div>
+
+  <div class="wide">
+    <figure>
+      <div class="figtitle">The Takeoff-Speed Spectrum</div>
+      <div class="figsub">From discontinuous "FOOM" on the left to "slow, or simply not on this path" on the right. A person's position here predicts most of their other beliefs.</div>
+      <div class="figbox">
+        <svg viewBox="0 0 900 230" class="svg-sans" role="img" aria-label="Spectrum of expert views on AI takeoff speed">
+          <defs>
+            <linearGradient id="spec" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#ea580c"/>
+              <stop offset="0.5" stop-color="#a78bda"/>
+              <stop offset="1" stop-color="#2563eb"/>
+            </linearGradient>
+          </defs>
+          <rect x="60" y="112" width="780" height="8" rx="4" fill="url(#spec)"/>
+          <text x="60" y="150" font-size="13" font-weight="700" fill="#c2410c">◀ Discontinuous · sudden · local</text>
+          <text x="840" y="150" text-anchor="end" font-size="13" font-weight="700" fill="#1d4ed8">Slow diffusion · or wrong path ▶</text>
+
+          <!-- pins above -->
+          <g font-size="13.5" font-weight="700" fill="#1f2937">
+            <circle cx="110" cy="116" r="6" fill="#ea580c"/>
+            <line x1="110" y1="110" x2="110" y2="78" stroke="#d4cfc9"/>
+            <text x="110" y="68" text-anchor="middle">Yudkowsky</text>
+            <text x="110" y="52" text-anchor="middle" font-size="11.5" font-weight="500" fill="#9ca3af">hard FOOM</text>
+
+            <circle cx="408" cy="116" r="6" fill="#9a6fc7"/>
+            <line x1="408" y1="110" x2="408" y2="78" stroke="#d4cfc9"/>
+            <text x="408" y="68" text-anchor="middle">Christiano · Cotra</text>
+            <text x="408" y="52" text-anchor="middle" font-size="11.5" font-weight="500" fill="#9ca3af">fast but continuous</text>
+
+            <circle cx="690" cy="116" r="6" fill="#3b6fe0"/>
+            <line x1="690" y1="110" x2="690" y2="78" stroke="#d4cfc9"/>
+            <text x="690" y="68" text-anchor="middle">Cowen</text>
+            <text x="690" y="52" text-anchor="middle" font-size="11.5" font-weight="500" fill="#9ca3af">slow institutional diffusion</text>
+          </g>
+
+          <!-- pins below -->
+          <g font-size="13.5" font-weight="700" fill="#1f2937">
+            <circle cx="250" cy="116" r="6" fill="#e8702a"/>
+            <line x1="250" y1="122" x2="250" y2="156" stroke="#d4cfc9"/>
+            <text x="250" y="174" text-anchor="middle">Aschenbrenner</text>
+            <text x="250" y="190" text-anchor="middle" font-size="11.5" font-weight="500" fill="#9ca3af">intelligence explosion ~2027</text>
+
+            <circle cx="540" cy="116" r="6" fill="#7e7fcf"/>
+            <line x1="540" y1="122" x2="540" y2="156" stroke="#d4cfc9"/>
+            <text x="540" y="174" text-anchor="middle">Hassabis · Amodei</text>
+            <text x="540" y="190" text-anchor="middle" font-size="11.5" font-weight="500" fill="#9ca3af">transformative ~2030</text>
+
+            <circle cx="815" cy="116" r="6" fill="#1d4ed8"/>
+            <line x1="815" y1="122" x2="815" y2="156" stroke="#d4cfc9"/>
+            <text x="815" y="174" text-anchor="middle">LeCun · Marcus</text>
+            <text x="815" y="190" text-anchor="middle" font-size="11.5" font-weight="500" fill="#9ca3af">not on this path</text>
+          </g>
+        </svg>
+      </div>
+      <figcaption>Positions synthesized from the Yudkowsky–Christiano takeoff debate (2021), <em>Situational Awareness</em>, Hassabis &amp; Amodei interviews (2024–2026), Cowen's writing on diffusion and cost disease, and LeCun/Marcus's architectural critiques.</figcaption>
+    </figure>
+  </div>
+  <div class="wrap">
+    <h2 class="sec">02 · The Fuel</h2>
+    <h3 class="head">Scaling laws, the data wall, and the pivot to "thinking" compute</h3>
+
+    <div class="voices">
+      <span class="voice bull">Sutskever</span>
+      <span class="voice bull">Hinton</span>
+      <span class="voice">Hooker</span>
+      <span class="voice">Epoch AI</span>
+    </div>
+
+    <p>For five years the dominant religion was simple: more compute and more data, reliably, make models better. Ilya Sutskever — who arguably authored that era — declared its end. At NeurIPS in late 2024 he framed data as the fossil fuel of AI and said bluntly that we have <em>"achieved peak data and there will be no more."</em> In his 2025 telling, the field has rotated back to its roots:</p>
+
+    <blockquote class="pull">
+      "From 2012 to 2020 was the age of research. From 2020 to 2025 was the age of scaling. Now it's back to the age of research again — just with big computers."
+      <span class="who">— Ilya Sutskever, founder of Safe Superintelligence</span>
+    </blockquote>
+  </div>
+
+  <div class="wide">
+    <figure>
+      <div class="figtitle">Sutskever's Three Eras</div>
+      <div class="figsub">The strong scaling hypothesis — that 100× more compute alone transforms everything — is the thing he now explicitly rejects.</div>
+      <div class="figbox">
+        <svg viewBox="0 0 900 170" class="svg-sans" role="img" aria-label="Timeline of three eras of AI: research, scaling, and research with big computers">
+          <defs>
+            <linearGradient id="era3" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#ea580c"/>
+              <stop offset="1" stop-color="#2563eb"/>
+            </linearGradient>
+          </defs>
+          <!-- bands -->
+          <rect x="40" y="40" width="320" height="70" rx="8" fill="#2563eb" opacity="0.92"/>
+          <rect x="362" y="40" width="200" height="70" rx="8" fill="#ea580c" opacity="0.92"/>
+          <rect x="564" y="40" width="296" height="70" rx="8" fill="url(#era3)"/>
+
+          <text x="200" y="72" text-anchor="middle" font-size="15" font-weight="800" fill="#fff">Age of Research</text>
+          <text x="200" y="93" text-anchor="middle" font-size="12.5" fill="#dbe6ff">ideas, architectures, AlexNet → GPT-2</text>
+
+          <text x="462" y="72" text-anchor="middle" font-size="15" font-weight="800" fill="#fff">Age of Scaling</text>
+          <text x="462" y="93" text-anchor="middle" font-size="12.5" fill="#ffe6d6">just add compute &amp; data</text>
+
+          <text x="712" y="68" text-anchor="middle" font-size="15" font-weight="800" fill="#fff">Research, with big computers</text>
+          <text x="712" y="89" text-anchor="middle" font-size="12.5" fill="#f0f0ff">reasoning · test-time compute · new ideas</text>
+
+          <!-- ticks -->
+          <g font-size="12.5" fill="#6b7280" font-weight="600">
+            <text x="40" y="132">2012</text>
+            <text x="362" y="132" text-anchor="middle">2020</text>
+            <text x="564" y="132" text-anchor="middle">2025</text>
+            <text x="860" y="132" text-anchor="end">now →</text>
+          </g>
+          <line x1="40" y1="116" x2="860" y2="116" stroke="#e7e5e4"/>
+        </svg>
+      </div>
+      <figcaption>Sutskever, NeurIPS 2024 and Dwarkesh Patel interview, November 2025. Sara Hooker's 2026 essay "On the Slow Death of Scaling" documents smaller models closing the gap with larger ones through better training — evidence the binding lever is now method, not raw size.</figcaption>
+    </figure>
+  </div>
+
+  <div class="wrap">
+    <p>"Is scaling dead?" turns out to be the wrong question. The real one is <em>which scaling</em>. Pretraining returns are bending toward log-linear, but a new axis opened: <strong>test-time compute</strong> — letting a model "think" longer at inference. That is why labs shipped reasoning models (the o-series, GPT-5) rather than a brute-scaled GPT-class model; they lacked the compute to do both at once. Google's Gemini 3 in late 2025 revived the "scaling still holds" case after a year of obituaries. The fairest read: pretraining is maturing, reasoning is the live frontier, and that frontier <em>itself</em> already shows saturation on some benchmarks while still climbing on others.</p>
+
+    <h4 class="sub">The data wall — and why "model collapse" is more slogan than threat</h4>
+
+    <p>Epoch AI's foundational projection puts the effective stock of public human text near 300 trillion tokens and estimates that, on current trends, models will have consumed it sometime <strong>between roughly 2026 and 2032</strong> — median around 2028. (Their earlier 2024 estimate slipped once carefully filtered web data and multi-epoch training proved more durable than expected.)</p>
+
+    <p>This is where the "model collapse" alarm enters — the 2024 <em>Nature</em> result that training recursively on synthetic output degrades successive generations into gibberish. But the rebuttal literature is decisive on the realistic case: the catastrophic version assumes you <em>delete</em> the real data each round. Keep accumulating real plus synthetic, and the drift is bounded. The working consensus, in Ethan Mollick's phrasing: <em>mix, don't replace.</em> Synthetic data is viable fuel — not infinite, but not poison either. Fei-Fei Li adds that vast differentiated and private data remains untapped entirely.</p>
+
+    <div class="crux">
+      <span class="label">Crux to watch</span>
+      Whether reasoning / test-time compute keeps yielding <b>log-linear returns</b> across labs, or visibly plateaus. A broad plateau would be the strongest evidence yet for the skeptics — and would shift advantage toward whoever locked in compute and power early.
+    </div>
+  </div>
+  <div class="wrap">
+    <h2 class="sec">03 · The Shape</h2>
+    <h3 class="head">Is the transformer enough — and why "how smart" is the wrong axis</h3>
+
+    <div class="voices">
+      <span class="voice bear">LeCun</span>
+      <span class="voice">Hassabis</span>
+      <span class="voice">Mollick</span>
+      <span class="voice">Chollet</span>
+    </div>
+
+    <p>The decoder-only transformer dominates everything at the frontier, and the live question is whether a new architectural unlock is required. Yann LeCun is the loudest dissenter — he left Meta in late 2025 to found a world-models startup and calls today's LLMs a <em>"dead end"</em> on the road to human-level intelligence. His charge: a language model is a vast web of statistical correlations with no internal world model, no persistent memory, no planning, no grounding in physical reality. His line lands because it's vivid:</p>
+
+    <blockquote class="pull">
+      "Using an LLM to understand the real world is like teaching someone to drive by just talking."
+      <span class="who">— Yann LeCun, on the limits of token prediction</span>
+    </blockquote>
+
+    <p>His alternative, JEPA, predicts in an abstract representation space and deliberately throws away unpredictable detail. The fair caveat, noted by his critics: his reliability degrades with distance from his own lab, and the JEPA pitch doubles as a startup's founding pitch. Demis Hassabis sits in the calmer middle — large models are a <em>necessary but probably insufficient</em> component, and true generality likely needs an AlphaZero-style planning layer bolted atop a multimodal world model. Notably, he uses the very same term the builders have adopted for what today's systems actually feel like: <strong>jagged intelligence.</strong></p>
+
+    <p>This is the frame that matters most for anyone building. Intelligence is not a single dial that models slowly turn up. It is a profile with wild peaks and stubborn troughs — superhuman and subhuman <em>at the same time,</em> with no clean pattern to where the boundary falls.</p>
+  </div>
+
+  <div class="wide">
+    <figure>
+      <div class="figtitle">Jagged Intelligence — capability relative to a human expert</div>
+      <div class="figsub">The same model is far above the line on some tasks and below it on others. A workflow is only as strong as its weakest <em>necessary</em> step — which is why this shape beats any benchmark average.</div>
+      <div class="figbox">
+        <svg viewBox="0 0 900 340" class="svg-sans" role="img" aria-label="Jagged line showing AI capability above and below human expert level across different tasks">
+          <defs>
+            <linearGradient id="above" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#ea580c" stop-opacity="0.16"/>
+              <stop offset="1" stop-color="#ea580c" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+
+          <!-- human baseline -->
+          <line x1="70" y1="175" x2="850" y2="175" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
+          <text x="850" y="169" text-anchor="end" font-size="12.5" fill="#64748b" font-weight="700">Human expert</text>
+
+          <!-- y labels -->
+          <text x="70" y="40" font-size="12.5" fill="#c2410c" font-weight="700">▲ superhuman</text>
+          <text x="70" y="250" font-size="12.5" fill="#1d4ed8" font-weight="700">▼ subhuman</text>
+
+          <!-- jagged area + line -->
+          <polyline points="90,78 213,100 336,128 459,112 582,238 705,262 828,244"
+                    fill="none" stroke="#ea580c" stroke-width="3"/>
+          <polygon points="90,78 213,100 336,128 459,112 582,238 705,262 828,244 828,175 90,175"
+                   fill="url(#above)"/>
+
+          <!-- points -->
+          <g fill="#ea580c">
+            <circle cx="90" cy="78" r="6"/><circle cx="213" cy="100" r="6"/>
+            <circle cx="336" cy="128" r="6"/><circle cx="459" cy="112" r="6"/>
+          </g>
+          <g fill="#2563eb">
+            <circle cx="582" cy="238" r="6"/><circle cx="705" cy="262" r="6"/><circle cx="828" cy="244" r="6"/>
+          </g>
+
+          <!-- x labels -->
+          <g font-size="12" fill="#475569" font-weight="600" text-anchor="middle">
+            <text x="90" y="300">Breadth</text><text x="90" y="315">&amp; recall</text>
+            <text x="213" y="300">Code</text><text x="213" y="315">(in-frontier)</text>
+            <text x="336" y="300">Writing</text>
+            <text x="459" y="300">Math</text><text x="459" y="315">reasoning</text>
+            <text x="582" y="300">Novel</text><text x="582" y="315">problem</text>
+            <text x="705" y="300">Persistent</text><text x="705" y="315">memory</text>
+            <text x="828" y="300">Physical</text><text x="828" y="315">world model</text>
+          </g>
+
+          <!-- callouts -->
+          <g font-size="12" font-weight="700">
+            <rect x="150" y="58" width="148" height="24" rx="6" fill="#fff5ef" stroke="#f6c9a8"/>
+            <text x="224" y="74" text-anchor="middle" fill="#c2410c">+40% quality, in-frontier</text>
+            <rect x="510" y="196" width="158" height="24" rx="6" fill="#eff4ff" stroke="#bfd0f6"/>
+            <text x="589" y="212" text-anchor="middle" fill="#1d4ed8">−19pp accuracy, out-of-frontier</text>
+          </g>
+        </svg>
+      </div>
+      <figcaption>Profile illustrative; quantified anchors from Dell'Acqua et&nbsp;al., "Navigating the Jagged Technological Frontier" (Harvard Business School / BCG, 2023): on in-frontier tasks, consultants with GPT-4 produced ~40% higher-quality work; on one out-of-frontier task, AI users were 19 percentage points <em>less</em> likely to reach the correct answer.</figcaption>
+    </figure>
+
+    <div class="wrap">
+      <blockquote class="pull">
+        "If you want to understand where AI is headed, don't watch the benchmarks. Watch the bottlenecks."
+        <span class="who">— Ethan Mollick, on the jagged frontier</span>
+      </blockquote>
+      <p>A persistent source of the jaggedness is mundane and important: today's models form no new permanent memory and don't learn from the task in front of them. Superhuman differential diagnosis is worthless for replacing a radiologist if the model's image vision is subhuman. The economic consequences flow from <em>which</em> parts get automated — not from any average.</p>
+    </div>
+  </div>
+  <div class="wrap">
+    <h2 class="sec">04 · The Economy</h2>
+    <h3 class="head">Commoditization vs. centralization — and the value that escapes both</h3>
+
+    <div class="voices">
+      <span class="voice">Nadella</span>
+      <span class="voice">Huang</span>
+      <span class="voice bear">Acemoglu</span>
+      <span class="voice bear">Cowen</span>
+      <span class="voice">Epoch AI</span>
+    </div>
+
+    <p>Two stories about where the value goes are both true, and they pull against each other. This is the tension at the heart of any builder's strategy.</p>
+
+    <div class="cards2">
+      <div class="card bull">
+        <h5>The commoditization case</h5>
+        <p>Intelligence-per-dollar is collapsing. Open-weight models (DeepSeek, Llama, Mistral) keep reaching "frontier-minus-one" and giving it away. Most digital work — summarizing, extracting, routing, drafting — does not need the absolute frontier. It's a sword to cut an apple.</p>
+        <p>If that holds, frontier labs are selling a luxury good for a narrow band of hard tasks, while the commodity layer races to near-zero margin.</p>
+      </div>
+      <div class="card bear">
+        <h5>The centralization case</h5>
+        <p>The frontier costs more capital, talent, and compute every cycle. Hyperscalers spent ~$400B on AI capex in 2025 and budgeted near $700B for 2026. OpenAI and Anthropic carry valuations approaching a trillion dollars.</p>
+        <p>If <em>that</em> holds, a handful of labs and their cloud patrons concentrate the most strategically important capability ever built, and rent edge to whoever can pay for asymmetry.</p>
+      </div>
+    </div>
+
+    <p>The "sword to cut an apple" question — do we need frontier intelligence for most work? — increasingly answers <em>no.</em> And the price evidence is stark. DeepSeek's open-weight V4, previewed in April 2026, posted frontier-grade coding scores at roughly one-thirtieth to one-hundredth the price of the closed leaders:</p>
+  </div>
+
+  <div class="wide">
+    <figure>
+      <div class="figtitle">The Price of Intelligence Is Collapsing</div>
+      <div class="figsub">Cost per million output tokens, log scale. Open weights at frontier-minus-one have opened an 80–100× price gap on comparable tasks.</div>
+      <div class="figbox">
+        <svg viewBox="0 0 900 230" class="svg-sans" role="img" aria-label="Bar chart comparing cost per million tokens across models on a log scale">
+          <!-- gridlines -->
+          <g stroke="#ececec">
+            <line x1="150" y1="36" x2="150" y2="182"/>
+            <line x1="380" y1="36" x2="380" y2="182"/>
+            <line x1="610" y1="36" x2="610" y2="182"/>
+            <line x1="840" y1="36" x2="840" y2="182"/>
+          </g>
+          <g font-size="12" fill="#9ca3af" text-anchor="middle">
+            <text x="150" y="202">$0.10</text><text x="380" y="202">$1</text>
+            <text x="610" y="202">$10</text><text x="840" y="202">$100</text>
+          </g>
+
+          <!-- DeepSeek -->
+          <text x="150" y="56" font-size="13.5" font-weight="700" fill="#c2410c">DeepSeek V4 · open weight</text>
+          <rect x="150" y="62" width="110" height="24" rx="5" fill="#ea580c"/>
+          <text x="270" y="79" font-size="13" font-weight="700" fill="#c2410c">~$0.30</text>
+
+          <!-- GPT-5.5 -->
+          <text x="150" y="108" font-size="13.5" font-weight="700" fill="#334155">GPT-5.5 · closed frontier</text>
+          <rect x="150" y="114" width="551" height="24" rx="5" fill="#475569"/>
+          <text x="711" y="131" font-size="13" font-weight="700" fill="#334155">~$25</text>
+
+          <!-- Claude Opus -->
+          <text x="150" y="160" font-size="13.5" font-weight="700" fill="#334155">Claude Opus · closed frontier</text>
+          <rect x="150" y="166" width="570" height="24" rx="5" fill="#1e293b"/>
+          <text x="730" y="183" font-size="13" font-weight="700" fill="#1e293b">~$30</text>
+
+          <!-- bracket -->
+          <path d="M270 48 L270 40 L701 40 L701 48" fill="none" stroke="#9ca3af" stroke-width="1"/>
+          <rect x="408" y="26" width="156" height="22" rx="6" fill="#fff" stroke="#e7e5e4"/>
+          <text x="486" y="41" text-anchor="middle" font-size="12.5" font-weight="800" fill="#1f2937">≈ 80–100× cheaper</text>
+        </svg>
+      </div>
+      <figcaption>Indicative API pricing, 2026. DeepSeek V4 reached ~80% on SWE-bench Verified at a fraction of closed-model cost, achieved partly via a sparse mixture-of-experts (1.6T parameters, ~49B active per token) and aggressive KV-cache compression — also a deliberate route around chip export controls. API prices have fallen ~97% since GPT-3.</figcaption>
+    </figure>
+  </div>
+
+  <div class="wrap">
+    <p>What reconciles the two stories is the <strong>Jevons paradox.</strong> When Satya Nadella watched DeepSeek's cheap model briefly erase $600B of Nvidia's value, his response was counterintuitive: <em>"Jevons paradox strikes again!"</em> Cheaper intelligence doesn't shrink spending — it explodes total demand until intelligence becomes a commodity we can't get enough of. Jensen Huang makes the same bet in different words. So "models get cheaper" is secretly an argument <em>for</em> the compute crunch, not against it — which is why the commodity layer and the trillion-dollar capex race can both be real at once. The likely equilibrium: a competitive commodity-intelligence layer underneath a small number of labs renting frontier <em>edge</em> for the narrow tasks where being six months ahead is worth a fortune. Trading is the perfect example — in markets, relative edge is everything.</p>
+
+    <h4 class="sub">How big is the prize? Economists disagree by an order of magnitude</h4>
+
+    <p>Here the spread between serious estimates is almost comic. Nobel laureate Daron Acemoglu models AI as a modest productivity tweak; Goldman Sachs models it as a multi-trillion-dollar reordering. They are looking at the same technology.</p>
+  </div>
+
+  <div class="wide">
+    <figure>
+      <div class="figtitle">The 10-Year GDP-Impact Chasm</div>
+      <div class="figsub">Cumulative US/global GDP uplift attributed to AI — same technology, estimates an order of magnitude apart.</div>
+      <div class="figbox">
+        <svg viewBox="0 0 900 210" class="svg-sans" role="img" aria-label="Bar chart comparing Acemoglu and Goldman Sachs GDP impact estimates">
+          <g stroke="#ececec">
+            <line x1="372" y1="28" x2="372" y2="150"/>
+            <line x1="535" y1="28" x2="535" y2="150"/>
+            <line x1="697" y1="28" x2="697" y2="150"/>
+            <line x1="860" y1="28" x2="860" y2="150"/>
+          </g>
+          <g font-size="12" fill="#9ca3af" text-anchor="middle">
+            <text x="372" y="170">2%</text><text x="535" y="170">4%</text>
+            <text x="697" y="170">6%</text><text x="860" y="170">8%</text>
+          </g>
+
+          <text x="195" y="62" text-anchor="end" font-size="13.5" font-weight="700" fill="#1d4ed8">Acemoglu (NBER)</text>
+          <rect x="210" y="44" width="110" height="30" rx="5" fill="#2563eb"/>
+          <text x="332" y="64" font-size="13" font-weight="700" fill="#1d4ed8">~1.1–1.6% GDP</text>
+
+          <text x="195" y="120" text-anchor="end" font-size="13.5" font-weight="700" fill="#c2410c">Goldman Sachs</text>
+          <rect x="210" y="102" width="569" height="30" rx="5" fill="#ea580c"/>
+          <text x="791" y="122" font-size="13" font-weight="700" fill="#c2410c">~7% GDP · ≈$7T</text>
+        </svg>
+      </div>
+      <figcaption>Acemoglu, "The Simple Macroeconomics of AI" (NBER 2024): ~0.66% TFP gain over 10 years, because only ~20% of tasks are AI-exposed and few are profitably automatable near-term. Goldman Sachs Research (2023): up to 7% global GDP, ~$7T, with 300M jobs exposed. A Dec 2025 field experiment measured real productivity premiums near 81% — roughly triple Acemoglu's 27% input — hinting his estimate may be conservative.</figcaption>
+    </figure>
+  </div>
+
+  <div class="wrap">
+    <p>Tyler Cowen offers the most carefully reasoned slow-but-real view: a roughly 20-year horizon, because explosive growth runs into cost disease, the historically slow diffusion of innovations, and the inconvenient fact that nearly half of GDP — government, healthcare, education — adjusts at a glacial pace. His reframing of the labor question is the one to remember:</p>
+
+    <blockquote class="pull">
+      "AI will not bring mass unemployment, but it will change most jobs … the #1 bottleneck to AI progress is humans."
+      <span class="who">— Tyler Cowen, economist</span>
+    </blockquote>
+
+    <p>A sobering counterweight to the hype came from METR's 2025 randomized trial: experienced open-source developers using early-2025 AI tools took <strong>19% longer</strong> than without them — while <em>believing</em> they'd been 20% faster. One of the AI 2027 authors cited this exact study as a reason he lengthened his own timelines. Perceived speed and real throughput are not the same number.</p>
+  </div>
+  <div class="wrap">
+    <h2 class="sec">05 · The State</h2>
+    <h3 class="head">Nationalization, the lab–cloud merger, and energy as the real gate</h3>
+
+    <div class="voices">
+      <span class="voice bull">Aschenbrenner</span>
+      <span class="voice">Gladstone AI</span>
+      <span class="voice">Wildeford</span>
+      <span class="voice">IEA / WEF</span>
+    </div>
+
+    <p>Aschenbrenner's prediction is blunt: superintelligence is a national-security asset, no startup can hold it, and so a government "Manhattan Project for AI" arrives by the late 2020s. The more rigorous framework calls outright nationalization "reductive and misleading" — given an industry with over a trillion dollars of private funding and tens of thousands of participants, what's far more likely is <strong>soft nationalization</strong>: a widening spectrum of policy levers (security requirements, contracts, export controls, compute oversight) that blur the line between regulation and de facto control. Forecasters put a literal secret government lab in the low single-digit percentages; a government-led consortium is more plausible — and the single biggest trigger for any of it is a perceived Chinese military-technological threat.</p>
+
+    <p>Meanwhile the corporate structure question — do labs become the most valuable companies, get acquired by hyperscalers, or absorb them? — is being answered in real time by an entanglement so deep the categories are dissolving:</p>
+  </div>
+
+  <div class="wide">
+    <figure>
+      <div class="figtitle">The Lab–Hyperscaler Entanglement</div>
+      <div class="figsub">The frontier labs and their cloud patrons are now financially fused. In Q1 2026, a large share of Google's and Amazon's "AI profits" were paper gains on their Anthropic stakes — not operating income.</div>
+      <div class="figbox">
+        <svg viewBox="0 0 900 360" class="svg-sans" role="img" aria-label="Network diagram of investments between AI labs and hyperscalers">
+          <!-- edges -->
+          <g stroke-width="2">
+            <line x1="118" y1="96" x2="212" y2="138" stroke="#94a3b8"/>
+            <line x1="748" y1="96" x2="690" y2="138" stroke="#94a3b8"/>
+            <line x1="748" y1="250" x2="678" y2="182" stroke="#94a3b8"/>
+          </g>
+          <!-- edge labels -->
+          <g font-size="11.5" fill="#475569" font-weight="600">
+            <rect x="92" y="104" width="150" height="20" rx="5" fill="#fff" stroke="#e7e5e4"/>
+            <text x="167" y="118" text-anchor="middle">~27% · $250B Azure</text>
+            <rect x="660" y="104" width="150" height="20" rx="5" fill="#fff" stroke="#e7e5e4"/>
+            <text x="735" y="118" text-anchor="middle">$8B→$33B · AWS cloud</text>
+            <rect x="600" y="214" width="160" height="20" rx="5" fill="#fff" stroke="#e7e5e4"/>
+            <text x="680" y="228" text-anchor="middle">~14% (cap 15%) · ≤1M TPUs</text>
+          </g>
+
+          <!-- hyperscaler nodes -->
+          <g>
+            <rect x="35" y="49" width="120" height="46" rx="9" fill="#eff4ff" stroke="#2563eb" stroke-width="1.5"/>
+            <text x="95" y="77" text-anchor="middle" font-size="14" font-weight="800" fill="#1d4ed8">Microsoft</text>
+
+            <rect x="745" y="49" width="120" height="46" rx="9" fill="#eff4ff" stroke="#2563eb" stroke-width="1.5"/>
+            <text x="805" y="77" text-anchor="middle" font-size="14" font-weight="800" fill="#1d4ed8">Amazon</text>
+
+            <rect x="745" y="227" width="120" height="46" rx="9" fill="#eff4ff" stroke="#2563eb" stroke-width="1.5"/>
+            <text x="805" y="255" text-anchor="middle" font-size="14" font-weight="800" fill="#1d4ed8">Google</text>
+          </g>
+
+          <!-- lab nodes -->
+          <g>
+            <rect x="205" y="125" width="160" height="70" rx="12" fill="#fff5ef" stroke="#ea580c" stroke-width="2"/>
+            <text x="285" y="156" text-anchor="middle" font-size="16" font-weight="800" fill="#c2410c">OpenAI</text>
+            <text x="285" y="178" text-anchor="middle" font-size="13" font-weight="700" fill="#9a5535">~$852B valuation</text>
+
+            <rect x="535" y="125" width="160" height="70" rx="12" fill="#fff5ef" stroke="#ea580c" stroke-width="2"/>
+            <text x="615" y="156" text-anchor="middle" font-size="16" font-weight="800" fill="#c2410c">Anthropic</text>
+            <text x="615" y="178" text-anchor="middle" font-size="13" font-weight="700" fill="#9a5535">~$965B valuation</text>
+          </g>
+
+          <!-- capex banner -->
+          <rect x="40" y="306" width="820" height="42" rx="10" fill="#1e293b"/>
+          <text x="450" y="332" text-anchor="middle" font-size="14.5" font-weight="700" fill="#fff">Hyperscaler AI capex:  ~$400B (2025)  →  ~$700B budgeted (2026)</text>
+        </svg>
+      </div>
+      <figcaption>Figures from 2025–2026 funding rounds and filings. Anthropic became the most valuable AI startup (~$965B, May 2026), surpassing OpenAI's private mark. Analysts increasingly treat OpenAI as "a proxy for the AI trade," and worry about hyperscaler over-reliance on a single private company. These numbers move fast.</figcaption>
+    </figure>
+  </div>
+
+  <div class="wrap">
+    <h4 class="sub">Energy is the constraint hiding under "compute"</h4>
+
+    <p>Step back and the binding constraint on the whole edifice is increasingly not chips or even cognition — it's <strong>power.</strong> The IEA and WEF flag grid interconnection as the strategic chokepoint: connecting a new facility to the grid can take <em>4–10 years</em>, versus 2–3 to build the data center itself. That's why the hyperscalers are signing nuclear deals — Amazon and Microsoft (a Three Mile Island restart), Google (small modular reactors) — though most of that power arrives only in the mid-2030s. In the meantime, "bring your own power" — onsite gas, off-grid energy islands — is the stopgap, and tokens-per-watt has quietly become the operative metric. Data centers in space "solve" energy in theory but only move the bottleneck to ops, which stays unsolved until robotics is. In the near term, <em>power and ops are at least as binding as compute or intelligence.</em></p>
+  </div>
+  <div class="wrap">
+    <h2 class="sec">06 · The Upside</h2>
+    <h3 class="head">What AI might actually accelerate — and what it can't</h3>
+
+    <div class="voices">
+      <span class="voice bull">Amodei</span>
+      <span class="voice">Hassabis</span>
+    </div>
+
+    <p>The most ambitious concrete vision is Dario Amodei's <em>Machines of Loving Grace</em>: a <em>"country of geniuses in a datacenter"</em> that could compress 50–100 years of biological progress into 5–10, with AI acting as a virtual biologist that designs and directs experiments rather than just crunching data. Software engineering is already being accelerated; biomedicine, post-AlphaFold, is the next plausible frontier. But Amodei himself names the limits — the speed of the physical world, the need for data, the irreducible complexity of some problems, lab throughput, and regulation. And tellingly, he concedes AI will <em>not</em> advance democracy and peace the way it advances health, and "seems likely to enable much better propaganda and surveillance." The acceleration is real but uneven — jagged, again, at civilizational scale.</p>
+
+    <h2 class="sec">07 · The Risk</h2>
+    <h3 class="head">Why credentialed experts put p(doom) anywhere from &lt;1% to ~99%</h3>
+
+    <div class="voices">
+      <span class="voice">Hinton</span>
+      <span class="voice">Bengio</span>
+      <span class="voice">Christiano</span>
+      <span class="voice">Yudkowsky</span>
+      <span class="voice bear">LeCun</span>
+      <span class="voice bear">Ng</span>
+    </div>
+
+    <p>Existential-risk views are genuinely bimodal, and a 2025 survey found the split tracks one question: do you see AI as a controllable <em>tool</em> (low p(doom)) or an uncontrollable <em>agent</em> (high p(doom))? The same evidence supports both readings, which is exactly why the range is so absurdly wide:</p>
+  </div>
+
+  <div class="wide">
+    <figure>
+      <div class="figtitle">The p(doom) Spectrum</div>
+      <div class="figsub">Self-stated probability that advanced AI leads to human extinction or equivalent catastrophe. These are estimates by people who have thought about it for years — and they span the entire interval.</div>
+      <div class="figbox">
+        <svg viewBox="0 0 900 260" class="svg-sans" role="img" aria-label="Spectrum of expert estimates of probability of AI catastrophe from under 1 percent to 99 percent">
+          <defs>
+            <linearGradient id="doom" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#2563eb"/>
+              <stop offset="0.5" stop-color="#a78bda"/>
+              <stop offset="1" stop-color="#dc2626"/>
+            </linearGradient>
+          </defs>
+
+          <!-- scale -->
+          <rect x="70" y="136" width="780" height="8" rx="4" fill="url(#doom)"/>
+          <g font-size="12" fill="#9ca3af" text-anchor="middle">
+            <text x="70" y="166">0%</text><text x="265" y="166">25%</text>
+            <text x="460" y="166">50%</text><text x="655" y="166">75%</text><text x="850" y="166">100%</text>
+          </g>
+          <g stroke="#e7e5e4"><line x1="265" y1="130" x2="265" y2="150"/><line x1="460" y1="130" x2="460" y2="150"/><line x1="655" y1="130" x2="655" y2="150"/></g>
+
+          <!-- lab CEO band -->
+          <rect x="148" y="132" width="117" height="16" rx="4" fill="#a78bda" opacity="0.28"/>
+
+          <!-- dots -->
+          <g>
+            <circle cx="78" cy="140" r="6" fill="#2563eb"/>
+            <circle cx="93" cy="140" r="6" fill="#2f6ae0"/>
+            <circle cx="125" cy="140" r="6" fill="#4a72d6"/>
+            <circle cx="226" cy="140" r="6" fill="#8a6fc0"/>
+            <circle cx="460" cy="140" r="6" fill="#a05fa0"/>
+            <circle cx="460" cy="140" r="6" fill="#a05fa0"/>
+            <circle cx="842" cy="140" r="6" fill="#dc2626"/>
+          </g>
+
+          <!-- connectors + labels -->
+          <g font-size="13" font-weight="700" fill="#1f2937">
+            <!-- LeCun below -->
+            <line x1="78" y1="146" x2="78" y2="196" stroke="#d4cfc9"/>
+            <text x="78" y="212" text-anchor="middle">LeCun</text>
+            <text x="78" y="228" text-anchor="middle" font-size="11" font-weight="500" fill="#9ca3af">&lt;1%</text>
+
+            <!-- Ng/Sutton above -->
+            <line x1="93" y1="134" x2="93" y2="72" stroke="#d4cfc9"/>
+            <text x="93" y="62" text-anchor="middle">Ng · Sutton</text>
+            <text x="93" y="46" text-anchor="middle" font-size="11" font-weight="500" fill="#9ca3af">"fear is a lobbying weapon"</text>
+
+            <!-- survey median below -->
+            <line x1="125" y1="146" x2="160" y2="240" stroke="#d4cfc9"/>
+            <text x="160" y="254" text-anchor="middle">2022 survey median ~5–10%</text>
+
+            <!-- lab CEOs above -->
+            <line x1="206" y1="132" x2="206" y2="98" stroke="#d4cfc9"/>
+            <text x="206" y="88" text-anchor="middle">Lab CEOs 10–25%</text>
+
+            <!-- Bengio below -->
+            <line x1="226" y1="146" x2="300" y2="196" stroke="#d4cfc9"/>
+            <text x="318" y="200" text-anchor="start">Bengio ~20%</text>
+
+            <!-- Hinton above -->
+            <line x1="460" y1="134" x2="460" y2="78" stroke="#d4cfc9"/>
+            <text x="460" y="68" text-anchor="middle">Hinton · Christiano ~50%</text>
+
+            <!-- Yudkowsky above -->
+            <line x1="842" y1="134" x2="842" y2="78" stroke="#d4cfc9"/>
+            <text x="842" y="68" text-anchor="end">Yudkowsky</text>
+            <!-- Yampolskiy below -->
+            <line x1="842" y1="146" x2="842" y2="200" stroke="#d4cfc9"/>
+            <text x="842" y="216" text-anchor="end">Yampolskiy ~99%</text>
+          </g>
+        </svg>
+      </div>
+      <figcaption>Self-reported and survey figures, 2022–2025. Hinton and Bengio went public in 2023 and have not recanted; the 2023 Center for AI Safety statement ranked extinction risk alongside pandemics and nuclear war. Skeptics like Andrew Ng and Richard Sutton argue the fear is amplified by incumbents to lobby against open source. A Dec 2025 survey of safety figures found them undeterred despite the "GPT-5 letdown."</figcaption>
+    </figure>
+  </div>
+
+  <div class="wrap">
+    <p>The skeptics are as credentialed as the worriers, and their objection is epistemic: extinction arguments, Ng says, ultimately reduce to "it could happen." LeCun's challenge is the sharpest — before urgently figuring out how to control superintelligence, we need a hint of a design for a system smarter than a house cat. Both things can be true: the worriers can be right that the risk deserves serious resourcing, and the skeptics right that confident doom is unearned. The disagreement itself — not any tidy consensus — is the honest description of where we are.</p>
+  </div>
+  <div class="wrap">
+    <h2 class="sec">08 · The Clock</h2>
+    <h3 class="head">When? Every serious prediction, on one axis</h3>
+
+    <p>Timelines have stretched even as they stayed aggressive. Lab leaders cluster near 2030; economists push out to a 20-year horizon; skeptics decline the premise. Note the most telling motion of all — the <em>AI 2027</em> authors pushing their own median from 2027 into the early 2030s, a live demonstration of how fast these forecasts revise.</p>
+  </div>
+
+  <div class="wide">
+    <figure>
+      <div class="figtitle">AGI / Transformative-AI Timelines</div>
+      <div class="figsub">Dots are point estimates; bars are stated ranges. Orange = near-term, blue = long-term or skeptical.</div>
+      <div class="figbox">
+        <svg viewBox="0 0 900 330" class="svg-sans" role="img" aria-label="Timeline chart of expert predictions for AGI from 2026 to beyond 2045">
+          <defs>
+            <marker id="arrG" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#8a6fc0"/></marker>
+            <marker id="arrSk" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2563eb"/></marker>
+          </defs>
+
+          <!-- year gridlines -->
+          <g stroke="#eeecea">
+            <line x1="200" y1="56" x2="200" y2="300"/>
+            <line x1="339" y1="56" x2="339" y2="300"/>
+            <line x1="512" y1="56" x2="512" y2="300"/>
+            <line x1="686" y1="56" x2="686" y2="300"/>
+            <line x1="859" y1="56" x2="859" y2="300"/>
+          </g>
+          <g font-size="12.5" fill="#9ca3af" text-anchor="middle" font-weight="600">
+            <text x="200" y="46">2026</text><text x="339" y="46">2030</text>
+            <text x="512" y="46">2035</text><text x="686" y="46">2040</text><text x="859" y="46">2045</text>
+          </g>
+
+          <!-- rows -->
+          <g font-size="13.5" font-weight="700" fill="#1f2937">
+            <text x="20" y="85">Amodei</text>
+            <text x="20" y="119">Aschenbrenner</text>
+            <text x="20" y="153">Hassabis</text>
+            <text x="20" y="187">AI 2027 authors</text>
+            <text x="20" y="221">Sutskever</text>
+            <text x="20" y="255">Cowen</text>
+            <text x="20" y="289">Marcus · LeCun</text>
+          </g>
+
+          <!-- Amodei: 2026-27 bar -->
+          <rect x="200" y="74" width="35" height="11" rx="3" fill="#ea580c"/>
+          <text x="245" y="84" font-size="11.5" fill="#9a5535">"powerful AI" 2026–27</text>
+
+          <!-- Aschenbrenner dot 2027 -->
+          <circle cx="235" cy="114" r="7" fill="#ea580c"/>
+          <text x="250" y="119" font-size="11.5" fill="#9a5535">intelligence explosion ~2027</text>
+
+          <!-- Hassabis dot 2030 -->
+          <circle cx="339" cy="148" r="7" fill="#e8702a"/>
+          <text x="354" y="153" font-size="11.5" fill="#9a5535">50% chance of AGI by 2030</text>
+
+          <!-- AI 2027 arrow 2027->2032 -->
+          <line x1="235" y1="182" x2="405" y2="182" stroke="#8a6fc0" stroke-width="3" marker-end="url(#arrG)"/>
+          <text x="412" y="187" font-size="11.5" fill="#7a5fb0">median slid 2027 → early 2030s</text>
+
+          <!-- Sutskever bar 2030-2045 -->
+          <rect x="338" y="210" width="521" height="11" rx="3" fill="#9aa3b2"/>
+          <text x="430" y="205" font-size="11.5" fill="#64748b">5–20 years (wide error bars)</text>
+
+          <!-- Cowen dot ~2045 -->
+          <circle cx="820" cy="249" r="7" fill="#2563eb"/>
+          <text x="805" y="254" font-size="11.5" fill="#475c8a" text-anchor="end">~20-yr transformative horizon</text>
+
+          <!-- Marcus/LeCun off-scale -->
+          <line x1="820" y1="283" x2="862" y2="283" stroke="#2563eb" stroke-width="3" marker-end="url(#arrSk)"/>
+          <text x="815" y="288" font-size="11.5" fill="#1d4ed8" text-anchor="end">not on this path — needs new ideas</text>
+
+          <!-- legend -->
+          <g transform="translate(200,316)" font-size="12" fill="#6b7280">
+            <circle cx="0" cy="-4" r="6" fill="#ea580c"/><text x="14" y="0">near-term</text>
+            <circle cx="120" cy="-4" r="6" fill="#2563eb"/><text x="134" y="0">long-term / skeptical</text>
+          </g>
+        </svg>
+      </div>
+      <figcaption>Synthesized from public statements 2024–2026: Amodei (<em>Machines of Loving Grace</em>), Aschenbrenner (<em>Situational Awareness</em>), Hassabis (interviews), the <em>AI 2027</em> scenario authors' revised median, Sutskever (SSI framing), Cowen's diffusion writing, and Marcus/LeCun's architectural critiques. Point estimates are approximate.</figcaption>
+    </figure>
+  </div>
+
+  <div class="wrap">
+    <h2 class="sec">09 · So What</h2>
+    <h3 class="head">What follows, if you're building in applied AI</h3>
+
+    <p>The landscape above isn't abstract — it converts into a handful of concrete stances for anyone shipping product on top of these models.</p>
+
+    <ol class="recs">
+      <li><b>Build at the commodity layer; capture value in orchestration.</b> With open weights 30–100× cheaper than closed frontier APIs, hard-wiring to one provider is now a liability. Route the cheapest capable model per task and escalate to the frontier only for genuinely hard reasoning — this alone tends to cut costs 60–80%. Revisit only if a closed model opens a durable, &gt;20-point capability gap on your core task that open weights can't close within ~6 months.</li>
+      <li><b>Design around jaggedness, not average capability.</b> Map your workflow's tasks to where AI is superhuman vs. subhuman; gate human review wherever an error carries real downstream cost; run agents in shadow mode before granting autonomy. The single weakest <em>necessary</em> step — memory, reliability, one stubborn subskill — decides product viability far more than headline benchmarks.</li>
+      <li><b>Treat energy/compute as a real constraint, but bet on Jevons.</b> Falling per-token cost should expand your addressable use cases — products that were uneconomic at $1,000/run become viable at $20. Model true cost-per-token at realistic 25–60% utilization, never at vendor "10×" headline claims.</li>
+      <li><b>Hedge timeline uncertainty deliberately.</b> Architect to benefit if reasoning/agentic models keep improving, but don't pre-build for capabilities that don't exist yet, and don't bet the company on a plateau either. Remember METR: measured throughput beats <em>felt</em> productivity, which ran 39 points ahead of reality.</li>
+      <li><b>Watch three leading indicators</b> that would change this whole picture: (a) whether test-time scaling keeps returning log-linear gains or visibly plateaus across labs; (b) whether power/grid interconnection becomes the public gate on frontier scale — a real slowdown signal that favors incumbents; (c) regulatory moves toward soft nationalization, especially export-control or compute-access rules that could restrict open weights — which would invalidate recommendation #1.</li>
+    </ol>
+
+    <h2 class="sec">10 · Read This Carefully</h2>
+    <h3 class="head">Caveats — because confidence here is mostly unearned</h3>
+
+    <ul class="caveats">
+      <li><b>These are forecasts, not facts.</b> Nearly every timeline claim is explicitly speculative; several authors call them guesses. The <em>AI 2027</em> median already slid by years — proof of how fast this revises.</li>
+      <li><b>Source incentives cut every direction.</b> Lab leaders have reasons to project both radical upside and inevitability; the most cited bull literally runs a fund betting on his thesis. Prominent skeptics have reputational stakes in a "wall" being real. Doom-skeptics note the safety movement is concentrated-funded. Weight the arguments, not the authority.</li>
+      <li><b>The numbers are snapshots.</b> Valuations, model prices, capex, and chip specs here are 2025–2026 figures and will be stale quickly. Several "up to $X billion" figures are <em>commitments</em>, not deployed capital.</li>
+      <li><b>Vendor and benchmark claims need independent validation</b> at realistic utilization. A model that's superhuman on a benchmark can still fail the one subtask your product depends on.</li>
+      <li><b>The deepest cruxes are genuinely unresolved</b> — takeoff speed, whether the transformer is an AGI-complete paradigm, the true elasticity of AI demand, and p(doom). This report maps the disagreement rather than faking a consensus. That disagreement <em>is</em> the most accurate description of the present moment.</li>
+    </ul>
+
+    <h2 class="sec">Sources &amp; Further Reading</h2>
+    <ul class="src">
+      <li><b>Leopold Aschenbrenner</b> — <em>Situational Awareness: The Decade Ahead</em> (2024)</li>
+      <li><b>Dario Amodei</b> — <em>Machines of Loving Grace</em> (2024)</li>
+      <li><b>Yudkowsky vs. Christiano</b> — the takeoff-speed debate (2021; LessWrong)</li>
+      <li><b>Ilya Sutskever</b> — NeurIPS 2024 talk; Dwarkesh Patel interview (Nov 2025)</li>
+      <li><b>Epoch AI</b> — Villalobos et al., "Will we run out of data?" (data-wall projection)</li>
+      <li><b>Shumailov et al.</b> — "Model collapse" (<em>Nature</em>, 2024); Gerstgrasser/Schaeffer rebuttals</li>
+      <li><b>Yann LeCun</b> — JEPA / world-models talks; AMI launch (2025)</li>
+      <li><b>Dell'Acqua et al.</b> — "Navigating the Jagged Technological Frontier" (HBS/BCG, 2023)</li>
+      <li><b>Ethan Mollick</b> — "The Shape of AI: Jaggedness, Bottlenecks and Salients"</li>
+      <li><b>Daron Acemoglu</b> — "The Simple Macroeconomics of AI" (NBER, 2024)</li>
+      <li><b>Goldman Sachs Research</b> — generative-AI GDP impact (Briggs &amp; Kodnani, 2023)</li>
+      <li><b>Tyler Cowen</b> — writing on AI, diffusion, and cost disease (Marginal Revolution; Fortune)</li>
+      <li><b>METR</b> — RCT on AI and developer productivity (2025)</li>
+      <li><b>Cheng &amp; Katzke</b> — "Soft Nationalization" framework; Gladstone AI superintelligence report</li>
+      <li><b>Hinton, Bengio, Russell et al.</b> — "Managing extreme AI risks" (<em>Science</em>, 2024); CAIS statement (2023)</li>
+      <li><b>Dwarkesh Patel Podcast</b> — deep technical interviews with most figures above</li>
+    </ul>
+  </div>
+
+  <footer class="end">
+    <div class="wrap">
+      Compiled June 2026 as a synthesis of public essays, papers, talks, and interviews from 40+ researchers, lab leaders, economists, and safety figures. Figures and visualizations are the author's reconstruction from cited sources; point estimates are approximate and several debates remain genuinely unresolved. Built as a self-contained document — no external dependencies, no tracking. Treat every forecast as a hypothesis, not a promise.
+    </div>
+  </footer>
+</section>
+</body>
+</html>

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Home on saurabh</title>
-    <link>https://saurabhnandwana.com/</link>
+    <link>https://unfoundbox.com/</link>
     <description>Recent content in Home on saurabh</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Mon, 15 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://saurabhnandwana.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 15 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://unfoundbox.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>India Data Center Capacity: Current Base, Pipeline, and What It Means</title>
-      <link>https://saurabhnandwana.com/posts/india-data-center-capacity/</link>
+      <link>https://unfoundbox.com/posts/india-data-center-capacity/</link>
       <pubDate>Mon, 15 Jun 2026 00:00:00 +0000</pubDate>
       
-      <guid>https://saurabhnandwana.com/posts/india-data-center-capacity/</guid>
+      <guid>https://unfoundbox.com/posts/india-data-center-capacity/</guid>
       
       <description>&lt;h1 id=&#34;india-data-center-capacity-current-base-pipeline-and-what-it-means&#34;&gt;India Data Center Capacity: Current Base, Pipeline, and What It Means&lt;/h1&gt;
 &lt;p&gt;India&amp;rsquo;s data-center market is already at gigawatt scale, and the next wave is large enough to change the structure of the market.&lt;/p&gt;
@@ -22,10 +22,10 @@
     
     <item>
       <title>The Future of AI: A Map of Disagreement</title>
-      <link>https://saurabhnandwana.com/posts/ai-future-landscape/</link>
+      <link>https://unfoundbox.com/posts/ai-future-landscape/</link>
       <pubDate>Mon, 15 Jun 2026 00:00:00 +0000</pubDate>
       
-      <guid>https://saurabhnandwana.com/posts/ai-future-landscape/</guid>
+      <guid>https://unfoundbox.com/posts/ai-future-landscape/</guid>
       
       <description>&lt;h1 id=&#34;the-future-of-ai-a-map-of-disagreement&#34;&gt;The Future of AI: A Map of Disagreement&lt;/h1&gt;
 &lt;p&gt;The smartest people in AI agree on one thing: this matters enormously. After that, the map breaks apart.&lt;/p&gt;
@@ -35,10 +35,10 @@
     
     <item>
       <title>Build, Rent, or Skip: A Strategy Matrix for AI Video Tools</title>
-      <link>https://saurabhnandwana.com/posts/katana-build-rent-skip/</link>
+      <link>https://unfoundbox.com/posts/katana-build-rent-skip/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 +0000</pubDate>
       
-      <guid>https://saurabhnandwana.com/posts/katana-build-rent-skip/</guid>
+      <guid>https://unfoundbox.com/posts/katana-build-rent-skip/</guid>
       
       <description>&lt;h1 id=&#34;build-rent-or-skip-a-strategy-matrix-for-ai-video-tools&#34;&gt;Build, Rent, or Skip: A Strategy Matrix for AI Video Tools&lt;/h1&gt;
 &lt;p&gt;The core strategy question for an AI video tool is not &amp;ldquo;can we build this?&amp;rdquo; It is &amp;ldquo;which parts create compounding advantage, which parts are commodity APIs, and which parts are another company&amp;rsquo;s debt?&amp;rdquo;&lt;/p&gt;
@@ -59,13 +59,13 @@
     
     <item>
       <title>DIY Smart Robot With a Local Gemma Brain</title>
-      <link>https://saurabhnandwana.com/posts/diy-smart-robot-gemma/</link>
+      <link>https://unfoundbox.com/posts/diy-smart-robot-gemma/</link>
       <pubDate>Tue, 09 Jun 2026 00:00:00 +0000</pubDate>
       
-      <guid>https://saurabhnandwana.com/posts/diy-smart-robot-gemma/</guid>
+      <guid>https://unfoundbox.com/posts/diy-smart-robot-gemma/</guid>
       
       <description>&lt;h1 id=&#34;diy-smart-robot-with-a-local-gemma-brain&#34;&gt;DIY Smart Robot With a Local Gemma Brain&lt;/h1&gt;
-&lt;p&gt;&lt;img src=&#34;https://saurabhnandwana.com/posts/diy-smart-robot-gemma/cover.png&#34; alt=&#34;A finished reference build: small rover, local AI workstation, camera, distance sensor, speaker, and safe wiring.&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://unfoundbox.com/posts/diy-smart-robot-gemma/cover.png&#34; alt=&#34;A finished reference build: small rover, local AI workstation, camera, distance sensor, speaker, and safe wiring.&#34;&gt;&lt;/p&gt;
 &lt;p&gt;The best way to build a small AI robot is to keep the architecture boring.&lt;/p&gt;
 &lt;p&gt;Use the local model for high-level reasoning, explanations, and plans. Use deterministic firmware for timing, motor control, watchdogs, limits, and emergency stop. The model should never drive motors directly.&lt;/p&gt;
 &lt;p&gt;That separation is the whole project.&lt;/p&gt;</description>
@@ -74,10 +74,10 @@
     
     <item>
       <title>Local Inference on WebGPU: Where Small Models Actually Win</title>
-      <link>https://saurabhnandwana.com/posts/webgpu-local-inference/</link>
+      <link>https://unfoundbox.com/posts/webgpu-local-inference/</link>
       <pubDate>Sun, 07 Jun 2026 00:00:00 +0000</pubDate>
       
-      <guid>https://saurabhnandwana.com/posts/webgpu-local-inference/</guid>
+      <guid>https://unfoundbox.com/posts/webgpu-local-inference/</guid>
       
       <description>&lt;h1 id=&#34;local-inference-on-webgpu-where-small-models-actually-win&#34;&gt;Local Inference on WebGPU: Where Small Models Actually Win&lt;/h1&gt;
 &lt;p&gt;The exciting version of browser AI is not &amp;ldquo;run a giant chatbot in a tab.&amp;rdquo; The useful version is narrower and more practical:&lt;/p&gt;
@@ -89,10 +89,10 @@
     
     <item>
       <title>Bolekaam - Empowering India&#39;s Craftsmen Through Voice Technology</title>
-      <link>https://saurabhnandwana.com/posts/bolekaam/</link>
+      <link>https://unfoundbox.com/posts/bolekaam/</link>
       <pubDate>Mon, 07 Apr 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://saurabhnandwana.com/posts/bolekaam/</guid>
+      <guid>https://unfoundbox.com/posts/bolekaam/</guid>
       
       <description>&lt;h1 id=&#34;bolekaam---empowering-indias-craftsmen-through-voice-technology&#34;&gt;Bolekaam - Empowering India&amp;rsquo;s Craftsmen Through Voice Technology&lt;/h1&gt;
 &lt;h2 id=&#34;the-opportunity&#34;&gt;The Opportunity&lt;/h2&gt;
@@ -110,10 +110,10 @@
     
     <item>
       <title>Ideas at the intersection of newer web standards</title>
-      <link>https://saurabhnandwana.com/posts/web-standards/web-standards/</link>
+      <link>https://unfoundbox.com/posts/web-standards/web-standards/</link>
       <pubDate>Sat, 01 Mar 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://saurabhnandwana.com/posts/web-standards/web-standards/</guid>
+      <guid>https://unfoundbox.com/posts/web-standards/web-standards/</guid>
       
       <description>&lt;h1 id=&#34;web-api-market-opportunity-analysis-report&#34;&gt;Web API Market Opportunity Analysis Report&lt;/h1&gt;
 &lt;h2 id=&#34;opportunity-analysis-matrix&#34;&gt;Opportunity Analysis Matrix&lt;/h2&gt;
@@ -320,10 +320,10 @@
     
     <item>
       <title>How I Went from a Small Town Kid to Working on Cutting-Edge AI</title>
-      <link>https://saurabhnandwana.com/posts/sabattical/sabbatical/</link>
+      <link>https://unfoundbox.com/posts/sabattical/sabbatical/</link>
       <pubDate>Mon, 24 Feb 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://saurabhnandwana.com/posts/sabattical/sabbatical/</guid>
+      <guid>https://unfoundbox.com/posts/sabattical/sabbatical/</guid>
       
       <description>&lt;p&gt;So here&amp;rsquo;s my story - I grew up in a small town in Rajasthan, raised by my kickass single mom and elder sister. School was my thing, and when I hit 11th grade, I fell hard for C++ programming. Like every other Indian kid with decent grades, I ended up at Allen Institute Kota for IIT-JEE prep. Spoiler alert: The pressure cooker environment there? Yeah, not my scene.&lt;/p&gt;
 &lt;p&gt;Landed at BIT Bangalore for telecommunications engineering instead. Failed a year - but honestly? That turned out to be a blessing in disguise. Instead of moping around, I hit the gym and dove deep into programming classes. Best decision ever.&lt;/p&gt;</description>
@@ -332,10 +332,10 @@
     
     <item>
       <title>Nomading</title>
-      <link>https://saurabhnandwana.com/pages/nomading/nomading/</link>
+      <link>https://unfoundbox.com/pages/nomading/nomading/</link>
       <pubDate>Sun, 12 Jan 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://saurabhnandwana.com/pages/nomading/nomading/</guid>
+      <guid>https://unfoundbox.com/pages/nomading/nomading/</guid>
       
       <description>&lt;p&gt;vectorly team offsite in koh phangan&lt;/p&gt;
 &lt;p&gt;hopin team offsite in cancun&lt;/p&gt;
@@ -349,10 +349,10 @@
     
     <item>
       <title>About</title>
-      <link>https://saurabhnandwana.com/pages/about/</link>
+      <link>https://unfoundbox.com/pages/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://saurabhnandwana.com/pages/about/</guid>
+      <guid>https://unfoundbox.com/pages/about/</guid>
       
       <description>&lt;p&gt;Hey there fellow startup builder! I have been an early stage engineer with some product chops for around 8 years now having worked with a half dozen startups from bootstrapped/pre-seed funded to unicorns.&lt;/p&gt;
 &lt;p&gt;I grew up in Rajasthan, started in Hindi-medium school, switched into CBSE, and fell hard for C++ in class 11. The path since then has been nonlinear: Kota, telecom engineering in Bangalore, a failed year that pushed me deeper into programming, and then a long run through startups.&lt;/p&gt;</description>

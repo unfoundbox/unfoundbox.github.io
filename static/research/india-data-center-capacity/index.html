@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>India Data Center Capacity Deep Research</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<style>
+  :root{
+    --bg:#f6f5f2; --surface:#ffffff; --text:#111111; --muted:#5f6368; --border:#e6e2da;
+    --accent:#5b4bdb; --accent2:#0f766e; --warn:#d97706; --shadow:0 10px 30px rgba(17,17,17,.06);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;line-height:1.6}
+  a{color:inherit}
+  .page{max-width:1120px;margin:0 auto;padding:32px 20px 64px}
+  .hero{background:linear-gradient(135deg,#111827 0%, #312e81 60%, #4c1d95 100%);color:white;border-radius:28px;padding:42px 40px;box-shadow:var(--shadow)}
+  .eyebrow{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#c7d2fe;font-weight:700}
+  h1{margin:.35rem 0 0;font-size:clamp(2rem,4vw,3.5rem);line-height:1.08}
+  .sub{max-width:780px;margin:16px 0 0;color:#e5e7eb;font-size:1.05rem}
+  .meta{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+  .pill{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.14);padding:8px 12px;border-radius:999px;font-size:13px}
+  .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:20px;margin-top:22px}
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:22px;box-shadow:var(--shadow);padding:24px}
+  h2{font-size:1.35rem;margin:0 0 12px}
+  h3{font-size:1.05rem;margin:20px 0 8px}
+  p{margin:0 0 12px}
+  ul{margin:10px 0 0;padding-left:20px}
+  li{margin:8px 0}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  .stat{border:1px solid var(--border);border-radius:18px;padding:16px;background:#fcfcfb}
+  .stat .label{color:var(--muted);font-size:13px}
+  .stat .value{font-size:1.6rem;font-weight:800;margin-top:4px}
+  .stat .note{font-size:12px;color:var(--muted);margin-top:4px}
+  .note{color:var(--muted)}
+  .chartwrap{margin-top:18px}
+  .chartwrap img{width:100%;height:auto;border-radius:18px;border:1px solid var(--border);display:block}
+  table{width:100%;border-collapse:separate;border-spacing:0;margin-top:10px;overflow:hidden;border:1px solid var(--border);border-radius:18px}
+  th,td{padding:12px 14px;text-align:left;border-bottom:1px solid var(--border);vertical-align:top}
+  th{background:#faf9f6;font-size:13px;text-transform:uppercase;letter-spacing:.04em}
+  tr:last-child td{border-bottom:none}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .callout{border-left:4px solid var(--accent);background:#f4f3ff;padding:16px 18px;border-radius:14px}
+  .footer{color:var(--muted);font-size:13px;margin-top:14px}
+  @media (max-width:900px){.grid,.two,.stats{grid-template-columns:1fr}.hero{padding:28px 22px}}
+</style>
+</head>
+<body>
+  <div class="page">
+    <section class="hero">
+      <div class="eyebrow">Deep Research Report</div>
+      <h1>India Data Center Capacity: Current Base, Pipeline, and What It Means</h1>
+      <p class="sub">A structured view of India’s live data center footprint and the upcoming capacity pipeline, normalized across mixed market definitions such as IT load, total power, and colocation supply.</p>
+      <div class="meta">
+        <div class="pill">Scope: India</div>
+        <div class="pill">Updated: June 2026</div>
+        <div class="pill">Format: Research + Visual Summary</div>
+      </div>
+    </section>
+
+    <div class="grid">
+      <section class="card">
+        <h2>Executive snapshot</h2>
+        <div class="stats">
+          <div class="stat">
+            <div class="label">Current live capacity</div>
+            <div class="value">~1.5 GW</div>
+            <div class="note">Total India data center capacity around 2025–26.</div>
+          </div>
+          <div class="stat">
+            <div class="label">Visible near-term pipeline</div>
+            <div class="value">~1.0 GW</div>
+            <div class="note">Colocation capacity under construction or planned through 2028.</div>
+          </div>
+          <div class="stat">
+            <div class="label">Full-build upcoming capacity</div>
+            <div class="value">~2.5 GW</div>
+            <div class="note">Announced upcoming capacity across all types in market portfolio studies.</div>
+          </div>
+        </div>
+
+        <div class="chartwrap">
+          <p class="note">Chart image from the original local export was not available in the source folder; the hosted copy keeps the normalized research table and interpretation notes below.</p>
+        </div>
+      </section>
+
+      <aside class="card">
+        <h2>Interpretation guide</h2>
+        <div class="callout">
+          <strong>Key point:</strong> the most defensible current number is about 1.5 GW of total installed capacity, while the pipeline is already large enough to plausibly take India above 2 GW by 2027.
+        </div>
+        <h3>Why the numbers differ</h3>
+        <ul>
+          <li>Some reports measure <strong>IT load</strong>, others measure <strong>total power capacity</strong>.</li>
+          <li>Some counts cover <strong>all data centers</strong>, while others focus only on <strong>colocation</strong>.</li>
+          <li>Forecasts vary because AI-ready projects can shift the MW mix quickly.</li>
+        </ul>
+        <h3>What to use for planning</h3>
+        <ul>
+          <li>Use 1.5 GW as the present base.</li>
+          <li>Use 2.0–2.1 GW for a conservative 2027 view.</li>
+          <li>Use 2.5 GW+ for announced future build-out.</li>
+        </ul>
+      </aside>
+    </div>
+
+    <section class="card" style="margin-top:20px">
+      <h2>Research findings</h2>
+      <div class="two">
+        <div>
+          <h3>Current installed capacity</h3>
+          <p>Government and market sources converge around a current installed base near 1.5 GW. The PIB release says India’s data center capacity rose from about 375 MW in 2020 to around 1,500 MW by 2025, while JLL’s H1 2025 market report shows 1,123 MW of operational IT load. A separate industry update also states India’s capacity has crossed 1.5 GW.</p>
+          <ul>
+            <li>PIB: ~375 MW in 2020 to ~1,500 MW by 2025.</li>
+            <li>JLL: 1,123 MW operational IT load in H1 2025.</li>
+            <li>Industry update: capacity has crossed 1.5 GW.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Pipeline and growth</h3>
+          <p>The near-term pipeline is substantial. One 2026 market analysis estimates about 1.03 GW of colocation capacity under construction or planned between 2024 and 2028. JLL also projects India’s capacity to reach about 2.073 GW by 2027, implying meaningful expansion from the current base.</p>
+          <ul>
+            <li>~1.03 GW colocation pipeline for 2024–2028.</li>
+            <li>JLL: ~2.073 GW by 2027.</li>
+            <li>Portfolio studies show ~2.5 GW upcoming at full build.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" style="margin-top:20px">
+      <h2>Capacity table</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th>Approximate value</th>
+            <th>Meaning</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Live capacity, India</td>
+            <td>~1.5 GW</td>
+            <td>Best current headline estimate for total operational capacity.</td>
+          </tr>
+          <tr>
+            <td>Operational IT load, H1 2025</td>
+            <td>1,123 MW</td>
+            <td>JLL market inventory for operational IT load.</td>
+          </tr>
+          <tr>
+            <td>Colocation capacity, existing base</td>
+            <td>&gt;1,010 MW</td>
+            <td>Colocation-oriented live power capacity.</td>
+          </tr>
+          <tr>
+            <td>Colocation pipeline, 2024–2028</td>
+            <td>~1.03 GW</td>
+            <td>Under construction or planned colocation capacity.</td>
+          </tr>
+          <tr>
+            <td>Upcoming full-build portfolio</td>
+            <td>~2.5 GW</td>
+            <td>Announced upcoming capacity across all types.</td>
+          </tr>
+          <tr>
+            <td>2027 projection</td>
+            <td>~2.07 GW</td>
+            <td>Forward estimate from JLL for total IT load capacity.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="card" style="margin-top:20px">
+      <h2>What the visuals show</h2>
+      <ul>
+        <li>The operational chart shows a steep climb from 375 MW in 2020 to roughly 1.5 GW by 2025, with further growth projected afterward.</li>
+        <li>The colocation line highlights that most visible commercial capacity growth is happening in large metro markets and is already approaching the gigawatt scale.</li>
+        <li>The pipeline bars show that the announced next wave is large enough to materially change market structure, especially in Mumbai, Chennai, NCR, Hyderabad, and Bengaluru.</li>
+      </ul>
+      <p class="note">The chart is intentionally multi-panel so you can compare the live base, the commercial colocation segment, and the announced pipeline without mixing definitions.</p>
+    </section>
+
+    <section class="card" style="margin-top:20px">
+      <h2>Method note</h2>
+      <p>The report normalizes several public estimates rather than forcing a single number from one source. That matters because data center reports often mix IT load, power capacity, colocation-only capacity, and broader campus announcements. For investment or operating decisions, the safest approach is to model India as a ~1.5 GW current market with a 1–1.5 GW near-term addition pipeline already visible.</p>
+    </section>
+
+    <div class="footer">Primary sources used in the underlying research include PIB, JLL, Arizton, and market portfolio studies on upcoming India data center capacity.</div>
+  </div>
+</body>
+</html>

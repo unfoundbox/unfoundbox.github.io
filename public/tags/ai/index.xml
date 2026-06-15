@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ai on saurabh</title>
-    <link>https://saurabhnandwana.com/tags/ai/</link>
+    <link>https://unfoundbox.com/tags/ai/</link>
     <description>Recent content in Ai on saurabh</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Mon, 15 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://saurabhnandwana.com/tags/ai/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 15 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://unfoundbox.com/tags/ai/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>India Data Center Capacity: Current Base, Pipeline, and What It Means</title>
-      <link>https://saurabhnandwana.com/posts/india-data-center-capacity/</link>
+      <link>https://unfoundbox.com/posts/india-data-center-capacity/</link>
       <pubDate>Mon, 15 Jun 2026 00:00:00 +0000</pubDate>
       
-      <guid>https://saurabhnandwana.com/posts/india-data-center-capacity/</guid>
+      <guid>https://unfoundbox.com/posts/india-data-center-capacity/</guid>
       
       <description>&lt;h1 id=&#34;india-data-center-capacity-current-base-pipeline-and-what-it-means&#34;&gt;India Data Center Capacity: Current Base, Pipeline, and What It Means&lt;/h1&gt;
 &lt;p&gt;India&amp;rsquo;s data-center market is already at gigawatt scale, and the next wave is large enough to change the structure of the market.&lt;/p&gt;
@@ -22,10 +22,10 @@
     
     <item>
       <title>The Future of AI: A Map of Disagreement</title>
-      <link>https://saurabhnandwana.com/posts/ai-future-landscape/</link>
+      <link>https://unfoundbox.com/posts/ai-future-landscape/</link>
       <pubDate>Mon, 15 Jun 2026 00:00:00 +0000</pubDate>
       
-      <guid>https://saurabhnandwana.com/posts/ai-future-landscape/</guid>
+      <guid>https://unfoundbox.com/posts/ai-future-landscape/</guid>
       
       <description>&lt;h1 id=&#34;the-future-of-ai-a-map-of-disagreement&#34;&gt;The Future of AI: A Map of Disagreement&lt;/h1&gt;
 &lt;p&gt;The smartest people in AI agree on one thing: this matters enormously. After that, the map breaks apart.&lt;/p&gt;
@@ -35,10 +35,10 @@
     
     <item>
       <title>Build, Rent, or Skip: A Strategy Matrix for AI Video Tools</title>
-      <link>https://saurabhnandwana.com/posts/katana-build-rent-skip/</link>
+      <link>https://unfoundbox.com/posts/katana-build-rent-skip/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 +0000</pubDate>
       
-      <guid>https://saurabhnandwana.com/posts/katana-build-rent-skip/</guid>
+      <guid>https://unfoundbox.com/posts/katana-build-rent-skip/</guid>
       
       <description>&lt;h1 id=&#34;build-rent-or-skip-a-strategy-matrix-for-ai-video-tools&#34;&gt;Build, Rent, or Skip: A Strategy Matrix for AI Video Tools&lt;/h1&gt;
 &lt;p&gt;The core strategy question for an AI video tool is not &amp;ldquo;can we build this?&amp;rdquo; It is &amp;ldquo;which parts create compounding advantage, which parts are commodity APIs, and which parts are another company&amp;rsquo;s debt?&amp;rdquo;&lt;/p&gt;
@@ -59,13 +59,13 @@
     
     <item>
       <title>DIY Smart Robot With a Local Gemma Brain</title>
-      <link>https://saurabhnandwana.com/posts/diy-smart-robot-gemma/</link>
+      <link>https://unfoundbox.com/posts/diy-smart-robot-gemma/</link>
       <pubDate>Tue, 09 Jun 2026 00:00:00 +0000</pubDate>
       
-      <guid>https://saurabhnandwana.com/posts/diy-smart-robot-gemma/</guid>
+      <guid>https://unfoundbox.com/posts/diy-smart-robot-gemma/</guid>
       
       <description>&lt;h1 id=&#34;diy-smart-robot-with-a-local-gemma-brain&#34;&gt;DIY Smart Robot With a Local Gemma Brain&lt;/h1&gt;
-&lt;p&gt;&lt;img src=&#34;https://saurabhnandwana.com/posts/diy-smart-robot-gemma/cover.png&#34; alt=&#34;A finished reference build: small rover, local AI workstation, camera, distance sensor, speaker, and safe wiring.&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://unfoundbox.com/posts/diy-smart-robot-gemma/cover.png&#34; alt=&#34;A finished reference build: small rover, local AI workstation, camera, distance sensor, speaker, and safe wiring.&#34;&gt;&lt;/p&gt;
 &lt;p&gt;The best way to build a small AI robot is to keep the architecture boring.&lt;/p&gt;
 &lt;p&gt;Use the local model for high-level reasoning, explanations, and plans. Use deterministic firmware for timing, motor control, watchdogs, limits, and emergency stop. The model should never drive motors directly.&lt;/p&gt;
 &lt;p&gt;That separation is the whole project.&lt;/p&gt;</description>
@@ -74,10 +74,10 @@
     
     <item>
       <title>Local Inference on WebGPU: Where Small Models Actually Win</title>
-      <link>https://saurabhnandwana.com/posts/webgpu-local-inference/</link>
+      <link>https://unfoundbox.com/posts/webgpu-local-inference/</link>
       <pubDate>Sun, 07 Jun 2026 00:00:00 +0000</pubDate>
       
-      <guid>https://saurabhnandwana.com/posts/webgpu-local-inference/</guid>
+      <guid>https://unfoundbox.com/posts/webgpu-local-inference/</guid>
       
       <description>&lt;h1 id=&#34;local-inference-on-webgpu-where-small-models-actually-win&#34;&gt;Local Inference on WebGPU: Where Small Models Actually Win&lt;/h1&gt;
 &lt;p&gt;The exciting version of browser AI is not &amp;ldquo;run a giant chatbot in a tab.&amp;rdquo; The useful version is narrower and more practical:&lt;/p&gt;

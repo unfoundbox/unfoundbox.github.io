@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DIY Smart Robot With Gemma 4</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #17202a;
+        --muted: #5d6b7a;
+        --paper: #fbfaf7;
+        --panel: #ffffff;
+        --line: #d9e1e8;
+        --blue: #2f6fed;
+        --green: #20a366;
+        --yellow: #f4b740;
+        --red: #e85d5a;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        line-height: 1.45;
+      }
+
+      .book {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 28px;
+      }
+
+      .intro {
+        padding: 28px 0 18px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1 {
+        margin-bottom: 10px;
+        font-size: clamp(2rem, 4vw, 4.2rem);
+        line-height: 0.98;
+        letter-spacing: 0;
+      }
+
+      .subtitle {
+        max-width: 820px;
+        color: var(--muted);
+        font-size: 1.08rem;
+      }
+
+      .toc {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 10px;
+        margin-top: 22px;
+      }
+
+      .toc a {
+        color: var(--ink);
+        text-decoration: none;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 10px 12px;
+        background: rgba(255, 255, 255, 0.68);
+      }
+
+      .page {
+        margin: 34px 0;
+        padding: 24px;
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        break-inside: avoid;
+        box-shadow: 0 12px 32px rgba(23, 32, 42, 0.06);
+      }
+
+      .page header {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 18px;
+        border-bottom: 1px solid var(--line);
+        padding-bottom: 12px;
+        margin-bottom: 18px;
+      }
+
+      .page h2 {
+        margin: 0;
+        font-size: clamp(1.35rem, 2vw, 2.1rem);
+        letter-spacing: 0;
+      }
+
+      .kicker {
+        flex: 0 0 auto;
+        color: var(--blue);
+        font-weight: 700;
+        font-size: 0.9rem;
+      }
+
+      figure {
+        margin: 0;
+      }
+
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: 6px;
+        border: 1px solid var(--line);
+        background: #eef3f8;
+      }
+
+      figcaption {
+        color: var(--muted);
+        font-size: 0.95rem;
+        margin-top: 10px;
+      }
+
+      .notes {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+        margin-top: 18px;
+      }
+
+      .note {
+        border-left: 4px solid var(--blue);
+        background: #f7faff;
+        padding: 12px 14px;
+        border-radius: 0 6px 6px 0;
+        min-height: 116px;
+      }
+
+      .note:nth-child(2) {
+        border-color: var(--green);
+        background: #f5fcf8;
+      }
+
+      .note:nth-child(3) {
+        border-color: var(--yellow);
+        background: #fffbef;
+      }
+
+      .note h3 {
+        margin-bottom: 6px;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0;
+      }
+
+      .note p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      .appendix {
+        padding: 24px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #ffffff;
+      }
+
+      .appendix ul {
+        margin-bottom: 0;
+      }
+
+      @media (max-width: 760px) {
+        .book {
+          padding: 16px;
+        }
+
+        .page {
+          padding: 16px;
+        }
+
+        .page header {
+          display: block;
+        }
+
+        .kicker {
+          display: block;
+          margin-top: 6px;
+        }
+
+        .notes {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media print {
+        body {
+          background: white;
+        }
+
+        .book {
+          max-width: none;
+          padding: 0;
+        }
+
+        .intro,
+        .page,
+        .appendix {
+          box-shadow: none;
+          border-radius: 0;
+          page-break-after: always;
+        }
+
+        .toc {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="book">
+      <section class="intro">
+        <h1>DIY Smart Robot With Gemma 4</h1>
+        <p class="subtitle">A visual learning booklet for building a small local-AI robot step by step, starting with a laptop-brain rover and branching into onboard, voice, and upgradeable hardware versions.</p>
+        <nav class="toc" aria-label="Booklet pages">
+          <a href="#page-01">01 Cover</a>
+          <a href="#page-02">02 System Overview</a>
+          <a href="#page-03">03 Tools + Safety</a>
+          <a href="#page-04">04 Core Parts</a>
+          <a href="#page-05">05 Version A</a>
+          <a href="#page-06">06 Chassis</a>
+          <a href="#page-07">07 Wheels + Motors</a>
+          <a href="#page-08">08 Motor Driver</a>
+          <a href="#page-09">09 Power</a>
+          <a href="#page-10">10 Sensors</a>
+          <a href="#page-11">11 Firmware Loop</a>
+          <a href="#page-12">12 Local Model</a>
+          <a href="#page-13">13 Perception</a>
+          <a href="#page-14">14 Conversation</a>
+          <a href="#page-15">15 Obstacle Rover</a>
+          <a href="#page-16">16 Object Follow</a>
+          <a href="#page-17">17 Onboard Brain</a>
+          <a href="#page-18">18 Voice Companion</a>
+          <a href="#page-19">19 Test + Calibrate</a>
+          <a href="#page-20">20 Upgrade Map</a>
+        </nav>
+      </section>
+
+      <section class="page" id="page-01">
+        <header><h2>DIY Smart Robot</h2><span class="kicker">Page 01</span></header>
+        <figure>
+          <img src="images/page-01.png" alt="Cover image of a friendly DIY smart robot beside a local AI workstation">
+          <figcaption>A finished reference build: a small rover, local model workstation, camera, distance sensor, speaker, and safe wiring.</figcaption>
+        </figure>
+        <div class="notes">
+          <article class="note"><h3>Goal</h3><p>Build a robot that can see, talk, move safely, and run its high-level reasoning through a local Gemma 4-style model.</p></article>
+          <article class="note"><h3>Architecture</h3><p>Keep real-time motor safety on a microcontroller. Use the local model for perception summaries, plans, and conversation.</p></article>
+          <article class="note"><h3>First Rule</h3><p>Prototype slowly, on a desk or mat, with wheels lifted for the first motor tests.</p></article>
+        </div>
+      </section>
+
+      <section class="page" id="page-02">
+        <header><h2>System Overview</h2><span class="kicker">Page 02</span></header>
+        <figure>
+          <img src="images/page-02.png" alt="System overview diagram showing local model, controller, sensors, motor driver, motors, and power">
+          <figcaption>The robot is a layered system: local model for reasoning, controller for timing and safety, sensors for perception, and motor power for movement.</figcaption>
+        </figure>
+        <div class="notes">
+          <article class="note"><h3>Brain</h3><p>A laptop, mini PC, or onboard computer runs the local model and exposes a small local API.</p></article>
+          <article class="note"><h3>Body</h3><p>The microcontroller reads sensors and turns simple commands such as forward, left, right, stop into motor signals.</p></article>
+          <article class="note"><h3>Boundary</h3><p>The model never drives motors directly. Every motion command passes through validation and an emergency stop path.</p></article>
+        </div>
+      </section>
+
+      <section class="page" id="page-03">
+        <header><h2>Tools + Safety</h2><span class="kicker">Page 03</span></header>
+        <figure>
+          <img src="images/page-03.png" alt="Organized robotics tools and safety equipment on a maker bench">
+          <figcaption>A beginner bench needs measurement, insulation, eye protection, and a way to disconnect power quickly.</figcaption>
+        </figure>
+        <div class="notes">
+          <article class="note"><h3>Tools</h3><p>Use a screwdriver set, wire stripper, multimeter, heat-shrink, small pliers, and a soldering iron only when needed.</p></article>
+          <article class="note"><h3>Battery</h3><p>Add a physical switch and fuse. Confirm polarity before connecting motor drivers or regulators.</p></article>
+          <article class="note"><h3>Workspace</h3><p>Work on a nonconductive mat. Keep metal scraps and loose screws away from powered boards.</p></article>
+        </div>
+      </section>
+
+      <section class="page" id="page-04">
+        <header><h2>Core Parts</h2><span class="kicker">Page 04</span></header>
+        <figure>
+          <img src="images/page-04.png" alt="Bill of materials layout for a DIY local AI robot">
+          <figcaption>Start with a small rover kit and add the minimum sensors needed for the first skills.</figcaption>
+        </figure>
+        <div class="notes">
+          <article class="note"><h3>Minimum</h3><p>Chassis, two DC gear motors, wheels, caster, motor driver, microcontroller, battery, switch, regulator, and wires.</p></article>
+          <article class="note"><h3>Sensing</h3><p>Add a camera and distance sensor first. Bumper switches are cheap and excellent for safety.</p></article>
+          <article class="note"><h3>Voice</h3><p>Microphone and speaker can wait until the rover can already move and stop reliably.</p></article>
+        </div>
+      </section>
+
+      <section class="page" id="page-05">
+        <header><h2>Version A: Laptop Brain</h2><span class="kicker">Page 05</span></header>
+        <figure>
+          <img src="images/page-05.png" alt="Beginner robot connected to a laptop brain over USB">
+          <figcaption>The easiest first version leaves the expensive compute on a laptop and keeps the robot small and cheap.</figcaption>
+        </figure>
+        <div class="notes">
+          <article class="note"><h3>Best For</h3><p>Learning control loops, prompt design, local inference, and sensor routing without fighting battery and thermal limits.</p></article>
+          <article class="note"><h3>Connection</h3><p>Use USB serial first. Send compact commands and receive compact status messages.</p></article>
+          <article class="note"><h3>Upgrade Later</h3><p>When the behavior works, move the model host onboard or switch to a faster local machine.</p></article>
+        </div>
+      </section>
+
+      <section class="page" id="page-06">
+        <header><h2>Step 1: Chassis</h2><span class="kicker">Page 06</span></header>
+        <figure>
+          <img src="images/page-06.png" alt="Exploded assembly view of robot chassis plates, brackets, standoffs, and caster">
+          <figcaption>Build a rigid base before adding electronics. Leave room for airflow and cable strain relief.</figcaption>
+        </figure>
+        <div class="notes">
+          <article class="note"><h3>Check Fit</h3><p>Dry-fit plates, standoffs, motor brackets, and caster before tightening screws.</p></article>
+          <article class="note"><h3>Access</h3><p>Place boards where USB, power switch, and reset buttons remain reachable.</p></article>
+          <article class="note"><h3>Stability</h3><p>Keep the battery low and centered so the robot does not tip during turns.</p></article>
+        </div>
+      </section>
+
+      <section class="page" id="page-07">
+        <header><h2>Step 2: Wheels + Motors</h2><span class="kicker">Page 07</span></header>
+        <figure>
+          <img src="images/page-07.png" alt="DC gear motors and wheels aligned on a small robot chassis">
+          <figcaption>Parallel wheels and equal motor mounting matter more than speed at this stage.</figcaption>
+        </figure>
+        <div class="notes">
+          <article class="note"><h3>Alignment</h3><p>Make both wheels parallel and ensure the caster rotates freely.</p></article>
+          <article class="note"><h3>Direction</h3><p>Label left and right motors. If one spins backward, fix it in wiring or firmware, not in the model prompt.</p></article>
+          <article class="note"><h3>First Test</h3><p>Lift the wheels off the table and run a very low PWM motor test before placing the robot down.</p></article>
+        </div>
+      </section>
+
+      <section class="page" id="page-08">
+        <header><h2>Step 3: Motor Driver</h2><span class="kicker">Page 08</span></header>
+        <figure>
+          <img src="images/page-08.png" alt="Wiring diagram for microcontroller, dual motor driver, motors, and power">
+          <figcaption>The motor driver separates small controller signals from higher-current motor power.</figcaption>
+        </figure>
+        <div class="notes">
+          <article class="note"><h3>Signals</h3><p>Use PWM for speed and direction pins for forward or reverse. Keep pin names documented.</p></article>
+          <article class="note"><h3>Ground</h3><p>Logic ground and motor power ground must share a reference, unless your driver explicitly isolates them.</p></article>
+          <article class="note"><h3>Validation</h3><p>Firmware should reject commands that exceed speed limits or ask for motion while the stop state is active.</p></article>
+        </div>
+      </section>
+
+      <section class="page" id="page-09">
+        <header><h2>Step 4: Power</h2><span class="kicker">Page 09</span></header>
+        <figure>
+          <img src="images/page-09.png" alt="Robot power diagram with battery, switch, fuse, regulator, logic rail, and motor rail">
+          <figcaption>Power is the part to make boring: switched, fused, regulated, and easy to disconnect.</figcaption>
+        </figure>
+        <div class="notes">
+          <article class="note"><h3>Rails</h3><p>Separate noisy motor power from logic power through the right regulator and wiring layout.</p></article>
+          <article class="note"><h3>Switch</h3><p>Put the switch where you can reach it without touching wheels, gears, or exposed conductors.</p></article>
+          <article class="note"><h3>Measure</h3><p>Before connecting the controller, confirm output voltages with a multimeter.</p></article>
+        </div>
+      </section>
+
+      <section class="page" id="page-10">
+        <header><h2>Step 5: Sensors</h2><span class="kicker">Page 10</span></header>
+        <figure>
+          <img src="images/page-10.png" alt="Robot sensor stack with camera, distance sensor, bumpers, IMU, and cable routing">
+          <figcaption>The robot starts becoming smart once it can report what is in front of it.</figcaption>
+        </figure>
+        <div class="notes">
+          <article class="note"><h3>Camera</h3><p>Mount the camera high enough to see the floor and near objects, but low enough to avoid wobble.</p></article>
+          <article class="note"><h3>Distance</h3><p>Use a distance sensor or bumper switch as a hard safety input independent of model reasoning.</p></article>
+          <article class="note"><h3>Cables</h3><p>Route cables away from wheels and leave service loops so boards can be removed for debugging.</p></article>
+        </div>
+      </section>
+
+      <section class="page" id="page-11">
+        <header><h2>Firmware Loop</h2><span class="kicker">Page 11</span></header>
+        <figure>
+          <img src="images/page-11.png" alt="Firmware loop diagram with receive, validate, drive, read, report, and stop-if-unsafe stages">
+          <figcaption>The controller loop should be simple, deterministic, and suspicious of every incoming command.</figcaption>
+        </figure>
+        <div class="notes">
+          <article class="note"><h3>Protocol</h3><p>Use tiny messages such as speed, turn, duration, and stop. Return sensor distance, battery, and error state.</p></article>
+          <article class="note"><h3>Timeout</h3><p>If commands stop arriving, the robot should stop automatically.</p></article>
+          <article class="note"><h3>Safety</h3><p>Obstacle, bumper, low-battery, and emergency-stop states must override model requests.</p></article>
+        </div>
+      </section>
+
+      <section class="page" id="page-12">
+        <header><h2>Step 6: Local Model</h2><span class="kicker">Page 12</span></header>
+        <figure>
+          <img src="images/page-12.png" alt="Local Gemma 4 setup with quantized model, local API, robot camera feed, and command output">
+          <figcaption>Run the model locally and make it talk to the robot through a small program you control.</figcaption>
+        </figure>
+        <div class="notes">
+          <article class="note"><h3>Local Host</h3><p>Use a laptop or mini PC first. Keep inference, logs, and prompts visible while debugging.</p></article>
+          <article class="note"><h3>Quantization</h3><p>Choose a quantized model size your hardware can run responsively, then benchmark before adding motion.</p></article>
+          <article class="note"><h3>API</h3><p>Wrap model calls with a local service that accepts scene summaries and returns constrained robot intents.</p></article>
+        </div>
+      </section>
+
+      <section class="page" id="page-13">
+        <header><h2>Perception Pipeline</h2><span class="kicker">Page 13</span></header>
+        <figure>
+          <img src="images/page-13.png" alt="Perception pipeline from camera frame to scene summary to Gemma 4 to safe command">
+          <figcaption>Vision becomes useful when it is compressed into simple facts the robot can act on safely.</figcaption>
+        </figure>
+        <div class="notes">
+          <article class="note"><h3>Observe</h3><p>Capture a frame, detect simple objects, and estimate distance or direction.</p></article>
+          <article class="note"><h3>Reason</h3><p>Ask the model for a small decision, such as describe, stop, turn left, or follow target.</p></article>
+          <article class="note"><h3>Constrain</h3><p>Translate model output into a fixed command schema before the controller sees it.</p></article>
+        </div>
+      </section>
+
+      <section class="page" id="page-14">
+        <header><h2>Skill 1: Conversation</h2><span class="kicker">Page 14</span></header>
+        <figure>
+          <img src="images/page-14.png" alt="Robot answering questions about visible objects through a local chat interface">
+          <figcaption>The first AI skill is low-risk: the robot describes what it sees and answers questions while staying still.</figcaption>
+        </figure>
+        <div class="notes">
+          <article class="note"><h3>Prompt</h3><p>Ask for short factual answers about the current scene: colors, object counts, and safe movement advice.</p></article>
+          <article class="note"><h3>Mode</h3><p>Keep motors disabled while validating camera framing, latency, and response quality.</p></article>
+          <article class="note"><h3>Log</h3><p>Save image timestamps, prompts, and answers so you can debug hallucinations or stale frames.</p></article>
+        </div>
+      </section>
+
+      <section class="page" id="page-15">
+        <header><h2>Skill 2: Obstacle Rover</h2><span class="kicker">Page 15</span></header>
+        <figure>
+          <img src="images/page-15.png" alt="Robot navigating a simple obstacle course with detect, plan, move, and stop stages">
+          <figcaption>Obstacle navigation combines model planning with hard sensor limits.</figcaption>
+        </figure>
+        <div class="notes">
+          <article class="note"><h3>Sense</h3><p>Distance readings should stop the robot even if the model thinks the path is clear.</p></article>
+          <article class="note"><h3>Plan</h3><p>Let the model choose between a few safe actions rather than free-form movement.</p></article>
+          <article class="note"><h3>Move</h3><p>Use short timed movements, then stop, re-sense, and decide again.</p></article>
+        </div>
+      </section>
+
+      <section class="page" id="page-16">
+        <header><h2>Skill 3: Object Follow</h2><span class="kicker">Page 16</span></header>
+        <figure>
+          <img src="images/page-16.png" alt="Robot tracking a blue cube with a vision overlay and safe steering arrows">
+          <figcaption>Object following is a good bridge between perception and motion because the goal is visible and easy to reset.</figcaption>
+        </figure>
+        <div class="notes">
+          <article class="note"><h3>Target</h3><p>Use a bright object with a known color or marker for the first follow tests.</p></article>
+          <article class="note"><h3>Distance</h3><p>Define a minimum following distance and stop band before you start moving.</p></article>
+          <article class="note"><h3>Fallback</h3><p>If the target disappears, stop and ask the model for a description rather than searching blindly.</p></article>
+        </div>
+      </section>
+
+      <section class="page" id="page-17">
+        <header><h2>Version B: Onboard Brain</h2><span class="kicker">Page 17</span></header>
+        <figure>
+          <img src="images/page-17.png" alt="Untethered robot variant with onboard compute, cooling, battery, and sensors">
+          <figcaption>Once behavior works, onboard compute removes the tether but adds power, heat, weight, and latency constraints.</figcaption>
+        </figure>
+        <div class="notes">
+          <article class="note"><h3>Compute</h3><p>Use a Pi-class board for light control and a stronger local machine or accelerator for bigger models.</p></article>
+          <article class="note"><h3>Thermals</h3><p>Plan airflow and temperature monitoring before enclosing the board.</p></article>
+          <article class="note"><h3>Battery</h3><p>Budget separate current for motors, sensors, controller, and compute. Measure runtime under load.</p></article>
+        </div>
+      </section>
+
+      <section class="page" id="page-18">
+        <header><h2>Version C: Voice Companion</h2><span class="kicker">Page 18</span></header>
+        <figure>
+          <img src="images/page-18.png" alt="Voice companion robot variant with microphone, speaker, servo head, and LED status">
+          <figcaption>Voice turns the robot into a companion interface, but the movement system should already be stable first.</figcaption>
+        </figure>
+        <div class="notes">
+          <article class="note"><h3>Input</h3><p>Add push-to-talk or a wake button before attempting always-on listening.</p></article>
+          <article class="note"><h3>Output</h3><p>Use short spoken responses and a visible LED state so users know when the robot is listening or thinking.</p></article>
+          <article class="note"><h3>Privacy</h3><p>Prefer local speech recognition and local model calls when the project goal is offline operation.</p></article>
+        </div>
+      </section>
+
+      <section class="page" id="page-19">
+        <header><h2>Test + Calibrate</h2><span class="kicker">Page 19</span></header>
+        <figure>
+          <img src="images/page-19.png" alt="Robot calibration course with motor test, sensor test, camera alignment, e-stop, and logs">
+          <figcaption>Testing makes the robot trustworthy: one capability, one metric, one log at a time.</figcaption>
+        </figure>
+        <div class="notes">
+          <article class="note"><h3>Checklist</h3><p>Verify stop behavior, motor direction, distance thresholds, camera orientation, and battery warning.</p></article>
+          <article class="note"><h3>Course</h3><p>Use tape marks, simple obstacles, and repeatable distances so improvements are measurable.</p></article>
+          <article class="note"><h3>Logs</h3><p>Record commands, sensor values, model outputs, and controller rejects for every run.</p></article>
+        </div>
+      </section>
+
+      <section class="page" id="page-20">
+        <header><h2>Upgrade Map</h2><span class="kicker">Page 20</span></header>
+        <figure>
+          <img src="images/page-20.png" alt="Capability matrix comparing beginner, onboard, voice, arm, and outdoor robot upgrade paths">
+          <figcaption>Choose upgrades by capability, not by parts shopping. Each version should teach one new idea.</figcaption>
+        </figure>
+        <div class="notes">
+          <article class="note"><h3>Paths</h3><p>Tethered rover, onboard rover, voice companion, arm add-on, and outdoor-ready base are separate learning tracks.</p></article>
+          <article class="note"><h3>Capabilities</h3><p>Vision, speech, navigation, manipulation, and battery endurance each require different hardware tradeoffs.</p></article>
+          <article class="note"><h3>Next Build</h3><p>Pick the smallest upgrade that unlocks the next skill, then return to the test course.</p></article>
+        </div>
+      </section>
+
+      <section class="appendix">
+        <h2>Build Notes</h2>
+        <p>This booklet is a visual learning scaffold, not an electrical certification or final parts specification. Verify voltages, current limits, battery chemistry, motor-driver ratings, and local laws before building a moving device.</p>
+        <ul>
+          <li>Use a local model for high-level decisions, explanations, and planning.</li>
+          <li>Use deterministic firmware for timing, motor control, limits, watchdogs, and emergency stop.</li>
+          <li>Start with conversation and perception before enabling autonomous movement.</li>
+          <li>Keep command schemas small: stop, forward, reverse, left, right, speed, duration.</li>
+          <li>Log every run so the robot becomes easier to debug as it becomes more capable.</li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>
