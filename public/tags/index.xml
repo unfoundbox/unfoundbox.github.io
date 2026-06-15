@@ -2,17 +2,39 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on saurabh</title>
-    <link>http://localhost:1313/tags/</link>
+    <link>https://saurabhnandwana.com/tags/</link>
     <description>Recent content in Tags on saurabh</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Mon, 07 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 15 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://saurabhnandwana.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Craftsmen</title>
-      <link>http://localhost:1313/tags/craftsmen/</link>
-      <pubDate>Mon, 07 Apr 2025 00:00:00 +0000</pubDate>
+      <title>Ai</title>
+      <link>https://saurabhnandwana.com/tags/ai/</link>
+      <pubDate>Mon, 15 Jun 2026 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/craftsmen/</guid>
+      <guid>https://saurabhnandwana.com/tags/ai/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Data-Centers</title>
+      <link>https://saurabhnandwana.com/tags/data-centers/</link>
+      <pubDate>Mon, 15 Jun 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://saurabhnandwana.com/tags/data-centers/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Future</title>
+      <link>https://saurabhnandwana.com/tags/future/</link>
+      <pubDate>Mon, 15 Jun 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://saurabhnandwana.com/tags/future/</guid>
       
       <description></description>
       
@@ -20,10 +42,54 @@
     
     <item>
       <title>India</title>
-      <link>http://localhost:1313/tags/india/</link>
-      <pubDate>Mon, 07 Apr 2025 00:00:00 +0000</pubDate>
+      <link>https://saurabhnandwana.com/tags/india/</link>
+      <pubDate>Mon, 15 Jun 2026 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/india/</guid>
+      <guid>https://saurabhnandwana.com/tags/india/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Infrastructure</title>
+      <link>https://saurabhnandwana.com/tags/infrastructure/</link>
+      <pubDate>Mon, 15 Jun 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://saurabhnandwana.com/tags/infrastructure/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Research</title>
+      <link>https://saurabhnandwana.com/tags/research/</link>
+      <pubDate>Mon, 15 Jun 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://saurabhnandwana.com/tags/research/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Strategy</title>
+      <link>https://saurabhnandwana.com/tags/strategy/</link>
+      <pubDate>Mon, 15 Jun 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://saurabhnandwana.com/tags/strategy/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Katana</title>
+      <link>https://saurabhnandwana.com/tags/katana/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://saurabhnandwana.com/tags/katana/</guid>
       
       <description></description>
       
@@ -31,54 +97,65 @@
     
     <item>
       <title>Startup</title>
-      <link>http://localhost:1313/tags/startup/</link>
-      <pubDate>Mon, 07 Apr 2025 00:00:00 +0000</pubDate>
+      <link>https://saurabhnandwana.com/tags/startup/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/startup/</guid>
-      
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Voice-Tech</title>
-      <link>http://localhost:1313/tags/voice-tech/</link>
-      <pubDate>Mon, 07 Apr 2025 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/voice-tech/</guid>
+      <guid>https://saurabhnandwana.com/tags/startup/</guid>
       
       <description></description>
       
     </item>
     
     <item>
-      <title>Whatsapp</title>
-      <link>http://localhost:1313/tags/whatsapp/</link>
-      <pubDate>Mon, 07 Apr 2025 00:00:00 +0000</pubDate>
+      <title>Video</title>
+      <link>https://saurabhnandwana.com/tags/video/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/whatsapp/</guid>
-      
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Development</title>
-      <link>http://localhost:1313/tags/development/</link>
-      <pubDate>Sat, 01 Mar 2025 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/development/</guid>
+      <guid>https://saurabhnandwana.com/tags/video/</guid>
       
       <description></description>
       
     </item>
     
     <item>
-      <title>New-Markets</title>
-      <link>http://localhost:1313/tags/new-markets/</link>
-      <pubDate>Sat, 01 Mar 2025 00:00:00 +0000</pubDate>
+      <title>Gemma</title>
+      <link>https://saurabhnandwana.com/tags/gemma/</link>
+      <pubDate>Tue, 09 Jun 2026 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/new-markets/</guid>
+      <guid>https://saurabhnandwana.com/tags/gemma/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Local-Ai</title>
+      <link>https://saurabhnandwana.com/tags/local-ai/</link>
+      <pubDate>Tue, 09 Jun 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://saurabhnandwana.com/tags/local-ai/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Maker</title>
+      <link>https://saurabhnandwana.com/tags/maker/</link>
+      <pubDate>Tue, 09 Jun 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://saurabhnandwana.com/tags/maker/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Robotics</title>
+      <link>https://saurabhnandwana.com/tags/robotics/</link>
+      <pubDate>Tue, 09 Jun 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://saurabhnandwana.com/tags/robotics/</guid>
       
       <description></description>
       
@@ -86,10 +163,76 @@
     
     <item>
       <title>Web-Apis</title>
-      <link>http://localhost:1313/tags/web-apis/</link>
+      <link>https://saurabhnandwana.com/tags/web-apis/</link>
+      <pubDate>Sun, 07 Jun 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://saurabhnandwana.com/tags/web-apis/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Webgpu</title>
+      <link>https://saurabhnandwana.com/tags/webgpu/</link>
+      <pubDate>Sun, 07 Jun 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://saurabhnandwana.com/tags/webgpu/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Craftsmen</title>
+      <link>https://saurabhnandwana.com/tags/craftsmen/</link>
+      <pubDate>Mon, 07 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://saurabhnandwana.com/tags/craftsmen/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Voice-Tech</title>
+      <link>https://saurabhnandwana.com/tags/voice-tech/</link>
+      <pubDate>Mon, 07 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://saurabhnandwana.com/tags/voice-tech/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Whatsapp</title>
+      <link>https://saurabhnandwana.com/tags/whatsapp/</link>
+      <pubDate>Mon, 07 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://saurabhnandwana.com/tags/whatsapp/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Development</title>
+      <link>https://saurabhnandwana.com/tags/development/</link>
       <pubDate>Sat, 01 Mar 2025 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/web-apis/</guid>
+      <guid>https://saurabhnandwana.com/tags/development/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>New-Markets</title>
+      <link>https://saurabhnandwana.com/tags/new-markets/</link>
+      <pubDate>Sat, 01 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://saurabhnandwana.com/tags/new-markets/</guid>
       
       <description></description>
       
@@ -97,10 +240,10 @@
     
     <item>
       <title>Career</title>
-      <link>http://localhost:1313/tags/career/</link>
+      <link>https://saurabhnandwana.com/tags/career/</link>
       <pubDate>Mon, 24 Feb 2025 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/career/</guid>
+      <guid>https://saurabhnandwana.com/tags/career/</guid>
       
       <description></description>
       
@@ -108,10 +251,10 @@
     
     <item>
       <title>Sabbatical</title>
-      <link>http://localhost:1313/tags/sabbatical/</link>
+      <link>https://saurabhnandwana.com/tags/sabbatical/</link>
       <pubDate>Mon, 24 Feb 2025 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/sabbatical/</guid>
+      <guid>https://saurabhnandwana.com/tags/sabbatical/</guid>
       
       <description></description>
       
@@ -119,10 +262,10 @@
     
     <item>
       <title>Nomading</title>
-      <link>http://localhost:1313/tags/nomading/</link>
+      <link>https://saurabhnandwana.com/tags/nomading/</link>
       <pubDate>Sun, 12 Jan 2025 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/nomading/</guid>
+      <guid>https://saurabhnandwana.com/tags/nomading/</guid>
       
       <description></description>
       
@@ -130,10 +273,10 @@
     
     <item>
       <title>Travel</title>
-      <link>http://localhost:1313/tags/travel/</link>
+      <link>https://saurabhnandwana.com/tags/travel/</link>
       <pubDate>Sun, 12 Jan 2025 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/travel/</guid>
+      <guid>https://saurabhnandwana.com/tags/travel/</guid>
       
       <description></description>
       

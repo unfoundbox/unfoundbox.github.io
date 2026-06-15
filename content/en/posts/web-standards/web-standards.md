@@ -103,4 +103,10 @@ The browser as application platform continues to strengthen, with several forces
 
 The convergence of advanced Web APIs represents a transformative moment in browser capabilities, enabling entirely new categories of applications. The most promising opportunities lie in reimagining existing high-friction experiences (gaming, video editing, live streaming) and creating entirely new interaction paradigms (neural browsers, spatial computing). Organizations that move decisively to combine these technologies will establish leadership positions in the next generation of web applications.
 
+## Update - June 2026
+
+The clearest near-term AI opportunity I see in this space has narrowed from broad "AI in the browser" to local, task-specific inference on WebGPU. The interesting wedge is not giant chatbots in tabs; it is small models that win because the data should stay local, the latency must be live, the network may be unavailable, or the cloud cost breaks the product.
+
+I wrote up the newer research here: [Local Inference on WebGPU: Where Small Models Actually Win](/posts/webgpu-local-inference/).
+
 ## Credits - claude sonnet 3.7 extended thinking model

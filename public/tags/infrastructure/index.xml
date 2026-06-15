@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Infrastructure on saurabh</title>
+    <link>https://saurabhnandwana.com/tags/infrastructure/</link>
+    <description>Recent content in Infrastructure on saurabh</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Mon, 15 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://saurabhnandwana.com/tags/infrastructure/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>India Data Center Capacity: Current Base, Pipeline, and What It Means</title>
+      <link>https://saurabhnandwana.com/posts/india-data-center-capacity/</link>
+      <pubDate>Mon, 15 Jun 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://saurabhnandwana.com/posts/india-data-center-capacity/</guid>
+      
+      <description>&lt;h1 id=&#34;india-data-center-capacity-current-base-pipeline-and-what-it-means&#34;&gt;India Data Center Capacity: Current Base, Pipeline, and What It Means&lt;/h1&gt;
+&lt;p&gt;India&amp;rsquo;s data-center market is already at gigawatt scale, and the next wave is large enough to change the structure of the market.&lt;/p&gt;
+&lt;p&gt;The research problem is that public numbers mix definitions. Some sources measure IT load. Some measure total power capacity. Some include only colocation. Others include broader campus announcements. If you force those into one clean number, you get false precision.&lt;/p&gt;</description>
+      
+    </item>
+    
+  </channel>
+</rss>
