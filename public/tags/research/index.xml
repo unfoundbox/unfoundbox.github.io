@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Research on saurabh</title>
+    <link>https://unfoundbox.com/tags/research/</link>
+    <description>Recent content in Research on saurabh</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Mon, 15 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://unfoundbox.com/tags/research/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>India Data Center Capacity: Current Base, Pipeline, and What It Means</title>
+      <link>https://unfoundbox.com/posts/india-data-center-capacity/</link>
+      <pubDate>Mon, 15 Jun 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://unfoundbox.com/posts/india-data-center-capacity/</guid>
+      
+      <description>&lt;h1 id=&#34;india-data-center-capacity-current-base-pipeline-and-what-it-means&#34;&gt;India Data Center Capacity: Current Base, Pipeline, and What It Means&lt;/h1&gt;
+&lt;p&gt;India&amp;rsquo;s data-center market is already at gigawatt scale, and the next wave is large enough to change the structure of the market.&lt;/p&gt;
+&lt;p&gt;The research problem is that public numbers mix definitions. Some sources measure IT load. Some measure total power capacity. Some include only colocation. Others include broader campus announcements. If you force those into one clean number, you get false precision.&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>The Future of AI: A Map of Disagreement</title>
+      <link>https://unfoundbox.com/posts/ai-future-landscape/</link>
+      <pubDate>Mon, 15 Jun 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://unfoundbox.com/posts/ai-future-landscape/</guid>
+      
+      <description>&lt;h1 id=&#34;the-future-of-ai-a-map-of-disagreement&#34;&gt;The Future of AI: A Map of Disagreement&lt;/h1&gt;
+&lt;p&gt;The smartest people in AI agree on one thing: this matters enormously. After that, the map breaks apart.&lt;/p&gt;
+&lt;p&gt;Some expect a fast intelligence explosion. Some expect a sharp but continuous acceleration. Some think the current path is overhyped, bottlenecked by the physical world, or missing the architecture required for real general intelligence. The honest landscape is not a single forecast. It is a map of disagreements between people who have thought about the problem seriously.&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Local Inference on WebGPU: Where Small Models Actually Win</title>
+      <link>https://unfoundbox.com/posts/webgpu-local-inference/</link>
+      <pubDate>Sun, 07 Jun 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://unfoundbox.com/posts/webgpu-local-inference/</guid>
+      
+      <description>&lt;h1 id=&#34;local-inference-on-webgpu-where-small-models-actually-win&#34;&gt;Local Inference on WebGPU: Where Small Models Actually Win&lt;/h1&gt;
+&lt;p&gt;The exciting version of browser AI is not &amp;ldquo;run a giant chatbot in a tab.&amp;rdquo; The useful version is narrower and more practical:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Train or fine-tune a small model in Python, export it to ONNX or a browser-friendly runtime, and run the loop locally through WebGPU.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;As of this research snapshot, that loop is real enough to build with. The advantage is not universal, but in a few cases it is decisive: private data stays on device, latency drops below the threshold where interaction feels live, server cost goes to zero, and offline use becomes possible.&lt;/p&gt;</description>
+      
+    </item>
+    
+  </channel>
+</rss>

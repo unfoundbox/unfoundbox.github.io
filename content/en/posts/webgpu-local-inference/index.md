@@ -1,0 +1,97 @@
+---
+title: "Local Inference on WebGPU: Where Small Models Actually Win"
+date: 2026-06-07
+draft: false
+tags: ['ai', 'webgpu', 'local-ai', 'web-apis', 'research']
+---
+
+# Local Inference on WebGPU: Where Small Models Actually Win
+
+The exciting version of browser AI is not "run a giant chatbot in a tab." The useful version is narrower and more practical:
+
+> Train or fine-tune a small model in Python, export it to ONNX or a browser-friendly runtime, and run the loop locally through WebGPU.
+
+As of this research snapshot, that loop is real enough to build with. The advantage is not universal, but in a few cases it is decisive: private data stays on device, latency drops below the threshold where interaction feels live, server cost goes to zero, and offline use becomes possible.
+
+## The stack is real, the hype is not
+
+The strongest pattern in the research was this: sub-2B models are already good enough for structured tasks, but they are not magic general agents. They shine when the task has a tight schema, a narrow domain, and a reason the cloud is expensive, slow, unavailable, or legally awkward.
+
+The cleanest proof point was clinical note generation. A team fine-tuned Llama 3.2 1B with LoRA on 1,500 synthetic pairs and ran the result fully in-browser. The fine-tuned model improved ROUGE-1 from 0.346 to 0.496 and cut hallucinations from 85 to 35 in the evaluation set. That is not "clinical-grade product" by itself, but it is enough to prove the architecture.
+
+Just as important: some popular claims did not survive scrutiny. Local execution is not automatically "completely private" because model weights still have to be downloaded at least once. And the "100x faster than WASM" claim for WebGPU is too broad. The more honest range is closer to 3-15x, with real results depending heavily on browser, GPU, model shape, and memory pressure.
+
+## Models that already fit in the browser
+
+| Model | Class | Why it matters |
+| --- | --- | --- |
+| Moonshine Tiny | 26M streaming ASR | Small enough for real-time local speech loops. |
+| Moonshine Medium | 245M streaming ASR | Reported around 107ms end-of-speech latency on local hardware. |
+| SmolVLM-256M | Vision-language | Offline visual question-answering with under 1GB GPU memory. |
+| Gemma 3 270M | Small LLM | Fine-tunable, on-device-oriented text model. |
+| Qwen2.5-0.5B | Small LLM | Useful for constrained generation and RAG-style answers. |
+| Llama 3.2 1B | Small LLM | Large enough for domain fine-tuning while still browser-runnable after quantization. |
+
+The main design lesson: model size is no longer the primary question. The better question is whether the task can be made small enough.
+
+## Five buildable use cases
+
+| Rank | Use case | Why local wins |
+| --- | --- | --- |
+| 1 | Privacy-decisive vertical scribes | Clinical, legal, HR, and finance notes often cannot touch a generic cloud API. |
+| 2 | Gaussian splatting plus per-frame inference | Rendering and inference can share one local GPU pipeline where streaming the scene would be expensive. |
+| 3 | Sub-200ms voice loops | Courtrooms, factories, aircraft, maritime, and field work need offline, private, low-latency commands. |
+| 4 | Tiny-VLM field and accessibility apps | Camera feeds can stay private while the app describes scenes or answers questions offline. |
+| 5 | Private RAG over regulated documents | The moat is not RAG itself. It is searching documents you are legally forbidden to upload. |
+
+## The most promising wedge: regulated scribes
+
+The regulated scribe pattern is simple:
+
+1. A professional dictates or uploads a short interaction.
+2. On-device ASR converts speech to text.
+3. A small fine-tuned LLM emits a structured note.
+4. The user reviews and edits locally.
+5. Only the final approved artifact is exported.
+
+This is not interesting because it replaces a doctor, lawyer, or HR operator. It is interesting because it removes the compliance objection that blocks many cloud-first tools from being tried at all.
+
+A browser product can also be distributed with almost no installation friction. That matters for regulated workflows where IT approval is slow, but "open this approved internal URL" is much easier than installing a native app.
+
+## Voice is the other obvious wedge
+
+The research compared on-device streaming ASR against batch-style cloud-class speech models. The exact comparison is not perfectly apples-to-apples, but the product point is clear: if the interaction needs to feel like a command loop, 100ms and 11 seconds are not the same category.
+
+That makes local voice attractive in places where the network is weak, egress is restricted, or latency changes behavior:
+
+- Factory-floor controls
+- Courtroom and meeting capture
+- Field-service devices
+- Maritime and aviation workflows
+- Offline education and accessibility tools
+
+The winning voice app will probably not market itself as "AI." It will feel like a reliable local instrument.
+
+## What to watch before building
+
+The hard limits are practical, not philosophical:
+
+- Browser memory caps still matter, especially around 1-2B parameter models.
+- Safari and iOS parity is improving but uneven.
+- Web Workers and careful scheduling are required if you do not want the UI to freeze.
+- Some encoder-decoder models still have rough edges in browser runtimes.
+- Sub-1B LLMs are narrow. They are great for structured transformations and weak for open-ended agency.
+
+The best near-term products will not ask a tiny model to be a genius. They will give it a narrow job where privacy, latency, offline behavior, or cost turns "good enough" into "better than the cloud."
+
+## Sources worth reading
+
+- SmolVLM: small but capable VLMs, arXiv 2504.05299
+- Moonshine: fast on-device streaming ASR
+- Hugging Face Transformers.js v3 WebGPU support
+- Google: fine-tuning Gemma 3 270M for on-device use
+- In-browser clinical note generation, arXiv 2507.03033
+- Visionary and WebSplatter papers on WebGPU, ONNX, and Gaussian splatting
+- Microsoft examples of WebGPU plus ONNX Runtime Web for RAG
+
+This is a June 2026 research snapshot, so model names, runtime support, and performance numbers will age quickly. The durable idea is smaller: local inference is compelling when the product has a local-only reason to exist.

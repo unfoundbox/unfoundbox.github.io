@@ -5,24 +5,23 @@ author : "Saurabh Nandwana"
 
 # unfoundbox
 
-A personal blog where I share my experiences and insights as a software developer.
+A personal blog where I share research notes, startup lessons, and experiments from the edge of applied AI.
 
-## My Journey in Early-Stage Startups
+## Building From The Edges
 
-As a developer who has worked in multiple early-stage startups, I've had the opportunity to wear many hats and learn countless lessons along the way. Here, I'll be sharing:
+I grew up in Rajasthan, found programming through C++, dropped out of engineering, and learned my craft inside early-stage startups. That path took me from digital KYC and fintech to video infrastructure, applied ML, and AI product work.
 
-- My experiences navigating the fast-paced startup environment
-- Technical challenges I've encountered and overcome
-- Lessons learned about scaling products and teams
-- The ups and downs of startup life
+This blog is where I make the work legible:
 
-## The Sabbatical Chronicles
+- Deep research on AI, web platforms, and infrastructure
+- Notes from building and advising startup products
+- Experiments with local AI, video, robotics, and browser-native tools
+- Personal reflections on career, sabbatical, and independent work
 
-I'm currently on a sabbatical, taking time to reflect, learn, and plan my next moves. I'll be documenting:
+## Current Threads
 
-- Why I chose to take a break
-- What I'm learning during this time
-- My thoughts on personal and professional growth
-- Future plans and aspirations
+Right now I am especially interested in small models at the edge, AI video workflows, India-scale infrastructure, and products that turn raw model capability into useful systems.
 
-Stay tuned for regular updates on my journey!
+The archive is a mix of polished essays and working notes. That is intentional. I would rather publish the map while the terrain is still moving.
+
+Standalone visual drafts and research pages live here: [Research HTML](/research/).
