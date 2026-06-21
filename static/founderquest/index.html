@@ -1,0 +1,761 @@
+<!--
+  FOUNDER QUEST — a founder's ascent from idea to profit.
+  The Lean Startup (build–measure–learn) × Zero to One (10× / monopoly).
+
+  ⚙️  MONETIZATION (this is YOUR affiliate tool):
+      Every tool below has a `url`. Replace each with YOUR affiliate link.
+      Search for  // ===== TOOL CATALOG  and edit the `url` fields.
+      Each tool renders a "Visit" link tagged AFFILIATE — that's your revenue slot.
+-->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Founder Quest</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Newsreader:ital,opsz,wght@0,16..72,400;0,16..72,500;1,16..72,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    /* topographic paper + ink */
+    --paper:#E9EAE2;        /* cool map base */
+    --paper-2:#F3F3EC;      /* card */
+    --paper-3:#FBFBF6;      /* raised */
+    --ink:#1E2A28;          /* cartographic ink */
+    --ink-2:#3D4845;
+    --muted:#79827C;
+    --faint:#9AA29B;
+    --rule:#D2D4C8;         /* hairlines */
+    --rule-2:#C2C5B7;
+    --alpine:#1F5A66;       /* primary — contour blue/teal */
+    --alpine-d:#16424B;
+    --survey:#C25420;       /* sparing accent — survey orange */
+    --survey-soft:#E5C9B5;
+    --moss:#566F40;         /* cleared / vegetation green */
+    --moss-soft:#CDD6BE;
+
+    --f-display:'Archivo',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    --f-read:'Newsreader',Georgia,'Times New Roman',serif;
+    --f-mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  }
+
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--f-display);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    min-height:100vh;
+  }
+  a{color:inherit}
+  button{font-family:inherit}
+  ::selection{background:var(--survey-soft)}
+
+  /* faint contour texture */
+  .topo{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:.5}
+  .topo path{fill:none;stroke:var(--ink);stroke-width:1;opacity:.05}
+
+  .mono{font-family:var(--f-mono)}
+  .label{font-family:var(--f-mono);text-transform:uppercase;letter-spacing:.18em;font-size:11px;color:var(--muted)}
+
+  /* ---------------- HUD ---------------- */
+  .hud{
+    position:sticky;top:0;z-index:40;
+    display:flex;align-items:center;gap:18px;flex-wrap:wrap;
+    padding:13px 24px;
+    background:var(--paper);
+    border-bottom:1px solid var(--rule-2);
+  }
+  .brand{display:flex;align-items:center;gap:12px;margin-right:auto}
+  .brand .mk{width:30px;height:30px;flex:none;color:var(--ink)}
+  .brand .mk svg{width:30px;height:30px;display:block}
+  .brand .wm{font-family:var(--f-display);font-weight:800;font-size:16px;letter-spacing:.04em;text-transform:uppercase}
+  .brand .tag{display:block;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.04em;color:var(--muted);margin-top:1px}
+
+  .readout{font-family:var(--f-mono);font-size:12px;color:var(--ink-2);letter-spacing:.02em;
+    border:1px solid var(--rule-2);background:var(--paper-2);padding:6px 11px;border-radius:3px;white-space:nowrap}
+  .readout b{color:var(--survey);font-weight:600}
+
+  .txtbtn{background:none;border:0;cursor:pointer;color:var(--ink-2);
+    font-family:var(--f-mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;
+    padding:6px 2px;border-bottom:1.5px solid transparent;transition:border-color .15s,color .15s}
+  .txtbtn:hover{color:var(--alpine);border-color:var(--alpine)}
+  .txtbtn.muted:hover{color:var(--survey);border-color:var(--survey)}
+
+  /* ---------------- LAYOUT ---------------- */
+  .wrap{position:relative;z-index:1;max-width:1160px;margin:0 auto;padding:30px 24px 70px}
+  .layout{display:grid;grid-template-columns:300px 1fr;gap:34px;align-items:start}
+
+  .rail{position:sticky;top:78px;display:flex;flex-direction:column;gap:0}
+
+  .panel{background:var(--paper-2);border:1px solid var(--rule-2);border-radius:4px}
+
+  /* ---- route card (signature: elevation profile) ---- */
+  .routecard{padding:18px 18px 16px}
+  .routecard .ch{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:4px}
+  .rankname{font-family:var(--f-display);font-weight:800;font-size:23px;letter-spacing:-.01em;line-height:1.05;margin:2px 0 0}
+  .profile{margin:14px 0 8px}
+  .profile svg{display:block;width:100%;height:auto}
+  .xprow{display:flex;align-items:baseline;justify-content:space-between;font-family:var(--f-mono);
+    font-size:12px;color:var(--ink-2);border-top:1px dashed var(--rule-2);padding-top:10px;margin-top:6px}
+  .xprow .nx{color:var(--muted)}
+  .xprow .nx b{color:var(--alpine)}
+
+  /* ---- route list (camp navigator) ---- */
+  .routelist{margin-top:18px;padding:6px 0 4px}
+  .routelist .lh{padding:8px 18px 6px}
+  .camp{
+    display:grid;grid-template-columns:30px 1fr;gap:13px;align-items:center;
+    width:100%;text-align:left;background:none;border:0;cursor:pointer;color:var(--ink);
+    padding:9px 18px;position:relative;
+  }
+  .camp:disabled{cursor:not-allowed}
+  /* route line behind markers */
+  .camp::before{content:"";position:absolute;left:32px;top:-50%;width:1.5px;height:100%;background:var(--rule-2);z-index:1}
+  .camp:first-of-type::before{display:none}
+  .camp .mark{
+    width:30px;height:30px;border-radius:50%;flex:none;display:grid;place-items:center;z-index:2;
+    font-family:var(--f-mono);font-size:12px;font-weight:600;
+    background:var(--paper-2);border:1.5px solid var(--rule-2);color:var(--muted);
+  }
+  .camp .mark svg{width:14px;height:14px;display:block}
+  .camp .nm{font-family:var(--f-display);font-weight:600;font-size:14px;line-height:1.15}
+  .camp .sub{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.02em;color:var(--faint);margin-top:2px}
+
+  .camp[data-s="active"] .mark{border-color:var(--survey);color:var(--survey);background:var(--paper-3);
+    box-shadow:0 0 0 3px rgba(194,84,32,.12)}
+  .camp[data-s="active"] .nm{color:var(--ink)}
+  .camp[data-s="active"]{background:linear-gradient(90deg,rgba(194,84,32,.06),transparent)}
+  .camp[data-s="done"] .mark,.camp[data-s="active-done"] .mark{background:var(--moss);border-color:var(--moss);color:var(--paper-3)}
+  .camp[data-s="active-done"]{background:linear-gradient(90deg,rgba(86,111,64,.08),transparent)}
+  .camp[data-s="active-done"] .mark{box-shadow:0 0 0 3px rgba(86,111,64,.14)}
+  .camp[data-s="done"]::before,.camp[data-s="active-done"]::before{background:var(--moss)}
+  .camp[data-s="locked"]{opacity:.45}
+
+  .restart{padding:10px 18px 6px}
+  .restart button{background:none;border:0;cursor:pointer;color:var(--faint);font-family:var(--f-mono);
+    font-size:11px;letter-spacing:.04em;text-decoration:underline;text-underline-offset:3px;padding:2px 0}
+  .restart button:hover{color:var(--survey)}
+
+  /* ---------------- STAGE ---------------- */
+  .stage{min-width:0}
+  .crumb{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--alpine);
+    display:flex;align-items:center;gap:9px}
+  .crumb .dot{width:4px;height:4px;border-radius:50%;background:var(--survey)}
+  .stage h1{font-family:var(--f-display);font-weight:800;font-size:clamp(30px,4.4vw,44px);letter-spacing:-.022em;
+    line-height:1.02;margin:11px 0 9px}
+  .lede{font-family:var(--f-read);font-size:18.5px;line-height:1.5;color:var(--ink-2);max-width:60ch}
+
+  .principle{margin:24px 0 4px;padding:16px 20px;border-left:2.5px solid var(--alpine);background:var(--paper-3);border-radius:0 4px 4px 0}
+  .principle .pl{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+  .principle p{font-family:var(--f-read);font-size:17px;line-height:1.52;margin:0;color:var(--ink)}
+  .principle .src{display:block;font-family:var(--f-mono);font-size:11px;letter-spacing:.04em;color:var(--alpine);margin-top:11px}
+
+  .sec{margin-top:36px}
+  .sech{display:flex;align-items:baseline;justify-content:space-between;gap:12px;
+    border-bottom:1px solid var(--rule-2);padding-bottom:9px;margin-bottom:16px}
+  .sech h2{font-family:var(--f-display);font-weight:700;font-size:15px;letter-spacing:.06em;text-transform:uppercase;margin:0}
+  .sech .ct{font-family:var(--f-mono);font-size:11.5px;color:var(--muted)}
+
+  /* quests */
+  .quest{display:grid;grid-template-columns:24px 1fr auto;gap:15px;align-items:center;
+    padding:13px 4px;border-bottom:1px solid var(--rule);cursor:pointer;transition:background .12s}
+  .quest:hover{background:var(--paper-3)}
+  .quest .box{width:21px;height:21px;border-radius:4px;border:1.5px solid var(--faint);background:var(--paper-3);
+    display:grid;place-items:center;flex:none;transition:.14s}
+  .quest .box svg{width:13px;height:13px;opacity:0;transform:scale(.5);transition:.16s;color:var(--paper-3)}
+  .quest .lab{font-size:14.5px;line-height:1.4}
+  .quest .xp{font-family:var(--f-mono);font-size:12px;color:var(--survey);white-space:nowrap}
+  .quest[data-done="1"] .box{background:var(--moss);border-color:var(--moss)}
+  .quest[data-done="1"] .box svg{opacity:1;transform:scale(1)}
+  .quest[data-done="1"] .lab{color:var(--muted)}
+  .quest[data-done="1"] .xp{color:var(--moss)}
+
+  /* notebook */
+  .note{margin-bottom:18px}
+  .note .q{font-family:var(--f-read);font-size:16px;font-style:italic;margin-bottom:8px;display:flex;align-items:center;gap:9px}
+  .note .saved{font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--moss);
+    opacity:0;transition:opacity .2s;font-style:normal}
+  .note .saved.show{opacity:1}
+  .note textarea{width:100%;min-height:74px;resize:vertical;background:var(--paper-3);
+    border:1px solid var(--rule-2);border-radius:4px;color:var(--ink);font-family:var(--f-display);
+    font-size:14.5px;line-height:1.5;padding:11px 13px;transition:border-color .15s}
+  .note textarea:focus{outline:none;border-color:var(--alpine)}
+  .note textarea::placeholder{color:var(--faint)}
+
+  /* gear / tools */
+  .gear{display:grid;grid-template-columns:1fr;gap:0}
+  .tool{display:grid;grid-template-columns:34px 1fr auto;gap:14px;align-items:center;
+    padding:15px 4px;border-bottom:1px solid var(--rule)}
+  .tool .ic{width:34px;height:34px;border-radius:4px;flex:none;display:grid;place-items:center;
+    font-family:var(--f-display);font-weight:700;font-size:15px;color:var(--ink);
+    background:var(--paper-3);border:1.5px solid var(--ink);align-self:start;margin-top:2px}
+  .tool .body .nm{font-family:var(--f-display);font-weight:700;font-size:15px}
+  .tool .body .why{font-family:var(--f-read);font-size:14px;color:var(--ink-2);line-height:1.42;margin-top:2px;max-width:46ch}
+  .tool .visit{display:inline-flex;flex-direction:column;align-items:flex-end;gap:4px;text-decoration:none;white-space:nowrap}
+  .tool .visit .go{font-family:var(--f-display);font-weight:600;font-size:13.5px;color:var(--alpine);
+    border-bottom:1.5px solid transparent;transition:border-color .15s}
+  .tool .visit:hover .go{border-color:var(--alpine)}
+  .tool .visit .aff{font-family:var(--f-mono);font-size:9px;letter-spacing:.12em;color:var(--faint)}
+
+  /* stage foot */
+  .foot{margin-top:34px;padding:22px;border:1px solid var(--rule-2);border-radius:4px;background:var(--paper-3);
+    display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;position:relative;overflow:hidden}
+  .foot .ft{font-size:14px;color:var(--ink-2)}
+  .foot .ft b{color:var(--ink);font-weight:700}
+  .gobtn{display:inline-flex;align-items:center;gap:9px;border:0;cursor:pointer;
+    background:var(--alpine);color:var(--paper-3);font-family:var(--f-display);font-weight:700;font-size:14px;
+    letter-spacing:.01em;padding:12px 20px;border-radius:4px;transition:background .15s,transform .1s}
+  .gobtn:hover{background:var(--alpine-d)}
+  .gobtn:active{transform:translateY(1px)}
+  .gobtn svg{width:16px;height:16px}
+  .gobtn.dis{background:none;color:var(--faint);border:1px solid var(--rule-2);cursor:not-allowed}
+
+  /* rubber-stamp "cleared" seal */
+  .stamp{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;
+    border:2.5px solid var(--survey);color:var(--survey);border-radius:6px;padding:9px 16px;
+    transform:rotate(-7deg);position:relative}
+  .stamp .big{font-family:var(--f-display);font-weight:800;font-size:17px;letter-spacing:.14em;text-transform:uppercase;line-height:1}
+  .stamp .sm{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;margin-top:3px}
+  .stamp.press{animation:press .42s cubic-bezier(.2,1.4,.35,1) both}
+  @keyframes press{0%{opacity:0;transform:rotate(5deg) scale(1.7)}60%{opacity:1}100%{opacity:1;transform:rotate(-7deg) scale(1)}}
+  .summit-line{font-family:var(--f-read);font-style:italic;font-size:15.5px;color:var(--ink)}
+
+  /* ---------------- SEALS MODAL ---------------- */
+  .overlay{position:fixed;inset:0;z-index:80;background:rgba(20,26,24,.5);
+    display:none;align-items:center;justify-content:center;padding:22px}
+  .overlay.open{display:flex}
+  .modal{width:min(540px,100%);max-height:86vh;overflow:auto;background:var(--paper-2);
+    border:1px solid var(--rule-2);border-radius:5px;padding:24px}
+  .modal h3{font-family:var(--f-display);font-weight:800;font-size:20px;letter-spacing:.02em;text-transform:uppercase;margin:0}
+  .modal .ms{font-family:var(--f-read);color:var(--ink-2);font-size:15px;margin:4px 0 20px}
+  .modal .x{float:right;background:none;border:0;color:var(--muted);font-size:24px;cursor:pointer;line-height:1;margin-top:-4px}
+  .modal .x:hover{color:var(--ink)}
+  .seals{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .seal{display:flex;gap:12px;align-items:center;padding:12px;border:1px solid var(--rule);border-radius:4px;background:var(--paper-3)}
+  .seal .disc{width:38px;height:38px;border-radius:50%;flex:none;display:grid;place-items:center;
+    border:1.5px dashed var(--faint);font-family:var(--f-mono);font-size:11px;font-weight:600;color:var(--faint)}
+  .seal.got{border-color:var(--rule-2)}
+  .seal.got .disc{border:2px solid var(--survey);border-style:solid;color:var(--survey)}
+  .seal .sn{font-family:var(--f-display);font-weight:700;font-size:13.5px}
+  .seal .sd{font-family:var(--f-read);font-size:12px;color:var(--muted);line-height:1.3}
+
+  .colophon{position:relative;z-index:1;max-width:1160px;margin:34px auto 0;padding:0 24px;
+    font-family:var(--f-mono);color:var(--faint);font-size:11px;line-height:1.7}
+  .colophon code{color:var(--survey)}
+
+  :focus-visible{outline:2px solid var(--alpine);outline-offset:2px;border-radius:2px}
+
+  /* ---------------- RESPONSIVE ---------------- */
+  @media (max-width:840px){
+    .layout{grid-template-columns:1fr;gap:24px}
+    .rail{position:static}
+    .seals{grid-template-columns:1fr}
+    .readout{order:3}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition:none!important;animation:none!important}
+  }
+</style>
+
+<svg class="topo" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+  <g id="contours"></g>
+</svg>
+
+<header class="hud">
+  <div class="brand">
+    <span class="mk" aria-hidden="true">
+      <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6">
+        <circle cx="16" cy="16" r="13"/>
+        <path d="M16 6 18.4 15 16 26 13.6 15 16 6Z" fill="currentColor" stroke="none"/>
+        <circle cx="16" cy="16" r="1.6" fill="var(--paper)"/>
+      </svg>
+    </span>
+    <span>
+      <span class="wm">Founder Quest</span>
+      <span class="tag">idea → users → revenue → profit → growth</span>
+    </span>
+  </div>
+
+  <div class="readout" id="readout" title="Progress along the route">ELEV 0% · CAMP 01/07</div>
+  <button class="txtbtn" id="sealsBtn">Seals <span id="sealCount">0/8</span></button>
+  <button class="txtbtn muted" id="resetBtn">Reset</button>
+</header>
+
+<div class="wrap">
+  <div class="layout">
+    <aside class="rail">
+      <div class="panel routecard">
+        <div class="ch"><span class="label">Current standing</span></div>
+        <div class="rankname" id="rankName">Daydreamer</div>
+        <div class="profile" id="profile"></div>
+        <div class="xprow">
+          <span id="xpNow">0 / 0 XP</span>
+          <span class="nx" id="xpNext">—</span>
+        </div>
+      </div>
+
+      <div class="panel routelist">
+        <div class="lh label">The route</div>
+        <div id="campList"></div>
+        <div class="restart"><button id="restartLink">Start over from base camp</button></div>
+      </div>
+    </aside>
+
+    <section class="stage" id="stage"></section>
+  </div>
+</div>
+
+<div class="colophon" id="colophon"></div>
+
+<div class="overlay" id="overlay">
+  <div class="modal" role="dialog" aria-modal="true" aria-label="Seals collected">
+    <button class="x" id="sealsClose" aria-label="Close">×</button>
+    <h3>Seals</h3>
+    <div class="ms">Each camp you clear presses a seal into your route card.</div>
+    <div class="seals" id="sealGrid"></div>
+  </div>
+</div>
+
+<script>
+/* =========================================================================
+   ===== TOOL CATALOG  ·  EDIT `url` → your affiliate link  ================
+   =========================================================================
+   HOW TO MONETIZE (research current as of Jun 2026):
+     1. Sign up for the program in each tool's trailing comment below.
+     2. The program gives you a personal tracking link (e.g.
+        https://tally.so/?via=YOURNAME). Paste it into that tool's `url`.
+     3. Tools marked NO PROGRAM have no affiliate program — leave the
+        plain `url` as-is (no commission is possible).
+
+   NETWORK LEGEND (join the account once, apply to many programs):
+     [PartnerStack] one account  -> partnerstack.com  (Notion, Stripe, Amplitude, Mixpanel)
+     [Dub]          one account  -> partners.dub.co   (Framer, Perplexity)
+     [Rewardful]    NOT a shared network — each is a separate signup
+     [In-house]     signup on the tool's own site
+   ========================================================================= */
+const T = {
+  // ---- HAS A PROGRAM · replace url with your personal tracking link ----
+  notion:   {n:"Notion",        why:"Capture your thesis, research and roadmap in one workspace.",       url:"https://www.notion.so"},        // [PartnerStack] $50/signup +20% yr1, 180d · apply: https://www.notion.com/affiliates (NEW APPS PAUSED — re-check)
+  pplx:     {n:"Perplexity",    why:"Pressure-test your market and surface what others miss.",            url:"https://www.perplexity.ai"},     // [Dub] ~$10/Pro signup +~10%* · apply: https://partners.dub.co/programs/perplexity
+  carrd:    {n:"Carrd",         why:"Ship a one-page landing site with email capture in an afternoon.",   url:"https://carrd.co"},              // [In-house] 30% on Pro upgrades · apply: https://carrd.co/docs/account/referral-program
+  tally:    {n:"Tally",         why:"Run problem interviews and waitlist surveys for free.",              url:"https://tally.so"},              // [In-house] 20% recurring, cap $150 · apply: https://tally.so/help/referral-program
+  framer:   {n:"Framer",        why:"Design a higher-fidelity landing page, no code.",                    url:"https://www.framer.com"},        // [Dub] 50% for 12mo, 90d · apply: https://www.framer.com/creators
+  beehiiv:  {n:"beehiiv",       why:"Own your audience with a newsletter from day one.",                  url:"https://www.beehiiv.com"},       // [Rewardful] 50-60% recurring 12mo, 60d · apply: https://www.beehiiv.com/partners
+  mixpanel: {n:"Mixpanel",      why:"Track retention curves and find your power users.",                  url:"https://mixpanel.com"},          // [PartnerStack] B2B referral (undisclosed) · apply: https://mixpanel.com/partners/
+  amplitude:{n:"Amplitude",     why:"Deep product analytics for funnels and cohort retention.",           url:"https://amplitude.com"},         // [PartnerStack] rate post-approval · apply: https://amplitude.com/affiliates
+  stripe:   {n:"Stripe",        why:"The default for taking payments online, anywhere.",                  url:"https://stripe.com"},            // [PartnerStack] one-time, undisclosed · apply: https://stripe.com/legal/affiliate-terms (affiliates@stripe.com)
+  baremet:  {n:"Baremetrics",   why:"Live MRR, churn and LTV dashboards on top of Stripe.",               url:"https://baremetrics.com"},       // [Rewardful] 20% recurring lifetime, 60d · apply: https://affiliates.baremetrics.com/signup
+  rewardful:{n:"Rewardful",     why:"Launch your OWN affiliate program on top of Stripe.",                url:"https://www.rewardful.com"},     // [In-house] 25% recurring 12mo, 60d · apply: https://friends.rewardful.com/signup
+  partner:  {n:"PartnerStack",  why:"Scale partnerships and affiliates as you grow.",                     url:"https://partnerstack.com"},      // [In-house] 15% first year · apply: https://partnerstack.com/our-partner-program/partners-affiliate
+
+  // ---- NO PROGRAM · leave url as-is, no commission possible ----
+  excali:   {n:"Excalidraw",    why:"Sketch the idea as a diagram before you write a line of code.",      url:"https://excalidraw.com"},        // NO PROGRAM (none exists)
+  posthog:  {n:"PostHog",       why:"See what your first users actually do, free to start.",              url:"https://posthog.com"},           // NO PROGRAM (partnership interest form only)
+  ph:       {n:"Product Hunt",  why:"Launch to early adopters who love trying new tools.",                url:"https://www.producthunt.com"},   // NO PROGRAM (referrals pay in swag/Pro credits, not cash)
+  hotjar:   {n:"Hotjar",        why:"Watch real sessions to spot exactly where users get stuck.",         url:"https://www.hotjar.com"},        // NO PROGRAM (folded into Contentsquare agency/reseller tiers)
+  lemon:    {n:"Lemon Squeezy", why:"Merchant of Record — sells globally and handles tax for you.",       url:"https://www.lemonsqueezy.com"},  // NO PROGRAM (affiliate feature is for merchants, no company-wide program)
+  polar:    {n:"Polar",         why:"Modern Merchant of Record built for indie devs selling worldwide.",  url:"https://polar.sh"},              // NO PROGRAM (no first-party; only merchant-side via Affonso)
+  chartmog: {n:"ChartMogul",    why:"Subscription analytics and clean unit economics.",                   url:"https://chartmogul.com"},        // NO PROGRAM (none public)
+  wave:     {n:"Wave",          why:"Free accounting to track your real monthly P&L.",                    url:"https://www.waveapps.com"},      // NO PROGRAM (the "Wave 30%" in directories is wave.co — a DIFFERENT company)
+  ahrefs:   {n:"Ahrefs",        why:"Find the SEO channel your competitors are sleeping on.",             url:"https://ahrefs.com"},            // NO PROGRAM (discontinued, no plans to reopen)
+};
+// * = third-party-sourced figure, not officially confirmed.
+
+/* =========================================================================
+   ===== THE JOURNEY  (Lean Startup × Zero to One) =========================
+   ========================================================================= */
+const STAGES = [
+  {
+    id:1, key:"secret", short:"The Secret", sub:"FIND YOUR EDGE", summit:false,
+    crumb:"Camp 01 · Zero to One", title:"The Secret",
+    lede:"Every great company is built on a truth few others believe yet. Before you build anything, find your 10× edge — not a 10% improvement on what already exists.",
+    principle:{text:"“What important truth do very few people agree with you on?” Start with a contrarian secret and a 10× advantage — then frame it as a set of assumptions you can test.", src:"Zero to One + The Lean Startup"},
+    quests:[
+      {id:"s1q1", xp:30, label:"Write your contrarian thesis — the secret you believe that most don't"},
+      {id:"s1q2", xp:25, label:"Define the 10×: why this is dramatically better, not marginally"},
+      {id:"s1q3", xp:20, label:"Pick ONE narrow beachhead market small enough to dominate"},
+      {id:"s1q4", xp:20, label:"List your top 3 leap-of-faith assumptions (what must be true)"},
+      {id:"s1q5", xp:15, label:"State the problem in one sentence a stranger would understand"},
+    ],
+    reflect:[
+      {id:"s1r1", q:"Your secret", ph:"What do you believe about this market that few others do?"},
+      {id:"s1r2", q:"Your 10×", ph:"Why is this dramatically better, faster, or cheaper — not just a little?"},
+    ],
+    tools:["notion","pplx","excali"],
+  },
+  {
+    id:2, key:"validate", short:"Validation", sub:"TEST BEFORE YOU BUILD", summit:false,
+    crumb:"Camp 02 · The Lean Startup", title:"Validation",
+    lede:"Most startups die building something nobody wants. Run the cheapest experiment that could prove you wrong — before you write real code.",
+    principle:{text:"Build → Measure → Learn. Turn your riskiest assumption into a test, ship a minimum experiment, and chase validated learning over vanity activity.", src:"The Lean Startup"},
+    quests:[
+      {id:"s2q1", xp:30, label:"Talk to 5 potential customers about the problem (listen, don't pitch)"},
+      {id:"s2q2", xp:25, label:"Ship a landing page that states the value + captures emails"},
+      {id:"s2q3", xp:30, label:"Run a smoke test: get 20 waitlist signups"},
+      {id:"s2q4", xp:25, label:"Define your MVP: the smallest thing that delivers the core 10×"},
+      {id:"s2q5", xp:15, label:"Write your kill criteria: “I'll know I'm wrong if ___”"},
+    ],
+    reflect:[
+      {id:"s2r1", q:"What surprised you", ph:"What did the 5 conversations teach you that you didn't expect?"},
+      {id:"s2r2", q:"Riskiest assumption", ph:"What's the cheapest way to test the thing most likely to kill this?"},
+    ],
+    tools:["carrd","tally","framer"],
+  },
+  {
+    id:3, key:"users", short:"First Users", sub:"DO THINGS THAT DON'T SCALE", summit:false,
+    crumb:"Camp 03 · Lean × Zero to One", title:"First Users",
+    lede:"Win a tiny market completely. Recruit your first users by hand, watch them like a hawk, and earn a small monopoly before you think about scale.",
+    principle:{text:"Dominate a small niche first — Thiel's “monopoly of a small market” — and get there by doing unscalable things: recruiting and delighting users one by one.", src:"Zero to One + Lean practice"},
+    quests:[
+      {id:"s3q1", xp:30, label:"Manually recruit your first 10 users, hand to hand"},
+      {id:"s3q2", xp:30, label:"Onboard 3 users personally and watch them use it live"},
+      {id:"s3q3", xp:20, label:"Instrument basic analytics — what do users actually do?"},
+      {id:"s3q4", xp:25, label:"Find one repeatable motion that reliably brings a user"},
+      {id:"s3q5", xp:20, label:"Run the one-question survey: “How disappointed if this vanished?”"},
+    ],
+    reflect:[
+      {id:"s3r1", q:"Where they came from", ph:"Exactly where did your first 10 users come from?"},
+      {id:"s3r2", q:"The aha moment", ph:"What do users do right before they first feel the value?"},
+    ],
+    tools:["posthog","beehiiv","ph"],
+  },
+  {
+    id:4, key:"pmf", short:"Product–Market Fit", sub:"FEEL THE PULL", summit:false,
+    crumb:"Camp 04 · The Lean Startup", title:"Product–Market Fit",
+    lede:"PMF is when the market pulls the product out of your hands. Measure it — retention and the “very disappointed” test — instead of guessing.",
+    principle:{text:"Chase the pull, not the push. Aim for 40%+ users “very disappointed” without you and a retention curve that flattens — the signature of a real, defensible niche.", src:"Sean Ellis test + The Lean Startup"},
+    quests:[
+      {id:"s4q1", xp:35, label:"Hit 40%+ “very disappointed” on the must-have survey"},
+      {id:"s4q2", xp:35, label:"Reach a retention curve that flattens (cohorts stop decaying)"},
+      {id:"s4q3", xp:25, label:"Identify your power users and what they have in common"},
+      {id:"s4q4", xp:20, label:"Cut features no one uses; double down on the core"},
+      {id:"s4q5", xp:25, label:"Write your positioning: “For [who], the only [what] that [10×].”"},
+    ],
+    reflect:[
+      {id:"s4r1", q:"Strongest signal of pull", ph:"What's the clearest evidence the market wants this?"},
+      {id:"s4r2", q:"Ideal customer", ph:"Describe your perfect customer as precisely as you can."},
+    ],
+    tools:["mixpanel","hotjar","amplitude"],
+  },
+  {
+    id:5, key:"revenue", short:"Revenue", sub:"CAPTURE VALUE", summit:false,
+    crumb:"Camp 05 · Zero to One", title:"Revenue",
+    lede:"Creating value isn't enough — you have to capture some of it. Charge money, early, and learn what people will actually pay for.",
+    principle:{text:"You can create X dollars of value and capture only some percentage of it. Price for the value you deliver, charge from day one where you can, and treat pricing as an experiment.", src:"Zero to One + Lean experiments"},
+    quests:[
+      {id:"s5q1", xp:30, label:"Set up payments and make the product purchasable"},
+      {id:"s5q2", xp:40, label:"Land your first paying customer"},
+      {id:"s5q3", xp:25, label:"Test at least 2 price points or packaging options"},
+      {id:"s5q4", xp:40, label:"Reach your first revenue milestone (e.g. $1,000 MRR)"},
+      {id:"s5q5", xp:20, label:"Define your value metric — what you actually charge per"},
+    ],
+    reflect:[
+      {id:"s5r1", q:"Top objection", ph:"What objection comes up most in the buying conversation?"},
+      {id:"s5r2", q:"Pricing hypothesis", ph:"What's your pricing bet, and why?"},
+    ],
+    tools:["stripe","lemon","polar"],
+  },
+  {
+    id:6, key:"profit", short:"Profit", sub:"MAKE THE MATH WORK", summit:false,
+    crumb:"Camp 06 · Durable economics", title:"Profit",
+    lede:"Revenue is a number; profit is survival. Get the unit economics working so growth makes you stronger, not poorer.",
+    principle:{text:"Durable businesses keep more than they spend. Get LTV comfortably above CAC, reach ramen profitability, and only pour fuel on an engine that already pays back.", src:"Unit economics + The Lean Startup"},
+    quests:[
+      {id:"s6q1", xp:25, label:"Calculate your gross margin per customer"},
+      {id:"s6q2", xp:35, label:"Get CAC payback under 12 months (LTV > 3× CAC)"},
+      {id:"s6q3", xp:45, label:"Reach ramen profitability — revenue covers your living costs"},
+      {id:"s6q4", xp:30, label:"Plug your biggest leak (churn or runaway cost)"},
+      {id:"s6q5", xp:20, label:"Build a simple monthly P&L you actually keep updated"},
+    ],
+    reflect:[
+      {id:"s6r1", q:"Biggest cost lever", ph:"Which single cost most affects whether you're profitable?"},
+      {id:"s6r2", q:"Where money leaks", ph:"Churn, refunds, infra, ads — where's the leak?"},
+    ],
+    tools:["baremet","chartmog","wave"],
+  },
+  {
+    id:7, key:"growth", short:"The Summit", sub:"1 → n", summit:true,
+    crumb:"Camp 07 · The Summit", title:"Growth",
+    lede:"Now go from 1 to n. Pick one growth engine, master it until CAC reliably beats LTV, then expand outward from the niche you already own.",
+    principle:{text:"Master one of the three engines of growth — sticky, viral, or paid — then expand from your beachhead into adjacent markets. Scale the monopoly; don't dilute it.", src:"The Lean Startup + Zero to One"},
+    quests:[
+      {id:"s7q1", xp:25, label:"Pick your primary growth engine: sticky, viral, or paid"},
+      {id:"s7q2", xp:35, label:"Find one channel where CAC < LTV, repeatably"},
+      {id:"s7q3", xp:30, label:"Build a referral / word-of-mouth loop"},
+      {id:"s7q4", xp:30, label:"Expand from your beachhead into the adjacent market"},
+      {id:"s7q5", xp:25, label:"Launch your own affiliate / partner program"},
+    ],
+    reflect:[
+      {id:"s7r1", q:"Your one engine", ph:"Which single growth engine are you betting on, and why?"},
+      {id:"s7r2", q:"Next market", ph:"What adjacent market do you take after you win this one?"},
+    ],
+    tools:["ahrefs","rewardful","partner"],
+  },
+];
+
+const RANKS = [
+  {p:0,t:"Daydreamer"},{p:1,t:"Tinkerer"},{p:15,t:"Builder"},{p:30,t:"Validator"},
+  {p:45,t:"Operator"},{p:60,t:"Founder"},{p:78,t:"Captain"},{p:95,t:"Empire Builder"},
+];
+
+const BADGES = [
+  {id:"first",code:"·",  n:"First Step",      d:"Logged your first quest"},
+  {id:"s1",   code:"SE", n:"Contrarian",      d:"Cleared The Secret"},
+  {id:"s2",   code:"VA", n:"Truth Seeker",    d:"Cleared Validation"},
+  {id:"s3",   code:"FU", n:"Crowd Starter",   d:"Cleared First Users"},
+  {id:"s4",   code:"FIT",n:"Magnet",          d:"Cleared Product–Market Fit"},
+  {id:"s5",   code:"$",  n:"First Dollar",    d:"Cleared Revenue"},
+  {id:"s6",   code:"P&L",n:"Ramen Profitable",d:"Cleared Profit"},
+  {id:"s7",   code:"▲",  n:"Summit",          d:"Reached the top — 1 → n"},
+];
+const STAGE_BADGE = {1:"s1",2:"s2",3:"s3",4:"s4",5:"s5",6:"s6",7:"s7"};
+const TOTAL_XP = STAGES.reduce((a,s)=>a+s.quests.reduce((b,q)=>b+q.xp,0),0);
+
+/* line icons */
+const I = {
+  check:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9.5 18 20 6.5"/></svg>',
+  lock :'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="5" y="11" width="14" height="9" rx="1.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>',
+  flag :'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 21V4"/><path d="M6 5h11l-3 3.5L17 12H6"/></svg>',
+  arrow:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg>',
+};
+
+/* ============================ STATE ===================================== */
+const KEY="founderquest:v1";
+const hasStore=(typeof window!=="undefined"&&window.storage&&typeof window.storage.get==="function");
+const hasLS=(function(){try{return typeof window!=="undefined"&&!!window.localStorage;}catch(e){return false;}})();
+let memBlob=null;
+let state={done:{},notes:{},badges:{},complete:{},active:1};
+
+async function loadState(){
+  try{
+    if(hasStore){const r=await window.storage.get(KEY); if(r&&r.value) return {...state,...JSON.parse(r.value)};}
+    else if(hasLS){const r=window.localStorage.getItem(KEY); if(r) return {...state,...JSON.parse(r)};}
+    else if(memBlob){return {...state,...JSON.parse(memBlob)};}
+  }catch(e){}
+  return null;
+}
+let saveTimer=null;
+function saveState(){
+  const blob=JSON.stringify(state);
+  clearTimeout(saveTimer);
+  saveTimer=setTimeout(async()=>{
+    try{ if(hasStore) await window.storage.set(KEY,blob); else if(hasLS) window.localStorage.setItem(KEY,blob); else memBlob=blob; }
+    catch(e){ memBlob=blob; }
+  },120);
+}
+
+/* ============================ DERIVED =================================== */
+function earnedXp(){let x=0;STAGES.forEach(s=>s.quests.forEach(q=>{if(state.done[q.id])x+=q.xp;}));return x;}
+function overallPct(){return Math.round(earnedXp()/TOTAL_XP*100);}
+function stageDoneCount(s){return s.quests.filter(q=>state.done[q.id]).length;}
+function stageXp(s){return s.quests.reduce((a,q)=>a+(state.done[q.id]?q.xp:0),0);}
+function stageMaxXp(s){return s.quests.reduce((a,q)=>a+q.xp,0);}
+function isStageComplete(s){return s.quests.every(q=>state.done[q.id]);}
+function isUnlocked(id){return id===1||state.complete[id-1];}
+function rankFor(pct){let r=RANKS[0],nx=null;for(let i=0;i<RANKS.length;i++){if(pct>=RANKS[i].p){r=RANKS[i];nx=RANKS[i+1]||null;}}return{r,nx};}
+function currentCampNo(){ for(let i=0;i<STAGES.length;i++){ if(!state.complete[STAGES[i].id]) return STAGES[i].id; } return 7; }
+
+const el=id=>document.getElementById(id);
+
+/* ============================ RENDER ==================================== */
+function render(){renderReadout();renderRank();renderProfile();renderCamps();renderStage();renderSealCount();}
+
+function renderReadout(){
+  el('readout').innerHTML='ELEV <b>'+overallPct()+'%</b> · CAMP '+String(currentCampNo()).padStart(2,'0')+'/07';
+}
+
+function renderRank(){
+  const p=overallPct(),{r,nx}=rankFor(p);
+  el('rankName').textContent=r.t;
+  el('xpNow').textContent=earnedXp()+' / '+TOTAL_XP+' XP';
+  if(nx){const need=Math.max(1,Math.ceil((nx.p-p)/100*TOTAL_XP));el('xpNext').innerHTML='<b>'+need+' XP</b> to '+nx.t;}
+  else el('xpNext').textContent='top rank reached';
+}
+
+/* signature: elevation profile of the 7-camp ascent */
+function renderProfile(){
+  const W=264,H=78,padL=8,padR=8,padT=10,padB=20;
+  const elev=[12,24,37,50,63,77,93]; // % height per camp
+  const n=STAGES.length;
+  const innerW=W-padL-padR, innerH=H-padT-padB;
+  const pts=STAGES.map((s,i)=>{
+    const x=padL+(innerW*(i/(n-1)));
+    const y=padT+innerH*(1-elev[i]/100);
+    return {x,y,s};
+  });
+  const lastDone=(()=>{let k=-1;STAGES.forEach((s,i)=>{if(state.complete[s.id])k=i;});return k;})();
+  const cur=currentCampNo()-1;
+
+  const line=pts.map((p,i)=>(i?'L':'M')+p.x.toFixed(1)+' '+p.y.toFixed(1)).join(' ');
+  const baseY=padT+innerH;
+
+  let dots='';
+  pts.forEach((p,i)=>{
+    let fill='var(--rule-2)',r=2.6,stroke='none';
+    if(i<=lastDone){fill='var(--moss)';r=3;}
+    if(i===cur){fill='var(--survey)';r=4;stroke='var(--paper-2)';}
+    dots+=`<circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="${r}" fill="${fill}" stroke="${stroke}" stroke-width="1.5"/>`;
+    dots+=`<text x="${p.x.toFixed(1)}" y="${(baseY+13).toFixed(0)}" text-anchor="middle" font-family="var(--f-mono)" font-size="8" fill="${i===cur?'var(--survey)':'var(--faint)'}">${i+1}</text>`;
+  });
+
+  // completed portion of the route drawn solid, rest dashed
+  const svg=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Route elevation profile">
+    <line x1="${padL}" y1="${baseY}" x2="${W-padR}" y2="${baseY}" stroke="var(--rule-2)" stroke-width="1"/>
+    <path d="${line}" fill="none" stroke="var(--ink)" stroke-width="1.5" stroke-opacity="0.28" stroke-dasharray="3 3"/>
+    <path d="${pts.slice(0,Math.max(cur+1,1)).map((p,i)=>(i?'L':'M')+p.x.toFixed(1)+' '+p.y.toFixed(1)).join(' ')}" fill="none" stroke="var(--alpine)" stroke-width="1.8"/>
+    <path d="M${pts[n-1].x.toFixed(1)} ${pts[n-1].y.toFixed(1)} l-3 6 l6 0 z" fill="var(--survey)"/>
+    ${dots}
+  </svg>`;
+  el('profile').innerHTML=svg;
+}
+
+function renderCamps(){
+  const wrap=el('campList');wrap.innerHTML='';
+  STAGES.forEach(s=>{
+    const unlocked=isUnlocked(s.id),complete=state.complete[s.id],active=state.active===s.id;
+    let st='locked';
+    if(complete&&active)st='active-done';else if(active)st='active';else if(complete)st='done';else if(unlocked)st='unlocked';
+    const inner=complete?I.check:(unlocked?(s.summit?I.flag:s.id):I.lock);
+    const b=document.createElement('button');
+    b.className='camp';b.setAttribute('data-s',st);b.disabled=!unlocked;
+    b.innerHTML=`<span class="mark">${inner}</span>
+      <span><span class="nm">${s.short}</span><span class="sub">${unlocked?s.sub:'LOCKED'}</span></span>`;
+    if(unlocked)b.addEventListener('click',()=>{state.active=s.id;saveState();renderCamps();renderStage();window.scrollTo({top:0,behavior:'smooth'});});
+    wrap.appendChild(b);
+  });
+}
+
+function toolRow(k){
+  const t=T[k];const init=t.n.replace(/[^A-Za-z0-9]/g,'').charAt(0).toUpperCase();
+  return `<div class="tool">
+    <span class="ic">${init}</span>
+    <span class="body"><span class="nm">${t.n}</span><span class="why">${t.why}</span></span>
+    <a class="visit" href="${t.url}" target="_blank" rel="noopener sponsored"><span class="go">Visit ↗</span><span class="aff">Affiliate</span></a>
+  </div>`;
+}
+
+function renderStage(){
+  const s=STAGES.find(x=>x.id===state.active)||STAGES[0];
+  const done=stageDoneCount(s),total=s.quests.length;
+  el('stage').innerHTML=`
+    <div class="crumb"><span class="dot"></span>${s.crumb}</div>
+    <h1>${s.title}</h1>
+    <p class="lede">${s.lede}</p>
+    <div class="principle"><div class="pl">Principle</div><p>${s.principle.text}</p><span class="src">— ${s.principle.src}</span></div>
+
+    <div class="sec">
+      <div class="sech"><h2>Quests</h2><span class="ct">${done}/${total} logged · ${stageXp(s)}/${stageMaxXp(s)} XP</span></div>
+      <div id="quests"></div>
+    </div>
+
+    <div class="sec">
+      <div class="sech"><h2>Field notebook</h2><span class="ct">autosaved</span></div>
+      <div id="notes"></div>
+    </div>
+
+    <div class="sec">
+      <div class="sech"><h2>Guide's kit</h2><span class="ct">recommended tools</span></div>
+      <div class="gear">${s.tools.map(toolRow).join('')}</div>
+    </div>
+
+    <div class="foot" id="foot"></div>`;
+
+  const qf=document.createDocumentFragment();
+  s.quests.forEach(q=>{
+    const r=document.createElement('div');
+    r.className='quest';r.setAttribute('data-done',state.done[q.id]?'1':'0');
+    r.innerHTML=`<span class="box">${I.check}</span><span class="lab">${q.label}</span><span class="xp">+${q.xp}</span>`;
+    r.addEventListener('click',()=>toggleQuest(q.id,s.id));
+    qf.appendChild(r);
+  });
+  el('quests').appendChild(qf);
+
+  const nl=el('notes');
+  s.reflect.forEach(rf=>{
+    const w=document.createElement('div');w.className='note';
+    w.innerHTML=`<div class="q">${rf.q}<span class="saved" id="sv_${rf.id}">saved</span></div>`;
+    const ta=document.createElement('textarea');ta.placeholder=rf.ph;ta.value=state.notes[rf.id]||'';
+    let t2=null;
+    ta.addEventListener('input',()=>{state.notes[rf.id]=ta.value;saveState();
+      const tag=el('sv_'+rf.id);tag.classList.add('show');clearTimeout(t2);t2=setTimeout(()=>tag.classList.remove('show'),900);});
+    w.appendChild(ta);nl.appendChild(w);
+  });
+
+  renderFoot(s,isStageComplete(s),false);
+}
+
+function renderFoot(s,complete,animate){
+  const foot=el('foot');const next=STAGES.find(x=>x.id===s.id+1);
+  if(complete){
+    if(s.summit){
+      foot.innerHTML=`<span class="summit-line">Summit reached. You went from zero, to one, to many.</span>
+        <span class="stamp ${animate?'press':''}"><span class="big">Summit</span><span class="sm">Camp 07 · cleared</span></span>`;
+    }else{
+      foot.innerHTML=`<span class="stamp ${animate?'press':''}"><span class="big">Cleared</span><span class="sm">Camp ${String(s.id).padStart(2,'0')}</span></span>
+        <button class="gobtn" id="nextBtn">Climb to ${next.title} ${I.arrow}</button>`;
+      el('nextBtn').addEventListener('click',()=>{state.active=next.id;saveState();renderCamps();renderStage();window.scrollTo({top:0,behavior:'smooth'});});
+    }
+  }else{
+    const left=s.quests.length-stageDoneCount(s);
+    foot.innerHTML=`<span class="ft">Log every quest to clear this camp — <b>${left} left</b>.</span>
+      <button class="gobtn dis" disabled>Finish the camp to continue</button>`;
+  }
+}
+
+/* ============================ ACTIONS =================================== */
+function toggleQuest(qid,sid){
+  const was=!!state.done[qid];state.done[qid]=!was;
+  if(!was)awardSeal('first');
+  const s=STAGES.find(x=>x.id===sid);
+  const now=isStageComplete(s),wasC=!!state.complete[sid];
+  let justCleared=false;
+  if(now&&!wasC){state.complete[sid]=true;awardSeal(STAGE_BADGE[sid]);justCleared=true;}
+  else if(!now&&wasC){state.complete[sid]=false;}
+  saveState();
+  renderReadout();renderRank();renderProfile();renderCamps();renderSealCount();
+  renderStage();
+  // press the stamp only when this toggle just cleared the active camp
+  if(justCleared && state.active===sid) renderFoot(s,true,true);
+}
+
+function awardSeal(id){if(!state.badges[id])state.badges[id]=Date.now();}
+function renderSealCount(){el('sealCount').textContent=Object.keys(state.badges).length+'/'+BADGES.length;}
+function renderSeals(){
+  el('sealGrid').innerHTML=BADGES.map(b=>{
+    const got=!!state.badges[b.id];
+    return `<div class="seal ${got?'got':''}"><span class="disc">${got?b.code:'·'}</span>
+      <span><span class="sn">${b.n}</span><br><span class="sd">${b.d}</span></span></div>`;
+  }).join('');
+}
+
+/* chrome */
+el('sealsBtn').addEventListener('click',()=>{renderSeals();el('overlay').classList.add('open');});
+el('sealsClose').addEventListener('click',()=>el('overlay').classList.remove('open'));
+el('overlay').addEventListener('click',e=>{if(e.target===el('overlay'))el('overlay').classList.remove('open');});
+addEventListener('keydown',e=>{if(e.key==='Escape')el('overlay').classList.remove('open');});
+
+function doReset(){
+  if(!confirm("Reset all progress and start from base camp? This can't be undone."))return;
+  state={done:{},notes:{},badges:{},complete:{},active:1};saveState();render();window.scrollTo({top:0,behavior:'smooth'});
+}
+el('resetBtn').addEventListener('click',doReset);
+el('restartLink').addEventListener('click',doReset);
+
+el('colophon').innerHTML='Your tool to monetize — every "Visit" link is an affiliate slot. '+
+  'Replace each <code>url</code> in the TOOL CATALOG at the top of the source. Progress saves to this device.';
+
+/* faint contour texture */
+(function(){
+  const base="M-70,-24 C-46,-70 46,-82 82,-34 C112,6 82,64 24,76 C-36,88 -88,40 -70,-24 Z";
+  let s='';
+  [[1180,180,1],[160,720,1]].forEach(([cx,cy])=>{
+    for(let i=1;i<=6;i++){const k=(i*0.55).toFixed(2);s+=`<path transform="translate(${cx},${cy}) scale(${k})" d="${base}"/>`;}
+  });
+  el('contours').innerHTML=s;
+})();
+
+/* boot */
+(async function(){const l=await loadState();if(l)state=l;if(!isUnlocked(state.active))state.active=1;render();})();
+</script>

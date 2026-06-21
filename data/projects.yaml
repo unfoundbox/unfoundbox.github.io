@@ -14,8 +14,7 @@
   desc: "GPU-accelerated video processing with a WebGL2 fallback — web-native video effects and transforms."
   tags: [WebGPU, TypeScript]
   url: https://github.com/unfoundbox
-- name: streamwani
-  desc: "A new live-streaming product for creators — currently in the works."
-  tags: [Streaming, Live]
-  status: Upcoming
-  url: ""
+- name: founderquest
+  desc: "A gamified field guide to the founder journey — idea to growth, one camp at a time."
+  tags: [Interactive, Web]
+  url: /founderquest/
