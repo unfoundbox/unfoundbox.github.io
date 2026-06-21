@@ -5,10 +5,10 @@
        the content is fully visible. Image is eager + fetchpriority=high. */ -}}
 <section class="hero section--flush-top" aria-labelledby="hero-heading">
   <div class="hero__bg" aria-hidden="true">
-    {{- $hero := resources.Get "img/hero.png" -}}
-    {{- $w960 := $hero.Resize "960x webp q70" -}}
-    {{- $w1440 := $hero.Resize "1440x webp q70" -}}
-    {{- $w1920 := $hero.Resize "1920x webp q68" -}}
+    {{- with resources.Get "img/hero.png" -}}
+    {{- $w960 := .Resize "960x webp q70" -}}
+    {{- $w1440 := .Resize "1440x webp q70" -}}
+    {{- $w1920 := .Resize "1920x webp q68" -}}
     <img
       class="hero__img"
       src="{{ $w1440.RelPermalink }}"
@@ -19,6 +19,7 @@
       height="{{ $w1920.Height }}"
       fetchpriority="high"
       decoding="async">
+    {{- end }}
     <div class="hero__fade hero__fade--v"></div>
     <div class="hero__fade hero__fade--bottom"></div>
   </div>

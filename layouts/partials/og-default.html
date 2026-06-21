@@ -1,6 +1,8 @@
 {{- /* og-default.html — generate a universally-compatible 1200x630 social card
        from the hero source image and return its ABSOLUTE url. Used as the OG/
        Twitter image fallback when a page has no cover/image of its own. */ -}}
-{{- $src := resources.Get "img/hero.png" -}}
-{{- $og := $src.Fill "1200x630 jpg q82" -}}
-{{- return $og.Permalink -}}
+{{- $ogImage := "" -}}
+{{- with resources.Get "img/hero.png" -}}
+  {{- $ogImage = (.Fill "1200x630 jpg q82").Permalink -}}
+{{- end -}}
+{{- return $ogImage -}}

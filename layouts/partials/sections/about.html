@@ -22,7 +22,8 @@
     <div class="about__record" data-reveal>
       <p class="eyebrow eyebrow--inverse about__record-label">Track record</p>
       <ul class="about__list" role="list">
-        {{- range (collections.Reverse site.Data.track_record) }}
+        {{- with site.Data.track_record }}
+        {{- range (collections.Reverse .) }}
         <li class="about__item">
           {{- if .url }}
           <a class="about__org about__org--link" href="{{ .url }}" target="_blank" rel="noopener">{{ .org }}</a>
@@ -31,6 +32,7 @@
           {{- end }}
           <span class="about__role">{{ .role }}</span>
         </li>
+        {{- end }}
         {{- end }}
       </ul>
     </div>
