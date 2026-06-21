@@ -1,0 +1,70 @@
+{{- /* head/seo.html — title, meta description, canonical, robots, Open Graph,
+       Twitter card, and RSS alternate. Self-contained; no theme dependency. */ -}}
+
+{{- $siteTitle := site.Title -}}
+{{- with site.Params.sitename }}{{ $siteTitle = . }}{{ end -}}
+
+{{- /* Page title: home uses the site name; inner pages prefix the page title. */ -}}
+{{- $title := "" -}}
+{{- if .IsHome -}}
+  {{- $title = $siteTitle -}}
+{{- else -}}
+  {{- $title = printf "%s · %s" .Title $siteTitle -}}
+{{- end -}}
+
+{{- /* Description: explicit .Description, else summary, else site description.
+       The home page prefers the curated site description over an auto-summary
+       (its rendered content makes a poor meta description). */ -}}
+{{- $desc := "" -}}
+{{- with .Description -}}
+  {{- $desc = . -}}
+{{- else -}}
+  {{- if .IsHome -}}
+    {{- $desc = site.Params.description -}}
+  {{- else -}}
+    {{- with .Summary -}}
+      {{- $desc = . -}}
+    {{- else -}}
+      {{- $desc = site.Params.description -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- $desc = $desc | plainify | htmlUnescape | strings.TrimSpace -}}
+{{- $desc = $desc | truncate 200 -}}
+
+{{- /* OG image: post cover image if present, else the hero image. Absolute URL. */ -}}
+{{- $ogImage := partial "og-default.html" . -}}
+{{- with .Params.cover -}}{{ $ogImage = . | absURL -}}{{ end -}}
+{{- with .Params.image -}}{{ $ogImage = . | absURL -}}{{ end -}}
+
+{{- $ogType := "website" -}}
+{{- if and .IsPage (eq .Section "posts") -}}{{ $ogType = "article" -}}{{ end -}}
+
+<title>{{ $title }}</title>
+<meta name="description" content="{{ $desc }}">
+<link rel="canonical" href="{{ .Permalink }}">
+<meta name="robots" content="index, follow">
+
+{{- /* Open Graph */ -}}
+<meta property="og:type" content="{{ $ogType }}">
+<meta property="og:title" content="{{ if .IsHome }}{{ $siteTitle }}{{ else }}{{ .Title }}{{ end }}">
+<meta property="og:description" content="{{ $desc }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:image" content="{{ $ogImage }}">
+<meta property="og:site_name" content="unfoundbox">
+{{- if eq $ogType "article" }}
+<meta property="article:published_time" content="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+<meta property="article:modified_time" content="{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}">
+{{- end }}
+
+{{- /* Twitter */ -}}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@unfoundbox">
+<meta name="twitter:title" content="{{ if .IsHome }}{{ $siteTitle }}{{ else }}{{ .Title }}{{ end }}">
+<meta name="twitter:description" content="{{ $desc }}">
+<meta name="twitter:image" content="{{ $ogImage }}">
+
+{{- /* RSS alternate */ -}}
+{{- with .OutputFormats.Get "rss" }}
+<link rel="alternate" type="application/rss+xml" href="{{ .Permalink }}" title="{{ $siteTitle }}">
+{{- end }}

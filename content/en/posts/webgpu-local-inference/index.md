@@ -1,11 +1,10 @@
 ---
 title: "Local Inference on WebGPU: Where Small Models Actually Win"
+description: "Running models in the browser, and when it’s the right call."
 date: 2026-06-07
 draft: false
 tags: ['ai', 'webgpu', 'local-ai', 'web-apis', 'research']
 ---
-
-# Local Inference on WebGPU: Where Small Models Actually Win
 
 The exciting version of browser AI is not "run a giant chatbot in a tab." The useful version is narrower and more practical:
 

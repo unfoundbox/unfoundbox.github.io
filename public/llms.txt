@@ -1,0 +1,31 @@
+# unfoundbox
+
+> Hands-on notes from an engineer building in the open — local AI, web standards, and what it actually takes to ship. Written by Saurabh Nandwana (ex-Hopin, ex-StreamYard).
+
+unfoundbox is the personal site and blog of Saurabh Nandwana, an engineer who has spent the last decade building products across fintech and deep-tech startups — most recently at StreamYard and Hopin, with earlier stops at Signzy and beyond. The site is where he thinks out loud: hands-on experiments with local AI, the modern web platform, and the unglamorous reality of shipping software.
+
+## Topics
+
+- Local AI and on-device / browser inference (WebGPU, small models)
+- The modern web platform and emerging web standards
+- Startups, infrastructure, and the practical realities of shipping
+
+## Pages
+
+- [Home](https://unfoundbox.com/): Overview, recent writing, projects, and about.
+- [Posts](https://unfoundbox.com/posts/): Full archive of blog posts.
+- [Research](https://unfoundbox.com/research/): Standalone research write-ups and reports.
+
+## Featured posts
+
+- [The Future of AI: A Map of Disagreement](https://unfoundbox.com/posts/): Where the serious people actually diverge — and why it matters.
+- [India Data Center Capacity: Base, Pipeline, and What It Means](https://unfoundbox.com/posts/): The compute buildout underneath the AI conversation.
+- [DIY Smart Robot With a Local Gemma Brain](https://unfoundbox.com/posts/): Wiring a small on-device model into something that moves.
+- [Local Inference on WebGPU: Where Small Models Actually Win](https://unfoundbox.com/posts/): Running models in the browser, and when it's the right call.
+- [Ideas at the Intersection of Newer Web Standards](https://unfoundbox.com/posts/): The web platform is quietly getting more capable.
+
+## Contact
+
+- GitHub: https://github.com/unfoundbox
+- X/Twitter: https://x.com/unfoundbox
+- LinkedIn: https://www.linkedin.com/in/saurabh-nandwana

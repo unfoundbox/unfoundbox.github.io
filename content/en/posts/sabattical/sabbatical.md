@@ -1,5 +1,6 @@
 ---
 title: "How I Went from a Small Town Kid to Working on Cutting-Edge AI"
+description: "A non-linear path from a Rajasthan town to applied AI."
 date: 2025-02-24
 draft: false
 tags: ['career', 'sabbatical', 'development']

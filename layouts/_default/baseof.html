@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="{{ site.LanguageCode | default "en" }}" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  {{- /* Progressive-enhancement gate: set `js` FIRST so hidden/animated initial
+         states only apply when JS is available. Static (no-JS) output stays
+         fully visible. */ -}}
+  <script>document.documentElement.classList.add("js");</script>
+
+  <meta name="theme-color" content="#111217">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+  {{- /* SEO + structured data */ -}}
+  {{ partial "head/seo.html" . }}
+  {{ partial "head/schema.html" . }}
+
+  {{- /* Font preload — the two critical above-the-fold families (Inter Tight
+         headings + Inter body). Mono loads lazily via @font-face. */ -}}
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/inter-tight-var.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/inter-var.woff2">
+
+  {{- /* CSS pipeline: glob all assets/css/*.css (foundation 00-03 + page-layer
+         10-29 added by other agents), concat in lexical order, minify,
+         fingerprint. Single bundled <link>. */ -}}
+  {{- $css := resources.Match "css/**.css" | resources.Concat "css/bundle.css" | minify | fingerprint -}}
+  <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+
+  {{- /* JS bundle: vanilla app.js, deferred. */ -}}
+  {{- with resources.Get "js/app.js" -}}
+    {{- $js := . | minify | fingerprint -}}
+    <script defer src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}"></script>
+  {{- end -}}
+
+  {{- /* Google Analytics — async, production only (never on `hugo server`). */ -}}
+  {{- if and (not hugo.IsServer) site.Config.Services.GoogleAnalytics.ID -}}
+    {{- $gaID := site.Config.Services.GoogleAnalytics.ID -}}
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ $gaID }}"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', '{{ $gaID }}');
+    </script>
+  {{- end -}}
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  {{ partial "header.html" . }}
+
+  <main id="main">
+    {{ block "main" . }}{{ end }}
+  </main>
+
+  {{ partial "footer.html" . }}
+</body>
+</html>

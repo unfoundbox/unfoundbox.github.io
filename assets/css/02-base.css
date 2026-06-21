@@ -1,0 +1,200 @@
+/* ==========================================================================
+   02-base.css — Modern reset + global element defaults
+   --------------------------------------------------------------------------
+   Depends on tokens from 01-tokens.css. Sets the page canvas (dark bg, cream
+   text), heading/link/code defaults, focus-visible ring, ::selection,
+   smooth-scroll with sticky-header offset, and the reduced-motion reset.
+   ========================================================================== */
+
+/* ---- Reset ------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  /* Smooth in-page anchor scrolling; header offset so sticky nav never
+     covers the target section. Mirrors scroll-mt-20 (~5rem) in the proto. */
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-h);
+}
+
+body {
+  min-height: 100%;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-weight: var(--weight-body);
+  font-size: var(--text-base);
+  line-height: var(--leading-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* ---- Headings ---------------------------------------------------------- */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  font-weight: var(--weight-heading);
+  letter-spacing: var(--tracking-heading);
+  line-height: var(--leading-heading);
+  text-wrap: balance;
+}
+
+/* ---- Links ------------------------------------------------------------- */
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color var(--duration) var(--ease);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ---- Text-level elements ---------------------------------------------- */
+strong,
+b {
+  font-weight: var(--weight-strong);
+  color: var(--color-text);
+}
+
+code,
+kbd,
+samp,
+pre {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+/* ---- Media ------------------------------------------------------------- */
+img,
+svg,
+video,
+canvas,
+picture {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* ---- Forms ------------------------------------------------------------- */
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  border: 0;
+}
+
+/* ---- Lists used as nav/menus ------------------------------------------ */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* ---- Focus ring -------------------------------------------------------- */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Remove default outline only where focus-visible is supported. */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* ---- Selection --------------------------------------------------------- */
+::selection {
+  background-color: var(--color-accent);
+  color: var(--color-on-accent);
+}
+
+/* ---- Accessibility helper: visually hidden but screen-reader available - */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---- Skip link (becomes visible on focus) ----------------------------- */
+.skip-link {
+  position: absolute;
+  left: var(--gutter);
+  top: var(--space-2);
+  z-index: 100;
+  padding: 0.5rem 0.875rem;
+  background-color: var(--color-accent);
+  color: var(--color-on-accent);
+  border-radius: var(--radius-btn);
+  font-weight: var(--weight-button);
+  transform: translateY(-150%);
+  transition: transform var(--duration) var(--ease);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+  text-decoration: none;
+}
+
+/* ==========================================================================
+   Progressive-enhancement motion gate
+   --------------------------------------------------------------------------
+   Page agents put entrance animations behind `html.js` (the JS sets this
+   class early). With NO JavaScript the gate never applies, so content is
+   fully visible — static Hugo output stays readable if JS fails.
+   The actual hidden/animated rules live in the page-layer CSS; here we only
+   guarantee the reduced-motion escape hatch globally.
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Force any gated entrance state to its resting, fully-visible value. */
+  [data-animate],
+  .js [data-animate] {
+    opacity: 1 !important;
+    filter: none !important;
+    transform: none !important;
+  }
+}

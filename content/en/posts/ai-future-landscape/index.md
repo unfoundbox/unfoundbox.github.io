@@ -1,11 +1,10 @@
 ---
 title: "The Future of AI: A Map of Disagreement"
+description: "Where the serious people actually diverge — and why it matters."
 date: 2026-06-15
 draft: false
 tags: ['ai', 'future', 'research', 'strategy']
 ---
-
-# The Future of AI: A Map of Disagreement
 
 The smartest people in AI agree on one thing: this matters enormously. After that, the map breaks apart.
 

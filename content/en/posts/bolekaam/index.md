@@ -1,11 +1,10 @@
 ---
 title: "Bolekaam - Empowering India's Craftsmen Through Voice Technology"
+description: "Bringing India’s craftsmen online through voice and WhatsApp."
 date: 2025-04-07
 draft: true
 tags: ['startup', 'voice-tech', 'india', 'craftsmen', 'whatsapp']
 ---
-
-# Bolekaam - Empowering India's Craftsmen Through Voice Technology
 
 ## The Opportunity
 

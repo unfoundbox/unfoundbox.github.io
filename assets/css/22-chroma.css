@@ -1,0 +1,102 @@
+/* ==========================================================================
+   22-chroma.css — Dark syntax highlight scheme for Hugo's Chroma highlighter.
+   --------------------------------------------------------------------------
+   hugo.toml sets markup.highlight.noClasses=false, so Chroma emits token CSS
+   classes (.k, .s, .c, .n ...) inside .chroma. This file gives them a dark
+   editorial palette tuned to the design tokens. Surface/border/scroll come
+   from 20-prose.css; this owns only token colors and a few structural bits.
+   ========================================================================== */
+
+/* Chroma container (Hugo wraps highlighted code in <div class="highlight">). */
+.chroma {
+  color: var(--color-text);
+  background: transparent;
+}
+
+/* Line numbers table layout (lineNos / lineNumbersInTable). */
+.chroma .lntable {
+  display: block;
+  width: 100%;
+  border-spacing: 0;
+  overflow-x: auto;
+}
+.chroma .lntd { vertical-align: top; padding: 0; border: 0; }
+.chroma .lntd:first-child { width: 1%; }
+
+/* Line numbers (dimmed, non-selectable gutter). */
+.chroma .lnt,
+.chroma .ln {
+  color: var(--color-text-muted);
+  opacity: 0.5;
+  margin-right: var(--space-4);
+  padding-right: var(--space-2);
+  user-select: none;
+}
+
+/* Highlighted / emphasized line. */
+.chroma .hl {
+  display: block;
+  background-color: rgba(168, 146, 255, 0.10); /* accent @ low alpha */
+}
+
+/* ---- Token colors ---------------------------------------------------------
+   Palette: cream base, lime for strings, purple for keywords, muted for
+   comments. Tuned for the #16181f code surface. */
+
+/* Comments — muted, italic. */
+.chroma .c,  .chroma .ch, .chroma .cm, .chroma .c1,
+.chroma .cs, .chroma .cp, .chroma .cpf {
+  color: #7e828c;
+  font-style: italic;
+}
+
+/* Keywords — purple accent. */
+.chroma .k,  .chroma .kc, .chroma .kd, .chroma .kn,
+.chroma .kp, .chroma .kr {
+  color: #a892ff;
+}
+.chroma .kt { color: #8fd0ff; } /* keyword type — soft blue */
+
+/* Names / identifiers — base cream. */
+.chroma .n, .chroma .nx, .chroma .nv, .chroma .vc,
+.chroma .vg, .chroma .vi {
+  color: var(--color-text);
+}
+.chroma .na { color: #b9d86a; }              /* attribute — lime */
+.chroma .nb, .chroma .bp { color: #8fd0ff; } /* builtin — soft blue */
+.chroma .nf, .chroma .fm { color: #8fd0ff; } /* function name — soft blue */
+.chroma .nc { color: #f4c77b; }              /* class — warm amber */
+.chroma .nn { color: #f4c77b; }              /* namespace */
+.chroma .nt { color: #a892ff; }              /* HTML/XML tag — purple */
+.chroma .nl { color: #b9d86a; }              /* label */
+.chroma .no { color: #f4c77b; }              /* constant */
+.chroma .nd { color: #f4c77b; }              /* decorator */
+.chroma .ni, .chroma .ne { color: #f4c77b; }
+
+/* Strings — lime. */
+.chroma .s,  .chroma .sa, .chroma .sb, .chroma .sc, .chroma .dl,
+.chroma .sd, .chroma .s2, .chroma .se, .chroma .sh, .chroma .si,
+.chroma .sx, .chroma .sr, .chroma .s1, .chroma .ss {
+  color: #b9d86a;
+}
+
+/* Numbers — warm amber. */
+.chroma .m,  .chroma .mb, .chroma .mf, .chroma .mh,
+.chroma .mi, .chroma .il, .chroma .mo {
+  color: #f4c77b;
+}
+
+/* Operators / punctuation — slightly muted cream. */
+.chroma .o, .chroma .ow { color: #d8d5cd; }
+.chroma .p { color: #b7b4b0; }
+
+/* Generic diff / output. */
+.chroma .gd { color: #ff8d8d; background-color: rgba(255, 99, 99, 0.10); }
+.chroma .gi { color: #b9d86a; background-color: rgba(185, 216, 106, 0.10); }
+.chroma .gh { color: #8fd0ff; font-weight: 600; }
+.chroma .gu { color: #a892ff; font-weight: 600; }
+.chroma .ge { font-style: italic; }
+.chroma .gs { font-weight: 600; }
+.chroma .gp { color: #7e828c; }              /* prompt */
+.chroma .gt { color: #ff8d8d; }
+.chroma .err { color: #ff8d8d; }

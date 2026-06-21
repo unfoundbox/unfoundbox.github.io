@@ -1,11 +1,10 @@
 ---
 title: "DIY Smart Robot With a Local Gemma Brain"
+description: "Wiring a small on-device model into something that moves."
 date: 2026-06-09
 draft: false
 tags: ['robotics', 'ai', 'local-ai', 'gemma', 'maker']
 ---
-
-# DIY Smart Robot With a Local Gemma Brain
 
 ![A finished reference build: small rover, local AI workstation, camera, distance sensor, speaker, and safe wiring.](cover.png)
 

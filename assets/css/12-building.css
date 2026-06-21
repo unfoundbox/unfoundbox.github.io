@@ -1,0 +1,137 @@
+/* ==========================================================================
+   12-building.css — "Things I'm making" project cards.
+   --------------------------------------------------------------------------
+   Hairline gap-px grid: the container bg is the border color and a 1px gap
+   lets it show through as separators between cards (which carry the page bg).
+   Two columns at >=768px. Each card: mono name, description, tech badges.
+   ========================================================================== */
+.building__heading {
+  margin-top: 0.75rem;
+  font-size: var(--text-3xl);
+  color: var(--color-text);
+  text-wrap: balance;
+}
+@media (min-width: 768px) {
+  .building__heading {
+    font-size: var(--text-4xl);
+  }
+}
+
+.building__intro {
+  margin-top: 1rem;
+  max-width: 36rem;
+  font-size: 0.9375rem; /* 15px */
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-muted);
+  text-wrap: pretty;
+}
+
+.building__grid {
+  margin-top: 3rem;
+  display: grid;
+  gap: 1px;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  background-color: var(--color-border);
+}
+@media (min-width: 768px) {
+  .building__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.building__card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.75rem;
+  background-color: var(--color-bg);
+  color: inherit;
+  transition: background-color var(--duration) var(--ease);
+}
+.building__card:hover {
+  background-color: var(--color-row-hover);
+  text-decoration: none;
+}
+
+.building__card-head {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+.building__name {
+  font-family: var(--font-mono);
+  font-weight: var(--weight-body);
+  font-size: var(--text-base);
+  letter-spacing: 0;
+  color: var(--color-text);
+  transition: color var(--duration) var(--ease);
+}
+.building__card:hover .building__name {
+  color: var(--color-accent);
+}
+.building__arrow {
+  color: var(--color-text-muted);
+  opacity: 0;
+  transition: opacity var(--duration) var(--ease);
+}
+.building__card:hover .building__arrow {
+  opacity: 1;
+}
+
+/* "Upcoming" / coming-soon status pill (lime accent). */
+.building__status {
+  margin-left: auto;
+  align-self: flex-start;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem; /* 11px */
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  line-height: 1.4;
+  padding: 0.1rem 0.5rem;
+  border: 1px solid rgba(185, 216, 106, 0.4);
+  border-radius: 999px;
+  color: var(--color-accent-2);
+  white-space: nowrap;
+}
+
+/* Link-less "coming soon" card: no pointer affordance, no hover lift. */
+.building__card--soon {
+  cursor: default;
+}
+.building__card--soon:hover {
+  background-color: var(--color-bg);
+}
+.building__card--soon:hover .building__name {
+  color: var(--color-text);
+}
+
+.building__desc {
+  margin-top: 0.75rem;
+  flex: 1;
+  font-size: 0.9375rem; /* 15px */
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-muted);
+  text-wrap: pretty;
+}
+
+.building__tags {
+  margin-top: 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.building__more {
+  margin-top: 2.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  transition: color var(--duration) var(--ease);
+}
+.building__more:hover {
+  color: var(--color-accent);
+  text-decoration: none;
+}

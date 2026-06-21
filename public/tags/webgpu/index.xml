@@ -1,26 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Webgpu on saurabh</title>
-    <link>https://unfoundbox.com/tags/webgpu/</link>
-    <description>Recent content in Webgpu on saurabh</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-gb</language>
-    <lastBuildDate>Sun, 07 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://unfoundbox.com/tags/webgpu/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Local Inference on WebGPU: Where Small Models Actually Win</title>
-      <link>https://unfoundbox.com/posts/webgpu-local-inference/</link>
-      <pubDate>Sun, 07 Jun 2026 00:00:00 +0000</pubDate>
-      
-      <guid>https://unfoundbox.com/posts/webgpu-local-inference/</guid>
-      
-      <description>&lt;h1 id=&#34;local-inference-on-webgpu-where-small-models-actually-win&#34;&gt;Local Inference on WebGPU: Where Small Models Actually Win&lt;/h1&gt;
-&lt;p&gt;The exciting version of browser AI is not &amp;ldquo;run a giant chatbot in a tab.&amp;rdquo; The useful version is narrower and more practical:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Train or fine-tune a small model in Python, export it to ONNX or a browser-friendly runtime, and run the loop locally through WebGPU.&lt;/p&gt;&lt;/blockquote&gt;
-&lt;p&gt;As of this research snapshot, that loop is real enough to build with. The advantage is not universal, but in a few cases it is decisive: private data stays on device, latency drops below the threshold where interaction feels live, server cost goes to zero, and offline use becomes possible.&lt;/p&gt;</description>
-      
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Webgpu on saurabh</title><link>https://unfoundbox.com/tags/webgpu/</link><description>Recent content in Webgpu on saurabh</description><generator>Hugo</generator><language>en-gb</language><lastBuildDate>Sun, 07 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://unfoundbox.com/tags/webgpu/index.xml" rel="self" type="application/rss+xml"/><item><title>Local Inference on WebGPU: Where Small Models Actually Win</title><link>https://unfoundbox.com/posts/webgpu-local-inference/</link><pubDate>Sun, 07 Jun 2026 00:00:00 +0000</pubDate><guid>https://unfoundbox.com/posts/webgpu-local-inference/</guid><description>&lt;p>The exciting version of browser AI is not &amp;ldquo;run a giant chatbot in a tab.&amp;rdquo; The useful version is narrower and more practical:&lt;/p>
+&lt;blockquote>
+&lt;p>Train or fine-tune a small model in Python, export it to ONNX or a browser-friendly runtime, and run the loop locally through WebGPU.&lt;/p>&lt;/blockquote>
+&lt;p>As of this research snapshot, that loop is real enough to build with. The advantage is not universal, but in a few cases it is decisive: private data stays on device, latency drops below the threshold where interaction feels live, server cost goes to zero, and offline use becomes possible.&lt;/p></description></item></channel></rss>

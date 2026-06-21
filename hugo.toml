@@ -9,10 +9,16 @@ defaultContentLanguage = "en-gb"
 
 # Enable emojis globally
 enableEmoji = true
-ignoreErrors = ["additional-script-loading-error"] # ignore error of loading additional scripts.
 
-# traditional way: theme component resides in directory 'themes' 
-theme = "hugo-blog-awesome"
+# Generate /robots.txt (static/robots.txt is also present as a fallback).
+enableRobotsTXT = true
+
+# Self-contained redesign: no theme dependency (hugo-blog-awesome removed).
+
+# Home and section pages output an HTML page plus an RSS feed (/index.xml).
+[outputs]
+  home = ["HTML", "RSS"]
+  section = ["HTML", "RSS"]
 
 # modern way: pull in theme component as hugo module
 #[module]
@@ -83,11 +89,6 @@ theme = "hugo-blog-awesome"
   toc = false # set to false to disable table of contents 'globally'
   tocOpen = false # set to true to open table of contents by default
   goToTop = true # set to false to disable 'go to top' button
-  additionalScripts = ['js/custom.js', 'js/custom-2.js']
-  # Will try to load 'assets/js/custom.js' and 'assets/js/custom-2.js'.
-  # Your custom scripts will be concatenated to one file `custom.js`.
-  # When building for production it will be minified.
-  # The file `custom.js` is loaded on each page (before body tag ends).
   dateFormat = "" # date format used to show dates on various pages. If nothing is specified, then "2 Jan 2006" format is used.
   # See https://gohugo.io/functions/format/#hugo-date-and-time-templating-reference for available date formats.
   rssFeedDescription = "summary" # available options: 1) summary 2) full

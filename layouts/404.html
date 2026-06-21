@@ -1,0 +1,60 @@
+{{- /* 404.html — on-brand not-found page (dark editorial theme). Reuses
+       foundation primitives (.eyebrow, .btn). Inline-scoped styles keep this
+       single page self-contained without adding to the global bundle. */ -}}
+
+{{ define "main" }}
+<section class="notfound">
+  <div class="notfound__inner">
+    <p class="eyebrow">Error 404</p>
+    <h1 class="notfound__title">This page wandered off.</h1>
+    <p class="notfound__lead">
+      The link may be broken, or the page may have moved. Let’s get you back to
+      something that exists.
+    </p>
+    <div class="notfound__actions">
+      <a class="btn btn--primary" href="{{ "/" | relLangURL }}">Back home</a>
+      <a class="btn btn--outline" href="{{ "/posts/" | relLangURL }}">Browse the writing</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .notfound {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 70vh;
+    padding-block: calc(var(--header-h) + var(--space-16)) var(--space-24);
+    padding-inline: var(--gutter);
+    text-align: center;
+  }
+  .notfound__inner { max-width: 36rem; }
+  .notfound__title {
+    margin-top: var(--space-4);
+    font-family: var(--font-heading);
+    font-weight: var(--weight-heading-bold);
+    font-size: clamp(2.25rem, 1.6rem + 3vw, var(--text-5xl));
+    line-height: var(--leading-heading);
+    letter-spacing: var(--tracking-heading);
+    color: var(--color-text);
+    text-wrap: balance;
+  }
+  .notfound__lead {
+    margin-top: var(--space-5);
+    margin-inline: auto;
+    max-width: 30rem;
+    color: var(--color-text-muted);
+    line-height: var(--leading-relaxed);
+  }
+  .notfound__actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-3);
+    margin-top: var(--space-8);
+  }
+  @media (min-width: 640px) {
+    .notfound__actions { flex-direction: row; justify-content: center; }
+  }
+</style>
+{{ end }}

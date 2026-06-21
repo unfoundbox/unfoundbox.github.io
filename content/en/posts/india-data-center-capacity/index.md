@@ -1,11 +1,10 @@
 ---
 title: "India Data Center Capacity: Current Base, Pipeline, and What It Means"
+description: "The compute buildout underneath the AI conversation."
 date: 2026-06-15
 draft: false
 tags: ['india', 'ai', 'infrastructure', 'data-centers', 'research']
 ---
-
-# India Data Center Capacity: Current Base, Pipeline, and What It Means
 
 India's data-center market is already at gigawatt scale, and the next wave is large enough to change the structure of the market.
 
