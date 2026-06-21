@@ -1,5 +1,6 @@
 ---
 title: "Ideas at the intersection of newer web standards"
+description: "The platform is quietly getting more capable. Here’s what I’m watching."
 date: 2025-03-01
 draft: false
 tags: ['web-apis', 'new-markets', 'development']

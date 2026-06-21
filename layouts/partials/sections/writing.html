@@ -1,0 +1,29 @@
+{{- /* writing.html — Recent posts. 5 most recent regular pages in the "posts"
+       section, newest first. Each is a full-width link row: title (left) +
+       "Jan 2006" date (right, mono/muted). Rows scroll-reveal, staggered. */ -}}
+{{- $posts := first 5 (where site.RegularPages "Section" "posts").ByDate.Reverse -}}
+<section id="writing" class="section writing" aria-labelledby="writing-heading">
+  <div class="container container--writing">
+    <p class="eyebrow">Writing</p>
+    <h2 class="writing__heading" id="writing-heading">Recent posts</h2>
+
+    <div class="writing__list">
+      {{- range $i, $p := $posts }}
+      <a class="writing__row" href="{{ .Permalink }}" data-reveal style="--reveal-delay: {{ mul $i 60 }}ms">
+        <div class="writing__main">
+          <h3 class="writing__title">
+            <span class="writing__title-text">{{ .Title }}</span>
+            {{ partial "sections/_arrow.html" "writing__arrow" }}
+          </h3>
+          {{- with .Description | default (.Summary | plainify) }}
+          <p class="writing__excerpt">{{ . | plainify | truncate 160 }}</p>
+          {{- end }}
+        </div>
+        <span class="writing__date">{{ .Date.Format "Jan 2006" }}</span>
+      </a>
+      {{- end }}
+    </div>
+
+    <a class="writing__more" href="/posts/">See all posts{{ partial "sections/_arrow.html" "writing__more-arrow" }}</a>
+  </div>
+</section>

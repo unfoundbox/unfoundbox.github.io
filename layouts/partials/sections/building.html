@@ -1,0 +1,31 @@
+{{- /* building.html — "Things I'm making". Cards from data/projects.yaml in a
+       hairline gap-px 2-col grid inside a rounded, bordered container. Each
+       card: name (mono), description, tech badges. Cards scroll-reveal. */ -}}
+<section id="building" class="section building" aria-labelledby="building-heading">
+  <div class="container container--building">
+    <p class="eyebrow">Building</p>
+    <h2 class="building__heading" id="building-heading">Things I&#39;m making</h2>
+    <p class="building__intro">Experiments and tools, mostly open source. The fastest way to understand a technology is to ship something with it.</p>
+
+    <div class="building__grid">
+      {{- range $i, $proj := site.Data.projects }}
+      {{- $isLink := ne (.url | default "") "" -}}
+      <a class="building__card{{ if not $isLink }} building__card--soon{{ end }}"{{ if $isLink }} href="{{ .url }}"{{ end }} data-reveal style="--reveal-delay: {{ mul $i 60 }}ms">
+        <div class="building__card-head">
+          <h3 class="building__name">{{ .name }}</h3>
+          {{- with .status }} <span class="building__status">{{ . }}</span>{{ end }}
+          {{- if $isLink }}{{ partial "sections/_arrow.html" "building__arrow" }}{{ end }}
+        </div>
+        <p class="building__desc">{{ .desc }}</p>
+        <div class="building__tags">
+          {{- range .tags }}
+          <span class="badge">{{ . }}</span>
+          {{- end }}
+        </div>
+      </a>
+      {{- end }}
+    </div>
+
+    <a class="building__more" href="https://github.com/unfoundbox">More on GitHub{{ partial "sections/_arrow.html" "building__more-arrow" }}</a>
+  </div>
+</section>

@@ -1,0 +1,10 @@
+{{- /* index.html — homepage. Composes the five editorial sections.
+       baseof renders header/footer + the <main id="main"> wrapper; this
+       template emits ONLY the section content into the "main" block. */ -}}
+{{ define "main" }}
+  {{ partial "sections/hero.html" . }}
+  {{ partial "sections/writing.html" . }}
+  {{ partial "sections/building.html" . }}
+  {{ partial "sections/about.html" . }}
+  {{ partial "sections/subscribe.html" . }}
+{{ end }}

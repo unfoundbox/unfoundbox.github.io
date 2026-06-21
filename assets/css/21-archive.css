@@ -1,0 +1,167 @@
+/* ==========================================================================
+   21-archive.css — List / archive pages (list.html): /posts/ and taxonomies.
+   --------------------------------------------------------------------------
+   Page-layer CSS. Reuses the homepage "writing row" aesthetic but adds post
+   summaries. Header block + post rows + pagination. Tokens from 01-tokens.css.
+   ========================================================================== */
+
+.archive {
+  padding-block: calc(var(--header-h) + var(--space-12)) var(--space-24);
+}
+@media (min-width: 768px) {
+  .archive {
+    padding-block: calc(var(--header-h) + var(--space-16)) var(--space-32);
+  }
+}
+
+.archive__container {
+  width: 100%;
+  max-width: var(--container-writing);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* ---- Header --------------------------------------------------------------- */
+.archive__header {
+  margin-bottom: var(--space-12);
+}
+.archive__title {
+  margin-top: var(--space-3);
+  font-family: var(--font-heading);
+  font-weight: var(--weight-heading-bold);
+  font-size: var(--text-4xl);
+  line-height: var(--leading-heading);
+  letter-spacing: var(--tracking-heading);
+  color: var(--color-text);
+}
+@media (min-width: 768px) {
+  .archive__title { font-size: var(--text-5xl); }
+}
+.archive__intro {
+  margin-top: var(--space-4);
+  max-width: 40rem;
+  color: var(--color-text-muted);
+  line-height: var(--leading-relaxed);
+}
+.archive__intro > * + * { margin-top: var(--space-4); }
+.archive__intro a { color: var(--color-accent); text-decoration: underline; }
+
+/* ---- Post rows (writing-row aesthetic + summary) -------------------------- */
+.archive__list {
+  border-top: 1px solid var(--color-border);
+}
+.archive-row {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-6);
+  padding-block: var(--space-6);
+  border-bottom: 1px solid var(--color-border);
+  transition: background-color var(--duration) var(--ease);
+}
+.archive-row:hover {
+  background-color: var(--color-row-hover);
+  text-decoration: none;
+}
+.archive-row__body {
+  flex: 1;
+  min-width: 0;
+}
+.archive-row__title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
+  color: var(--color-text);
+}
+@media (min-width: 768px) {
+  .archive-row__title { font-size: var(--text-xl); }
+}
+.archive-row__title-text {
+  transition: color var(--duration) var(--ease);
+}
+.archive-row:hover .archive-row__title-text {
+  color: var(--color-accent);
+}
+.archive-row__arrow {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  color: var(--color-text-muted);
+  opacity: 0;
+  transition: opacity var(--duration) var(--ease);
+}
+.archive-row:hover .archive-row__arrow { opacity: 1; }
+.archive-row__summary {
+  margin-top: var(--space-2);
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-muted);
+}
+.archive-row__date {
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+/* ---- Empty state ---------------------------------------------------------- */
+.archive__empty {
+  padding-block: var(--space-8);
+  color: var(--color-text-muted);
+}
+
+/* ---- Pagination ----------------------------------------------------------- */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-12);
+  list-style: none;
+  padding: 0;
+}
+.pagination__item .page-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.5rem;
+  height: 2.5rem;
+  padding-inline: var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-btn);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  transition:
+    border-color var(--duration) var(--ease),
+    color var(--duration) var(--ease),
+    background-color var(--duration) var(--ease);
+}
+.pagination__item .page-link:hover {
+  color: var(--color-text);
+  border-color: var(--color-btn-outline);
+  text-decoration: none;
+}
+.pagination__item.active .page-link {
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-on-accent);
+}
+.pagination__item.disabled .page-link {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+/* ---- Back to all (taxonomy term pages) ------------------------------------ */
+.archive__back {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-10);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+.archive__back:hover { color: var(--color-text); text-decoration: none; }

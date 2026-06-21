@@ -1,0 +1,27 @@
+{{- /* subscribe.html — Buttondown email capture. Centered, 1px top border.
+       Form stacks on mobile, row on >=640px. The onsubmit popup + action are
+       the canonical Buttondown embed. Block scroll-reveals. */ -}}
+<section id="subscribe" class="section subscribe" aria-labelledby="subscribe-heading">
+  <div class="container container--subscribe subscribe__inner" data-reveal>
+    <h2 class="subscribe__heading" id="subscribe-heading">Get new posts in your inbox.</h2>
+    <p class="subscribe__sub">Occasional, hands-on writing on local AI and the web. No spam — unsubscribe anytime.</p>
+
+    <form
+      class="subscribe__form container--form"
+      action="https://buttondown.email/api/emails/embed-subscribe/unfoundbox"
+      method="post"
+      target="popupwindow"
+      onsubmit="window.open('https://buttondown.email/unfoundbox', 'popupwindow')">
+      <label class="visually-hidden" for="bd-email">Email address</label>
+      <input
+        class="subscribe__input"
+        id="bd-email"
+        type="email"
+        name="email"
+        required
+        placeholder="you@email.com"
+        autocomplete="email">
+      <button class="btn btn--primary subscribe__btn" type="submit">Subscribe</button>
+    </form>
+  </div>
+</section>

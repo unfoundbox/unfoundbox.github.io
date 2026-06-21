@@ -1,0 +1,70 @@
+/* ==========================================================================
+   14-subscribe.css — Email capture (Buttondown).
+   --------------------------------------------------------------------------
+   Centered, 1px top border. Form stacks on mobile, becomes a row at >=640px.
+   Input is a 3rem-tall hairline field whose border goes accent on focus.
+   ========================================================================== */
+.subscribe {
+  border-top: 1px solid var(--color-border);
+  background-color: var(--color-bg);
+}
+
+.subscribe__inner {
+  text-align: center;
+}
+
+.subscribe__heading {
+  font-size: var(--text-3xl);
+  color: var(--color-text);
+  text-wrap: balance;
+}
+@media (min-width: 768px) {
+  .subscribe__heading {
+    font-size: var(--text-4xl);
+  }
+}
+
+.subscribe__sub {
+  margin-inline: auto;
+  margin-top: 1rem;
+  max-width: 28rem;
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-muted);
+  text-wrap: pretty;
+}
+
+.subscribe__form {
+  margin-inline: auto;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+@media (min-width: 640px) {
+  .subscribe__form {
+    flex-direction: row;
+  }
+}
+
+.subscribe__input {
+  height: 3rem;
+  flex: 1;
+  padding-inline: 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-input);
+  background-color: var(--color-surface);
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  transition: border-color var(--duration) var(--ease);
+}
+.subscribe__input::placeholder {
+  color: var(--color-text-muted);
+}
+.subscribe__input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+}
+
+.subscribe__btn {
+  flex-shrink: 0;
+}

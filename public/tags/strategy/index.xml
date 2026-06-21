@@ -1,24 +1,2 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Strategy on saurabh</title>
-    <link>https://unfoundbox.com/tags/strategy/</link>
-    <description>Recent content in Strategy on saurabh</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-gb</language>
-    <lastBuildDate>Mon, 15 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://unfoundbox.com/tags/strategy/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>The Future of AI: A Map of Disagreement</title>
-      <link>https://unfoundbox.com/posts/ai-future-landscape/</link>
-      <pubDate>Mon, 15 Jun 2026 00:00:00 +0000</pubDate>
-      
-      <guid>https://unfoundbox.com/posts/ai-future-landscape/</guid>
-      
-      <description>&lt;h1 id=&#34;the-future-of-ai-a-map-of-disagreement&#34;&gt;The Future of AI: A Map of Disagreement&lt;/h1&gt;
-&lt;p&gt;The smartest people in AI agree on one thing: this matters enormously. After that, the map breaks apart.&lt;/p&gt;
-&lt;p&gt;Some expect a fast intelligence explosion. Some expect a sharp but continuous acceleration. Some think the current path is overhyped, bottlenecked by the physical world, or missing the architecture required for real general intelligence. The honest landscape is not a single forecast. It is a map of disagreements between people who have thought about the problem seriously.&lt;/p&gt;</description>
-      
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Strategy on saurabh</title><link>https://unfoundbox.com/tags/strategy/</link><description>Recent content in Strategy on saurabh</description><generator>Hugo</generator><language>en-gb</language><lastBuildDate>Mon, 15 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://unfoundbox.com/tags/strategy/index.xml" rel="self" type="application/rss+xml"/><item><title>The Future of AI: A Map of Disagreement</title><link>https://unfoundbox.com/posts/ai-future-landscape/</link><pubDate>Mon, 15 Jun 2026 00:00:00 +0000</pubDate><guid>https://unfoundbox.com/posts/ai-future-landscape/</guid><description>&lt;p>The smartest people in AI agree on one thing: this matters enormously. After that, the map breaks apart.&lt;/p>
+&lt;p>Some expect a fast intelligence explosion. Some expect a sharp but continuous acceleration. Some think the current path is overhyped, bottlenecked by the physical world, or missing the architecture required for real general intelligence. The honest landscape is not a single forecast. It is a map of disagreements between people who have thought about the problem seriously.&lt;/p></description></item></channel></rss>

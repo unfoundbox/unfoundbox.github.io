@@ -1,0 +1,36 @@
+{{- /* hero.html — full-bleed editorial hero.
+       Bottom-anchored decorative image (~42% down) with gradient fades so the
+       cream text stays legible. Entrance motion is gated behind html.js +
+       data-animate (reduced-motion reset reaches it via 02-base). With no JS
+       the content is fully visible. Image is eager + fetchpriority=high. */ -}}
+<section class="hero section--flush-top" aria-labelledby="hero-heading">
+  <div class="hero__bg" aria-hidden="true">
+    {{- with resources.Get "img/hero.png" -}}
+    {{- $w960 := .Resize "960x webp q70" -}}
+    {{- $w1440 := .Resize "1440x webp q70" -}}
+    {{- $w1920 := .Resize "1920x webp q68" -}}
+    <img
+      class="hero__img"
+      src="{{ $w1440.RelPermalink }}"
+      srcset="{{ $w960.RelPermalink }} 960w, {{ $w1440.RelPermalink }} 1440w, {{ $w1920.RelPermalink }} 1920w"
+      sizes="100vw"
+      alt=""
+      width="{{ $w1920.Width }}"
+      height="{{ $w1920.Height }}"
+      fetchpriority="high"
+      decoding="async">
+    {{- end }}
+    <div class="hero__fade hero__fade--v"></div>
+    <div class="hero__fade hero__fade--bottom"></div>
+  </div>
+
+  <div class="hero__inner container container--hero">
+    <p class="eyebrow hero__eyebrow" data-animate>Building in the open</p>
+    <h1 class="hero__title" id="hero-heading" data-animate>Notes from the edge of AI and the web.</h1>
+    <p class="hero__lead" data-animate>I&#39;m Saurabh — an engineer (ex-Hopin, ex-StreamYard) writing about local AI, web standards, and what it actually takes to ship. New posts most weeks.</p>
+    <div class="hero__cta" data-animate>
+      <a class="btn btn--primary" href="#writing">Read the writing</a>
+      <a class="btn btn--outline" href="#subscribe">Get new posts</a>
+    </div>
+  </div>
+</section>
