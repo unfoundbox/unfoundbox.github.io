@@ -321,30 +321,47 @@
 <script>
 /* =========================================================================
    ===== TOOL CATALOG  ·  EDIT `url` → your affiliate link  ================
+   =========================================================================
+   HOW TO MONETIZE (research current as of Jun 2026):
+     1. Sign up for the program in each tool's trailing comment below.
+     2. The program gives you a personal tracking link (e.g.
+        https://tally.so/?via=YOURNAME). Paste it into that tool's `url`.
+     3. Tools marked NO PROGRAM have no affiliate program — leave the
+        plain `url` as-is (no commission is possible).
+
+   NETWORK LEGEND (join the account once, apply to many programs):
+     [PartnerStack] one account  -> partnerstack.com  (Notion, Stripe, Amplitude, Mixpanel)
+     [Dub]          one account  -> partners.dub.co   (Framer, Perplexity)
+     [Rewardful]    NOT a shared network — each is a separate signup
+     [In-house]     signup on the tool's own site
    ========================================================================= */
 const T = {
-  notion:   {n:"Notion",        why:"Capture your thesis, research and roadmap in one workspace.",       url:"https://www.notion.so"},
-  pplx:     {n:"Perplexity",    why:"Pressure-test your market and surface what others miss.",            url:"https://www.perplexity.ai"},
-  excali:   {n:"Excalidraw",    why:"Sketch the idea as a diagram before you write a line of code.",      url:"https://excalidraw.com"},
-  carrd:    {n:"Carrd",         why:"Ship a one-page landing site with email capture in an afternoon.",   url:"https://carrd.co"},
-  tally:    {n:"Tally",         why:"Run problem interviews and waitlist surveys for free.",              url:"https://tally.so"},
-  framer:   {n:"Framer",        why:"Design a higher-fidelity landing page, no code.",                    url:"https://www.framer.com"},
-  posthog:  {n:"PostHog",       why:"See what your first users actually do, free to start.",              url:"https://posthog.com"},
-  beehiiv:  {n:"beehiiv",       why:"Own your audience with a newsletter from day one.",                  url:"https://www.beehiiv.com"},
-  ph:       {n:"Product Hunt",  why:"Launch to early adopters who love trying new tools.",                url:"https://www.producthunt.com"},
-  mixpanel: {n:"Mixpanel",      why:"Track retention curves and find your power users.",                  url:"https://mixpanel.com"},
-  hotjar:   {n:"Hotjar",        why:"Watch real sessions to spot exactly where users get stuck.",         url:"https://www.hotjar.com"},
-  amplitude:{n:"Amplitude",     why:"Deep product analytics for funnels and cohort retention.",           url:"https://amplitude.com"},
-  stripe:   {n:"Stripe",        why:"The default for taking payments online, anywhere.",                  url:"https://stripe.com"},
-  lemon:    {n:"Lemon Squeezy", why:"Merchant of Record — sells globally and handles tax for you.",       url:"https://www.lemonsqueezy.com"},
-  polar:    {n:"Polar",         why:"Modern Merchant of Record built for indie devs selling worldwide.",  url:"https://polar.sh"},
-  baremet:  {n:"Baremetrics",   why:"Live MRR, churn and LTV dashboards on top of Stripe.",               url:"https://baremetrics.com"},
-  chartmog: {n:"ChartMogul",    why:"Subscription analytics and clean unit economics.",                   url:"https://chartmogul.com"},
-  wave:     {n:"Wave",          why:"Free accounting to track your real monthly P&L.",                    url:"https://www.waveapps.com"},
-  ahrefs:   {n:"Ahrefs",        why:"Find the SEO channel your competitors are sleeping on.",             url:"https://ahrefs.com"},
-  rewardful:{n:"Rewardful",     why:"Launch your OWN affiliate program on top of Stripe.",                url:"https://www.rewardful.com"},
-  partner:  {n:"PartnerStack",  why:"Scale partnerships and affiliates as you grow.",                     url:"https://partnerstack.com"},
+  // ---- HAS A PROGRAM · replace url with your personal tracking link ----
+  notion:   {n:"Notion",        why:"Capture your thesis, research and roadmap in one workspace.",       url:"https://www.notion.so"},        // [PartnerStack] $50/signup +20% yr1, 180d · apply: https://www.notion.com/affiliates (NEW APPS PAUSED — re-check)
+  pplx:     {n:"Perplexity",    why:"Pressure-test your market and surface what others miss.",            url:"https://www.perplexity.ai"},     // [Dub] ~$10/Pro signup +~10%* · apply: https://partners.dub.co/programs/perplexity
+  carrd:    {n:"Carrd",         why:"Ship a one-page landing site with email capture in an afternoon.",   url:"https://carrd.co"},              // [In-house] 30% on Pro upgrades · apply: https://carrd.co/docs/account/referral-program
+  tally:    {n:"Tally",         why:"Run problem interviews and waitlist surveys for free.",              url:"https://tally.so"},              // [In-house] 20% recurring, cap $150 · apply: https://tally.so/help/referral-program
+  framer:   {n:"Framer",        why:"Design a higher-fidelity landing page, no code.",                    url:"https://www.framer.com"},        // [Dub] 50% for 12mo, 90d · apply: https://www.framer.com/creators
+  beehiiv:  {n:"beehiiv",       why:"Own your audience with a newsletter from day one.",                  url:"https://www.beehiiv.com"},       // [Rewardful] 50-60% recurring 12mo, 60d · apply: https://www.beehiiv.com/partners
+  mixpanel: {n:"Mixpanel",      why:"Track retention curves and find your power users.",                  url:"https://mixpanel.com"},          // [PartnerStack] B2B referral (undisclosed) · apply: https://mixpanel.com/partners/
+  amplitude:{n:"Amplitude",     why:"Deep product analytics for funnels and cohort retention.",           url:"https://amplitude.com"},         // [PartnerStack] rate post-approval · apply: https://amplitude.com/affiliates
+  stripe:   {n:"Stripe",        why:"The default for taking payments online, anywhere.",                  url:"https://stripe.com"},            // [PartnerStack] one-time, undisclosed · apply: https://stripe.com/legal/affiliate-terms (affiliates@stripe.com)
+  baremet:  {n:"Baremetrics",   why:"Live MRR, churn and LTV dashboards on top of Stripe.",               url:"https://baremetrics.com"},       // [Rewardful] 20% recurring lifetime, 60d · apply: https://affiliates.baremetrics.com/signup
+  rewardful:{n:"Rewardful",     why:"Launch your OWN affiliate program on top of Stripe.",                url:"https://www.rewardful.com"},     // [In-house] 25% recurring 12mo, 60d · apply: https://friends.rewardful.com/signup
+  partner:  {n:"PartnerStack",  why:"Scale partnerships and affiliates as you grow.",                     url:"https://partnerstack.com"},      // [In-house] 15% first year · apply: https://partnerstack.com/our-partner-program/partners-affiliate
+
+  // ---- NO PROGRAM · leave url as-is, no commission possible ----
+  excali:   {n:"Excalidraw",    why:"Sketch the idea as a diagram before you write a line of code.",      url:"https://excalidraw.com"},        // NO PROGRAM (none exists)
+  posthog:  {n:"PostHog",       why:"See what your first users actually do, free to start.",              url:"https://posthog.com"},           // NO PROGRAM (partnership interest form only)
+  ph:       {n:"Product Hunt",  why:"Launch to early adopters who love trying new tools.",                url:"https://www.producthunt.com"},   // NO PROGRAM (referrals pay in swag/Pro credits, not cash)
+  hotjar:   {n:"Hotjar",        why:"Watch real sessions to spot exactly where users get stuck.",         url:"https://www.hotjar.com"},        // NO PROGRAM (folded into Contentsquare agency/reseller tiers)
+  lemon:    {n:"Lemon Squeezy", why:"Merchant of Record — sells globally and handles tax for you.",       url:"https://www.lemonsqueezy.com"},  // NO PROGRAM (affiliate feature is for merchants, no company-wide program)
+  polar:    {n:"Polar",         why:"Modern Merchant of Record built for indie devs selling worldwide.",  url:"https://polar.sh"},              // NO PROGRAM (no first-party; only merchant-side via Affonso)
+  chartmog: {n:"ChartMogul",    why:"Subscription analytics and clean unit economics.",                   url:"https://chartmogul.com"},        // NO PROGRAM (none public)
+  wave:     {n:"Wave",          why:"Free accounting to track your real monthly P&L.",                    url:"https://www.waveapps.com"},      // NO PROGRAM (the "Wave 30%" in directories is wave.co — a DIFFERENT company)
+  ahrefs:   {n:"Ahrefs",        why:"Find the SEO channel your competitors are sleeping on.",             url:"https://ahrefs.com"},            // NO PROGRAM (discontinued, no plans to reopen)
 };
+// * = third-party-sourced figure, not officially confirmed.
 
 /* =========================================================================
    ===== THE JOURNEY  (Lean Startup × Zero to One) =========================
