@@ -107,10 +107,35 @@
     });
   }
 
+  /* ---- (5) Open all navigating links in a new tab -------------------- */
+  /* Any link that goes to a different page (internal pages or external
+   * sites) opens in a new tab. Same-page anchors (#writing, the nav/hero
+   * scroll links) are left alone so they still scroll in place. */
+  function initNewTabLinks() {
+    var here = location.origin + location.pathname;
+    var links = document.querySelectorAll("a[href]");
+    for (var i = 0; i < links.length; i++) {
+      var a = links[i];
+      var href = a.getAttribute("href");
+      if (!href || /^(mailto:|tel:|javascript:)/i.test(href)) continue;
+      var dest;
+      try {
+        dest = new URL(a.href);
+      } catch (e) {
+        continue;
+      }
+      // Same page (with or without a #hash) -> keep in the same tab.
+      if (dest.origin + dest.pathname === here) continue;
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+    }
+  }
+
   function init() {
     initReveal();
     initHeader();
     initNav();
+    initNewTabLinks();
   }
 
   if (document.readyState === "loading") {

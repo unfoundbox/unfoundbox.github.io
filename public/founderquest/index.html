@@ -524,12 +524,14 @@ const I = {
 /* ============================ STATE ===================================== */
 const KEY="founderquest:v1";
 const hasStore=(typeof window!=="undefined"&&window.storage&&typeof window.storage.get==="function");
+const hasLS=(function(){try{return typeof window!=="undefined"&&!!window.localStorage;}catch(e){return false;}})();
 let memBlob=null;
 let state={done:{},notes:{},badges:{},complete:{},active:1};
 
 async function loadState(){
   try{
     if(hasStore){const r=await window.storage.get(KEY); if(r&&r.value) return {...state,...JSON.parse(r.value)};}
+    else if(hasLS){const r=window.localStorage.getItem(KEY); if(r) return {...state,...JSON.parse(r)};}
     else if(memBlob){return {...state,...JSON.parse(memBlob)};}
   }catch(e){}
   return null;
@@ -539,7 +541,7 @@ function saveState(){
   const blob=JSON.stringify(state);
   clearTimeout(saveTimer);
   saveTimer=setTimeout(async()=>{
-    try{ if(hasStore) await window.storage.set(KEY,blob); else memBlob=blob; }
+    try{ if(hasStore) await window.storage.set(KEY,blob); else if(hasLS) window.localStorage.setItem(KEY,blob); else memBlob=blob; }
     catch(e){ memBlob=blob; }
   },120);
 }
