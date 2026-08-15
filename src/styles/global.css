@@ -243,6 +243,18 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   color: rgba(244, 242, 237, 0.65);
 }
 
+/* Reel Sections */
+.reel-section {
+  scroll-margin-top: 5.5rem;
+}
+
+.scroll-anchor {
+  display: block;
+  position: relative;
+  top: -5.5rem;
+  visibility: hidden;
+}
+
 /* Filmstrip Borders */
 .filmstrip-strip {
   height: 12px;

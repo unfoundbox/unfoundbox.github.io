@@ -23,7 +23,7 @@ const formattedDate = new Intl.DateTimeFormat('en-GB', {
   </div>
 
   <h3 class="card-title">
-    <a href={`/posts/${post.slug}/`}>{title}</a>
+    <a href={`/posts/${post.id}/`}>{title}</a>
   </h3>
 
   {description && <p class="card-desc">{description}</p>}
@@ -39,7 +39,7 @@ const formattedDate = new Intl.DateTimeFormat('en-GB', {
   )}
 
   <div class="card-action">
-    <a href={`/posts/${post.slug}/`} class="read-essay-link">
+    <a href={`/posts/${post.id}/`} class="read-essay-link">
       Read Dispatch →
     </a>
   </div>

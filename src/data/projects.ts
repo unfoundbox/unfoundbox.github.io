@@ -35,7 +35,7 @@ export const projects: Project[] = [
       { label: 'Stack', value: 'Astro / Next.js' },
       { label: 'Pipeline', value: 'Deterministic' },
     ],
-    url: 'https://github.com/unfoundbox',
+    url: 'https://motionvector.dev',
     githubUrl: 'https://github.com/unfoundbox',
     badge: 'Active Studio',
     featured: true,

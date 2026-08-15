@@ -31,7 +31,8 @@ const { currentPath = '/' } = Astro.props;
       <a href="/#subscribe" class="nav-item">Dispatch</a>
       <a href={siteConfig.social.twitter} target="_blank" rel="noreferrer" class="nav-item nav-ext">X</a>
       <a href={siteConfig.social.github} target="_blank" rel="noreferrer" class="nav-item nav-ext">GitHub</a>
-      <a href={siteConfig.social.linkedin} target="_blank" rel="noreferrer" class="nav-item nav-ext">LinkedIn</a>
+      <a href={siteConfig.social.instagram} target="_blank" rel="noreferrer" class="nav-item nav-ext">Instagram</a>
+      <a href={siteConfig.social.nomads} target="_blank" rel="noreferrer" class="nav-item nav-ext">Nomads</a>
     </nav>
 
     <button id="nav-toggle-btn" class="nav-toggle-mobile" aria-label="Toggle Menu">
@@ -46,11 +47,14 @@ const { currentPath = '/' } = Astro.props;
       <a href="/#building" class="mob-item">02 Ventures (Katana, MotionVector, Launchy, Lookaround)</a>
       <a href="/#research" class="mob-item">03 Research Lab (WebGPU, AI Map, Data Centers, Gemma)</a>
       <a href="/#nomad-journey" class="mob-item">04 Nomad Story (Rajasthan → Cancun → SE Asia)</a>
-      <a href="/posts/sabbatical/" class="mob-item">05 Full Backstory (Small Town Kid to Cutting-Edge AI)</a>
+      <a href="/posts/sabbatical/" class="mob-item">05 Full Illustrated Backstory</a>
       <a href="/#subscribe" class="mob-item">06 Dispatch / Newsletter</a>
       <div class="mob-socials">
-        <a href={siteConfig.social.twitter} target="_blank" rel="noreferrer">X (Twitter)</a>
+        <a href={siteConfig.social.twitter} target="_blank" rel="noreferrer">X</a>
         <a href={siteConfig.social.github} target="_blank" rel="noreferrer">GitHub</a>
+        <a href={siteConfig.social.instagram} target="_blank" rel="noreferrer">Instagram</a>
+        <a href={siteConfig.social.nomads} target="_blank" rel="noreferrer">Nomads.com</a>
+        <a href={siteConfig.social.substack} target="_blank" rel="noreferrer">Substack</a>
         <a href={siteConfig.social.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
       </div>
     </div>
@@ -97,7 +101,7 @@ const { currentPath = '/' } = Astro.props;
 
   .nav-links-desktop {
     display: none;
-    gap: clamp(10px, 1.8vw, 18px);
+    gap: clamp(8px, 1.4vw, 15px);
     flex-wrap: wrap;
   }
 
@@ -155,16 +159,18 @@ const { currentPath = '/' } = Astro.props;
 
   .mob-socials {
     display: flex;
-    gap: 14px;
+    flex-wrap: wrap;
+    gap: 12px;
     margin-top: 8px;
     font-size: 11.5px;
   }
 
   .mob-socials a {
     color: #F4F2ED;
+    border-bottom: 1px solid rgba(244, 242, 237, 0.4) !important;
   }
 
-  @media (min-width: 900px) {
+  @media (min-width: 960px) {
     .nav-links-desktop {
       display: flex;
     }

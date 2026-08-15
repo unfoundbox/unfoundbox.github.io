@@ -12,6 +12,8 @@ export interface SiteConfig {
     twitter: string;
     linkedin: string;
     instagram: string;
+    nomads: string;
+    substack: string;
     medium: string;
   };
 }
@@ -29,7 +31,9 @@ export const siteConfig: SiteConfig = {
     github: 'https://github.com/unfoundbox',
     twitter: 'https://x.com/unfoundbox',
     linkedin: 'https://www.linkedin.com/in/saurabh-nandwana',
-    instagram: 'https://www.instagram.com/_unfoundbox',
+    instagram: 'https://www.instagram.com/_unfoundbox/',
+    nomads: 'https://nomads.com/@unfoundbox',
+    substack: 'https://saurabhnandwana.substack.com',
     medium: 'https://medium.com/@saurabhnandwana',
   },
 };
