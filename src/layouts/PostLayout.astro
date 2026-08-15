@@ -1,7 +1,5 @@
 ---
 import BaseLayout from './BaseLayout.astro';
-import ReadingProgress from '../components/ReadingProgress.astro';
-import TableOfContents from '../components/TableOfContents.astro';
 import Newsletter from '../components/Newsletter.astro';
 import { siteConfig } from '../data/site';
 
@@ -33,7 +31,7 @@ const {
 
 const formattedDate = new Intl.DateTimeFormat('en-GB', {
   day: 'numeric',
-  month: 'long',
+  month: 'short',
   year: 'numeric',
 }).format(date);
 ---
@@ -46,23 +44,16 @@ const formattedDate = new Intl.DateTimeFormat('en-GB', {
   tags={tags}
   image={coverImage || '/avatar.jpg'}
 >
-  <ReadingProgress />
-
-  <article class="post-article">
-    <header class="post-header container-narrow">
-      <div class="header-nav">
+  <article class="post-article container-narrow">
+    <header class="article-header">
+      <div class="article-nav">
         <a href="/posts/" class="back-link">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="19" y1="12" x2="5" y2="12"></line>
-            <polyline points="12 19 5 12 12 5"></polyline>
-          </svg>
-          <span>All writing</span>
+          ← All Dispatches
         </a>
-
         {tags.length > 0 && (
-          <div class="post-tags">
+          <div class="article-tags">
             {tags.map((tag) => (
-              <a href={`/tags/${tag.toLowerCase().replace(/\s+/g, '-')}/`} class="tag-badge">
+              <a href={`/tags/${tag.toLowerCase().replace(/\s+/g, '-')}/`} class="vintage-tag">
                 {tag}
               </a>
             ))}
@@ -70,215 +61,158 @@ const formattedDate = new Intl.DateTimeFormat('en-GB', {
         )}
       </div>
 
-      <h1 class="article-title">{title}</h1>
-
-      {description && <p class="article-subtitle">{description}</p>}
-
-      <div class="article-author-row">
-        <img src="/avatar.jpg" alt={siteConfig.author} class="author-avatar" />
-        <div class="author-info">
-          <span class="author-name">{siteConfig.author}</span>
-          <div class="article-meta">
-            <time datetime={date.toISOString()}>{formattedDate}</time>
-            {readingTime && (
-              <>
-                <span class="meta-dot">·</span>
-                <span>{readingTime}</span>
-              </>
-            )}
-          </div>
+      <div class="slate-title-box">
+        <div class="slate-title-top">
+          <span>Dispatch Log</span>
+          <span>{formattedDate} {readingTime && `· ${readingTime}`}</span>
         </div>
+        <h1 class="article-headline">{title}</h1>
+        {description && <p class="article-lead">{description}</p>}
       </div>
     </header>
 
     {coverImage && (
-      <div class="container cover-container">
-        <img src={coverImage} alt={title} class="article-cover" />
+      <div class="article-cover-frame">
+        <img src={coverImage} alt={title} class="article-cover-img" />
       </div>
     )}
 
-    <div class="container-narrow">
-      {headings.length > 0 && <TableOfContents headings={headings} />}
-
-      <div class="prose">
-        <slot />
-      </div>
-
-      <div class="article-footer-author lab-card">
-        <img src="/avatar.jpg" alt={siteConfig.author} class="author-footer-avatar" />
-        <div class="author-footer-content">
-          <h4 class="author-footer-name">Written by {siteConfig.author}</h4>
-          <p class="author-footer-bio">
-            Engineer & builder (ex-Hopin, ex-StreamYard, Vectorly). Writing on local AI, WebGPU, video infrastructure, and building products.
-          </p>
-          <div class="author-footer-socials">
-            <a href={siteConfig.social.twitter} target="_blank" rel="noreferrer">Follow on X</a>
-            <a href={siteConfig.social.github} target="_blank" rel="noreferrer">GitHub</a>
-            <a href={siteConfig.social.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
-          </div>
-        </div>
-      </div>
-
-      <Newsletter />
+    <div class="prose">
+      <slot />
     </div>
+
+    <div class="author-credits film-card">
+      <div class="credits-top">
+        <span class="vintage-tag vintage-tag-ink">Author &amp; Engineer</span>
+        <span>{siteConfig.location}</span>
+      </div>
+      <h4 class="credits-name">{siteConfig.author}</h4>
+      <p class="credits-bio">
+        Early-stage startup engineer (ex-Hopin, ex-StreamYard, Vectorly). Researching local WebGPU inference, building tools like Katana and Lookaround.
+      </p>
+      <div class="credits-socials">
+        <a href={siteConfig.social.twitter} target="_blank" rel="noreferrer">Follow on X</a>
+        <a href={siteConfig.social.github} target="_blank" rel="noreferrer">GitHub</a>
+        <a href={siteConfig.social.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
+        <a href={siteConfig.social.medium} target="_blank" rel="noreferrer">Medium</a>
+      </div>
+    </div>
+
+    <Newsletter />
   </article>
 </BaseLayout>
 
 <style>
   .post-article {
-    padding: 3rem 0 5rem;
+    padding: 3rem 1.5rem 5rem;
   }
 
-  .post-header {
-    margin-bottom: 2.5rem;
+  .article-header {
+    margin-bottom: 2rem;
   }
 
-  .header-nav {
+  .article-nav {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    gap: 1rem;
-    margin-bottom: 1.75rem;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 1.5rem;
     flex-wrap: wrap;
   }
 
   .back-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
-    color: var(--text-muted);
-    transition: color var(--transition-fast);
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-ink);
+    border-bottom: 2px solid var(--text-ink) !important;
   }
 
-  .back-link:hover {
-    color: var(--accent-light);
-  }
-
-  .post-tags {
+  .article-tags {
     display: flex;
-    gap: 0.35rem;
+    gap: 6px;
     flex-wrap: wrap;
   }
 
-  .article-title {
-    font-size: clamp(2.2rem, 4.5vw, 3.2rem);
-    font-weight: 800;
-    line-height: 1.18;
-    letter-spacing: -0.03em;
-    color: var(--text-primary);
-    margin-bottom: 1rem;
+  .slate-title-box {
+    border: 3px solid #111111;
+    background: #FAF8F5;
+    padding: clamp(20px, 3.5vw, 32px);
+    box-shadow: 6px 6px 0 rgba(17, 17, 17, 0.2);
   }
 
-  .article-subtitle {
-    font-size: 1.25rem;
-    line-height: 1.55;
-    color: var(--text-secondary);
-    margin-bottom: 1.75rem;
-  }
-
-  .article-author-row {
+  .slate-title-top {
     display: flex;
-    align-items: center;
-    gap: 0.85rem;
-    padding-top: 1.25rem;
-    border-top: 1px solid var(--border-subtle);
-  }
-
-  .author-avatar {
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    border: 1px solid var(--border-medium);
-  }
-
-  .author-info {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .author-name {
-    font-family: var(--font-heading);
-    font-size: 0.95rem;
-    font-weight: 650;
-    color: var(--text-primary);
-  }
-
-  .article-meta {
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
+    justify-content: space-between;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
     color: var(--text-muted);
+    margin-bottom: 10px;
+    border-bottom: 1px dashed rgba(17, 17, 17, 0.3);
+    padding-bottom: 6px;
   }
 
-  .meta-dot {
-    color: var(--border-medium);
+  .article-headline {
+    font-family: var(--font-typewriter-display);
+    font-size: clamp(26px, 4.5vw, 42px);
+    line-height: 1.15;
+    margin-bottom: 12px;
   }
 
-  .cover-container {
-    margin: 2rem auto 3rem;
+  .article-lead {
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--text-body);
   }
 
-  .article-cover {
+  .article-cover-frame {
+    margin: 2rem 0;
+  }
+
+  .article-cover-img {
     width: 100%;
-    max-height: 480px;
+    max-height: 440px;
     object-fit: cover;
-    border-radius: var(--radius-lg);
-    border: 1px solid var(--border-subtle);
+    border: 3px solid #111111;
+    box-shadow: 6px 6px 0 rgba(17, 17, 17, 0.2);
   }
 
-  .article-footer-author {
+  .author-credits {
     margin-top: 4rem;
-    padding: 1.75rem;
+    padding: 24px;
+    background: #FAF8F5;
+  }
+
+  .credits-top {
     display: flex;
-    gap: 1.25rem;
-    align-items: flex-start;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
   }
 
-  .author-footer-avatar {
-    width: 54px;
-    height: 54px;
-    border-radius: 50%;
-    border: 1px solid var(--border-medium);
-    flex-shrink: 0;
+  .credits-name {
+    font-family: var(--font-typewriter-display);
+    font-size: 24px;
+    margin-bottom: 6px;
   }
 
-  .author-footer-name {
-    font-size: 1.1rem;
+  .credits-bio {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--text-body);
+    margin-bottom: 14px;
+  }
+
+  .credits-socials {
+    display: flex;
+    gap: 16px;
+    font-size: 13px;
     font-weight: 700;
-    margin-bottom: 0.35rem;
-    color: var(--text-primary);
-  }
-
-  .author-footer-bio {
-    font-size: 0.9rem;
-    line-height: 1.55;
-    color: var(--text-secondary);
-    margin-bottom: 0.85rem;
-  }
-
-  .author-footer-socials {
-    display: flex;
-    gap: 1rem;
-    font-size: 0.85rem;
-    font-family: var(--font-mono);
-  }
-
-  .author-footer-socials a {
-    color: var(--accent);
-  }
-
-  .author-footer-socials a:hover {
-    color: var(--accent-light);
-    text-decoration: underline;
-  }
-
-  @media (max-width: 640px) {
-    .article-footer-author {
-      flex-direction: column;
-    }
   }
 </style>

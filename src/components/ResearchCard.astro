@@ -8,9 +8,9 @@ interface Props {
 const { item } = Astro.props;
 ---
 
-<div class="research-card lab-card">
-  <div class="card-header">
-    <span class="category-badge">{item.category}</span>
+<div class="research-card film-card">
+  <div class="research-header">
+    <span class="vintage-tag vintage-tag-ink">{item.category}</span>
     <span class="research-date">{item.date}</span>
   </div>
 
@@ -22,110 +22,76 @@ const { item } = Astro.props;
 
   <div class="research-tags">
     {item.tags.map((tag) => (
-      <span class="tag-badge tag-badge-secondary">{tag}</span>
+      <span class="vintage-tag vintage-tag-dashed">{tag}</span>
     ))}
   </div>
 
-  <div class="card-footer">
-    <a href={item.url} class="report-link">
-      <span>{item.isStandalone ? 'Open visual report' : 'Read writeup'}</span>
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <line x1="5" y1="12" x2="19" y2="12"></line>
-        <polyline points="12 5 19 12 12 19"></polyline>
-      </svg>
+  <div class="research-action">
+    <a href={item.url} class="btn-vintage btn-vintage-ink">
+      {item.isStandalone ? 'Open Visual Reel →' : 'Read Writeup →'}
     </a>
   </div>
 </div>
 
 <style>
   .research-card {
-    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    background: var(--bg-paper);
+    border: 2px solid #111111;
+    padding: 20px;
+    box-shadow: 6px 6px 0 rgba(17, 17, 17, 0.18);
   }
 
-  .card-header {
+  .research-header {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    margin-bottom: 0.75rem;
-  }
-
-  .category-badge {
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    color: var(--accent);
-    background: var(--accent-dim);
-    border: 1px solid var(--border-accent);
-    padding: 0.15rem 0.5rem;
-    border-radius: var(--radius-sm);
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
   }
 
   .research-date {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
+    font-size: 11px;
     color: var(--text-muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
   }
 
   .research-title {
-    font-size: 1.25rem;
-    font-weight: 700;
-    margin-bottom: 0.65rem;
+    font-family: var(--font-typewriter-display);
+    font-size: 22px;
+    line-height: 1.25;
+    margin-bottom: 10px;
   }
 
   .research-title a {
-    color: var(--text-primary);
-    transition: color var(--transition-fast);
+    color: var(--text-ink);
+    border-bottom: 2px solid transparent !important;
   }
 
   .research-title a:hover {
-    color: var(--accent-light);
+    border-bottom-color: var(--text-ink) !important;
   }
 
   .research-desc {
-    font-size: 0.92rem;
-    line-height: 1.55;
-    color: var(--text-secondary);
-    margin-bottom: 1.25rem;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--text-body);
+    margin-bottom: 14px;
     flex-grow: 1;
   }
 
   .research-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.35rem;
-    margin-bottom: 1.25rem;
+    gap: 6px;
+    margin-bottom: 16px;
   }
 
-  .card-footer {
-    display: flex;
-    align-items: center;
-    padding-top: 1rem;
-    border-top: 1px solid var(--border-subtle);
-  }
-
-  .report-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--accent);
-    transition: all var(--transition-fast);
-  }
-
-  .report-link svg {
-    transition: transform var(--transition-fast);
-  }
-
-  .research-card:hover .report-link {
-    color: var(--accent-light);
-  }
-
-  .research-card:hover .report-link svg {
-    transform: translateX(3px);
+  .research-action {
+    padding-top: 12px;
+    border-top: 1px dashed rgba(17, 17, 17, 0.3);
   }
 </style>

@@ -1,34 +1,35 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PostCard from '../../components/PostCard.astro';
+import FilmSectionHeader from '../../components/FilmSectionHeader.astro';
 import { getCollection } from 'astro:content';
 import { getReadingTime } from '../../utils/readingTime';
 
 const allPosts = await getCollection('posts', ({ data }) => !data.draft);
 const sortedPosts = allPosts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
-
-// Collect all unique tags
 const allTags = Array.from(new Set(allPosts.flatMap((post) => post.data.tags || []))).sort();
 ---
 
 <BaseLayout
-  title="Writing & Research Notes"
-  description="All essays, working notes, and research dispatches by Saurabh Nandwana across local AI, WebGPU, video infrastructure, and startups."
+  title="All Dispatches & Research Notes"
+  description="Archive of all essays, technical research notes, and field observations by Saurabh Nandwana."
 >
-  <div class="posts-page container">
-    <header class="page-header">
-      <span class="page-eyebrow">Archive</span>
-      <h1 class="page-title">Writing & Research Notes</h1>
-      <p class="page-subtitle">
-        Deep dives, architecture notes, and field observations on local AI, emerging web APIs, and shipping real software.
+  <div class="posts-archive-page container">
+    <header class="archive-header">
+      <div class="header-prompt">
+        <span>&gt; cat /var/log/dispatches.md</span>
+      </div>
+      <h1 class="archive-title">Writing &amp; Field Notes</h1>
+      <p class="archive-sub">
+        Essays, architecture breakdowns, and notes from the frontier of local AI, WebGPU, video infrastructure, and building products.
       </p>
 
       {allTags.length > 0 && (
-        <div class="tags-filter-bar">
+        <div class="tag-filter-box">
           <span class="filter-label">Filter by topic:</span>
           <div class="filter-tags">
             {allTags.map((tag) => (
-              <a href={`/tags/${tag.toLowerCase().replace(/\s+/g, '-')}/`} class="tag-badge">
+              <a href={`/tags/${tag.toLowerCase().replace(/\s+/g, '-')}/`} class="vintage-tag">
                 {tag}
               </a>
             ))}
@@ -37,7 +38,7 @@ const allTags = Array.from(new Set(allPosts.flatMap((post) => post.data.tags || 
       )}
     </header>
 
-    <div class="posts-list-grid">
+    <div class="posts-grid-layout">
       {sortedPosts.map((post) => (
         <PostCard post={post} readingTime={getReadingTime(post.body || '')} />
       ))}
@@ -46,68 +47,60 @@ const allTags = Array.from(new Set(allPosts.flatMap((post) => post.data.tags || 
 </BaseLayout>
 
 <style>
-  .posts-page {
-    padding: 3.5rem 0 6rem;
+  .posts-archive-page {
+    padding: 3.5rem 1.5rem 6rem;
   }
 
-  .page-header {
-    margin-bottom: 3.5rem;
+  .archive-header {
+    margin-bottom: 3rem;
     max-width: 800px;
   }
 
-  .page-eyebrow {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    color: var(--accent);
+  .header-prompt {
+    font-size: 12px;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
-    letter-spacing: 0.06em;
-    display: block;
-    margin-bottom: 0.5rem;
+    color: var(--text-muted);
+    margin-bottom: 8px;
   }
 
-  .page-title {
-    font-size: clamp(2.2rem, 5vw, 3.2rem);
-    font-weight: 800;
-    margin-bottom: 1rem;
+  .archive-title {
+    font-family: var(--font-typewriter-display);
+    font-size: clamp(32px, 6vw, 48px);
+    margin-bottom: 12px;
   }
 
-  .page-subtitle {
-    font-size: 1.15rem;
-    line-height: 1.6;
-    color: var(--text-secondary);
-    margin-bottom: 2rem;
+  .archive-sub {
+    font-size: 17px;
+    line-height: 1.65;
+    color: var(--text-body);
+    margin-bottom: 24px;
   }
 
-  .tags-filter-bar {
+  .tag-filter-box {
     display: flex;
     flex-direction: column;
-    gap: 0.65rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid var(--border-subtle);
+    gap: 8px;
+    padding-top: 16px;
+    border-top: 2px solid #111111;
   }
 
   .filter-label {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    color: var(--text-muted);
+    font-size: 11px;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
+    color: var(--text-muted);
   }
 
   .filter-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.4rem;
+    gap: 6px;
   }
 
-  .posts-list-grid {
+  .posts-grid-layout {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 1.5rem;
-  }
-
-  @media (min-width: 768px) {
-    .posts-list-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
   }
 </style>

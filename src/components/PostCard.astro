@@ -16,152 +16,104 @@ const formattedDate = new Intl.DateTimeFormat('en-GB', {
 }).format(date);
 ---
 
-<article class={`post-card lab-card ${featured ? 'is-featured' : ''}`}>
-  <div class="card-header">
-    <div class="card-meta">
-      <time datetime={date.toISOString()} class="post-date">
-        {formattedDate}
-      </time>
-      {readingTime && (
-        <span class="reading-time">
-          <span class="meta-dot">·</span>
-          {readingTime}
-        </span>
-      )}
-    </div>
-
-    {featured && <span class="featured-badge">Featured</span>}
+<article class={`post-card film-card ${featured ? 'featured-card' : ''}`}>
+  <div class="card-meta-row">
+    <span class="card-date">{formattedDate}</span>
+    {readingTime && <span class="card-readtime">[{readingTime}]</span>}
   </div>
 
-  <h3 class="post-title">
+  <h3 class="card-title">
     <a href={`/posts/${post.slug}/`}>{title}</a>
   </h3>
 
-  {description && <p class="post-desc">{description}</p>}
+  {description && <p class="card-desc">{description}</p>}
 
   {tags && tags.length > 0 && (
-    <div class="tags-container">
+    <div class="card-tags">
       {tags.map((tag) => (
-        <a href={`/tags/${tag.toLowerCase().replace(/\s+/g, '-')}/`} class="tag-badge tag-badge-secondary">
+        <a href={`/tags/${tag.toLowerCase().replace(/\s+/g, '-')}/`} class="vintage-tag">
           {tag}
         </a>
       ))}
     </div>
   )}
 
-  <div class="card-footer">
-    <a href={`/posts/${post.slug}/`} class="read-link">
-      <span>Read essay</span>
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <line x1="5" y1="12" x2="19" y2="12"></line>
-        <polyline points="12 5 19 12 12 19"></polyline>
-      </svg>
+  <div class="card-action">
+    <a href={`/posts/${post.slug}/`} class="read-essay-link">
+      Read Dispatch →
     </a>
   </div>
 </article>
 
 <style>
   .post-card {
-    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    background: var(--bg-paper);
+    border: 2px solid #111111;
+    padding: 20px;
+    box-shadow: 6px 6px 0 rgba(17, 17, 17, 0.18);
   }
 
-  .post-card.is-featured {
-    border-color: rgba(229, 155, 60, 0.25);
-    background: linear-gradient(180deg, rgba(229, 155, 60, 0.03) 0%, var(--bg-card) 100%);
+  .post-card.featured-card {
+    border: 3px solid #111111;
+    box-shadow: 8px 8px 0 rgba(17, 17, 17, 0.22);
   }
 
-  .card-header {
+  .card-meta-row {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    margin-bottom: 0.85rem;
-  }
-
-  .card-meta {
-    display: flex;
     align-items: center;
-    gap: 0.4rem;
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
-    color: var(--text-muted);
-  }
-
-  .meta-dot {
-    color: var(--border-medium);
-  }
-
-  .featured-badge {
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
+    font-size: 11px;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--accent);
-    background: var(--accent-dim);
-    border: 1px solid var(--border-accent);
-    padding: 0.15rem 0.5rem;
-    border-radius: var(--radius-sm);
-    letter-spacing: 0.04em;
+    color: var(--text-muted);
+    margin-bottom: 8px;
   }
 
-  .post-title {
-    font-size: 1.28rem;
-    font-weight: 700;
-    line-height: 1.35;
-    margin-bottom: 0.75rem;
+  .card-title {
+    font-family: var(--font-typewriter-display);
+    font-size: 21px;
+    line-height: 1.25;
+    margin-bottom: 10px;
   }
 
-  .post-title a {
-    color: var(--text-primary);
-    transition: color var(--transition-fast);
+  .card-title a {
+    color: var(--text-ink);
+    border-bottom: 2px solid transparent !important;
   }
 
-  .post-title a:hover {
-    color: var(--accent-light);
+  .card-title a:hover {
+    border-bottom-color: var(--text-ink) !important;
   }
 
-  .post-desc {
-    font-size: 0.94rem;
+  .card-desc {
+    font-size: 15px;
     line-height: 1.6;
-    color: var(--text-secondary);
-    margin-bottom: 1.25rem;
+    color: var(--text-body);
+    margin-bottom: 16px;
     flex-grow: 1;
   }
 
-  .tags-container {
+  .card-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.4rem;
-    margin-bottom: 1.25rem;
+    gap: 6px;
+    margin-bottom: 16px;
   }
 
-  .card-footer {
-    display: flex;
-    align-items: center;
-    padding-top: 1rem;
-    border-top: 1px solid var(--border-subtle);
+  .card-action {
+    padding-top: 12px;
+    border-top: 1px dashed rgba(17, 17, 17, 0.3);
   }
 
-  .read-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--accent);
-    transition: all var(--transition-fast);
-  }
-
-  .read-link svg {
-    transition: transform var(--transition-fast);
-  }
-
-  .post-card:hover .read-link {
-    color: var(--accent-light);
-  }
-
-  .post-card:hover .read-link svg {
-    transform: translateX(3px);
+  .read-essay-link {
+    font-size: 13.5px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--text-ink);
+    border-bottom: 2px solid var(--text-ink) !important;
   }
 </style>

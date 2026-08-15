@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
+import Marquee from '../components/Marquee.astro';
+import FilmSectionHeader from '../components/FilmSectionHeader.astro';
 import PostCard from '../components/PostCard.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import ResearchCard from '../components/ResearchCard.astro';
@@ -8,210 +10,550 @@ import Newsletter from '../components/Newsletter.astro';
 import { getCollection } from 'astro:content';
 import { projects } from '../data/projects';
 import { researchItems } from '../data/research';
+import { timelineMilestones, nomadPlaces } from '../data/timeline';
 import { getReadingTime } from '../utils/readingTime';
 
-// Fetch all posts, sort by date descending
 const allPosts = await getCollection('posts', ({ data }) => !data.draft);
 const sortedPosts = allPosts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 const featuredPosts = sortedPosts.slice(0, 4);
-const featuredProjects = projects.filter((p) => p.featured).slice(0, 4);
-const featuredResearch = researchItems.slice(0, 4);
 ---
 
 <BaseLayout>
-  <Hero />
+  <div class="container index-page-wrapper">
+    <!-- Hero Section -->
+    <Hero />
 
-  <!-- Section: Featured Writing -->
-  <section class="section-block" id="writing">
-    <div class="container">
-      <div class="section-header">
-        <div>
-          <span class="section-eyebrow">Essays & Notes</span>
-          <h2 class="section-title">Selected Writing</h2>
-        </div>
-        <a href="/posts/" class="view-all-link">
-          <span>View all {allPosts.length} posts</span>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-            <polyline points="12 5 19 12 12 19"></polyline>
-          </svg>
+    <!-- Running Marquee Ticker -->
+    <Marquee />
+
+    <!-- Index Jump Section -->
+    <section id="index" class="section-container" style="padding-top: clamp(28px, 5vw, 60px);">
+      <div class="index-title-row">
+        <h2 class="index-heading">Contents &amp; Reels</h2>
+        <span class="index-subtitle">Click a reel to jump</span>
+      </div>
+
+      <div class="index-category-label">Work-ex &amp; Track Record</div>
+      <div class="index-grid">
+        <a href="#reel-01" class="index-row">
+          <span class="row-num">01</span>
+          <span class="row-content">
+            <span class="row-title">Signzy &amp; Seed Stage Fintech</span>
+            <span class="row-sub">Digital KYC · Computer vision · Dropped out of college</span>
+          </span>
+        </a>
+        <a href="#reel-01" class="index-row">
+          <span class="row-num">02</span>
+          <span class="row-content">
+            <span class="row-title">Vectorly (MIT Startup)</span>
+            <span class="row-sub">Neural video upscaling in WASM/WebGL · Acquired by Hopin</span>
+          </span>
+        </a>
+        <a href="#reel-01" class="index-row">
+          <span class="row-num">03</span>
+          <span class="row-content">
+            <span class="row-title">Hopin &amp; StreamYard</span>
+            <span class="row-sub">Applied ML · Smart clip LLMs · Video conferencing at scale</span>
+          </span>
         </a>
       </div>
 
-      <div class="posts-grid">
+      <div class="index-category-label">Ventures, Research &amp; Nomad Logs</div>
+      <div class="index-grid">
+        <a href="#reel-02" class="index-row">
+          <span class="row-num">04</span>
+          <span class="row-content">
+            <span class="row-title">Katana &amp; MotionVector (What I'm Building)</span>
+            <span class="row-sub">WebGPU video super-resolution, Lookaround &amp; Launchy</span>
+          </span>
+        </a>
+        <a href="#reel-03" class="index-row">
+          <span class="row-num">05</span>
+          <span class="row-content">
+            <span class="row-title">Research Lab &amp; Deep Dispatches</span>
+            <span class="row-sub">WebGPU on-device inference, AI landscape map, India data centers</span>
+          </span>
+        </a>
+        <a href="#reel-04" class="index-row">
+          <span class="row-num">06</span>
+          <span class="row-content">
+            <span class="row-title">Digital Nomad Logs &amp; Sabbatical</span>
+            <span class="row-sub">Rajasthan → Cancun → Koh Phangan → Bangkok → Da Nang</span>
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <!-- REEL 01: Engineering Track Record -->
+    <section id="reel-01" class="reel-section">
+      <FilmSectionHeader
+        num="01"
+        title="Track Record: 0→1 Startups & Scale"
+        meta="Startups · 2016–2024"
+      />
+
+      <div class="reel-content-grid">
+        <div class="reel-main-col">
+          <h2 class="reel-heading">From Seed Stage Intern to Acqui-Hire & Scale</h2>
+          <p class="reel-body">
+            I dropped out of engineering at BIT Bangalore to join Signzy as an early dev, built digital KYC pipelines, helped Vectorly (MIT startup) develop real-time browser neural upscaling to an acquisition by Hopin, and engineered video infra at StreamYard powering millions of live streams.
+          </p>
+
+          <div class="stat-grid-vintage">
+            <div class="stat-cell">
+              <div class="stat-value">0 → Seed</div>
+              <div class="stat-label">Signzy KYC dev</div>
+            </div>
+            <div class="stat-cell">
+              <div class="stat-value">Acquired</div>
+              <div class="stat-label">Vectorly → Hopin</div>
+            </div>
+            <div class="stat-cell">
+              <div class="stat-value">Millions</div>
+              <div class="stat-label">Streams on StreamYard</div>
+            </div>
+          </div>
+
+          <div class="timeline-quick-list">
+            {timelineMilestones.slice(1).map((m) => (
+              <div class="track-item">
+                <div class="track-header">
+                  <span class="track-company">
+                    {m.companyUrl ? (
+                      <a href={m.companyUrl} target="_blank" rel="noreferrer">{m.company}</a>
+                    ) : (
+                      <span>{m.company}</span>
+                    )}
+                  </span>
+                  <span class="track-period">{m.period}</span>
+                </div>
+                <div class="track-role">{m.role} · {m.location}</div>
+                <p class="track-desc">{m.description}</p>
+              </div>
+            ))}
+          </div>
+
+          <a href="/timeline/" class="btn-vintage btn-vintage-ink">
+            View Full Interactive Timeline →
+          </a>
+        </div>
+
+        <div class="reel-sidebar-col">
+          <!-- Hand-drawn style SVG schematic for Video Pipeline -->
+          <svg viewBox="0 0 320 260" class="vintage-svg" fill="none" stroke="#111111" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="16" y="20" width="120" height="70" />
+            <text x="32" y="58" fill="#111111" stroke="none" style="font-family:'Special Elite',monospace; font-size:14px">INPUT FRAME</text>
+            <text x="32" y="74" fill="#555" stroke="none" style="font-family:'Courier Prime',monospace; font-size:10px">WebCodecs RGB</text>
+            
+            <line x1="136" y1="55" x2="180" y2="55" stroke-width="2" />
+            <polygon points="180,55 170,50 170,60" fill="#111111" />
+            
+            <rect x="180" y="20" width="124" height="70" stroke-dasharray="4 4" />
+            <text x="194" y="52" fill="#111111" stroke="none" style="font-family:'Special Elite',monospace; font-size:13px">WEBGPU / WGSL</text>
+            <text x="194" y="72" fill="#555" stroke="none" style="font-family:'Courier Prime',monospace; font-size:10px">Neural Shader</text>
+            
+            <line x1="242" y1="90" x2="242" y2="140" stroke-width="2" />
+            <polygon points="242,140 237,130 247,130" fill="#111111" />
+            
+            <rect x="180" y="140" width="124" height="70" />
+            <text x="194" y="174" fill="#111111" stroke="none" style="font-family:'Special Elite',monospace; font-size:13px">4K UPSCALED</text>
+            <text x="194" y="194" fill="#555" stroke="none" style="font-family:'Courier Prime',monospace; font-size:10px">&lt; 16ms Latency</text>
+
+            <circle cx="76" cy="180" r="36" stroke-width="2" />
+            <text x="56" y="185" fill="#111111" stroke="none" style="font-family:'Special Elite',monospace; font-size:12px">0-CLOUD</text>
+            <text x="50" y="200" fill="#555" stroke="none" style="font-family:'Courier Prime',monospace; font-size:9px">Zero Egress</text>
+          </svg>
+          <div class="fig-caption">Fig. 1 — Client-side neural video super-resolution pipeline</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REEL 02: What I'm Building (Ventures & Labs) -->
+    <section id="reel-02" class="reel-section">
+      <FilmSectionHeader
+        num="02"
+        title="Ventures & Labs: What I'm Building"
+        meta="Products · Active"
+      />
+
+      <div class="projects-reel-grid">
+        {projects.map((project) => (
+          <ProjectCard project={project} />
+        ))}
+      </div>
+    </section>
+
+    <!-- REEL 03: Research Lab & Selected Essays -->
+    <section id="reel-03" class="reel-section">
+      <FilmSectionHeader
+        num="03"
+        title="Research Lab & Deep Notes"
+        meta="Research · Dispatches"
+      />
+
+      <div class="research-top-text">
+        <h2 class="reel-heading">Visual Reports &amp; Technical Notes</h2>
+        <p class="reel-body">
+          Hands-on field reports exploring local WebGPU inference, physical data-center constraints in India, AI disagreement landscapes, and small robotics brains.
+        </p>
+      </div>
+
+      <div class="research-reel-grid">
+        {researchItems.slice(0, 4).map((item) => (
+          <ResearchCard item={item} />
+        ))}
+      </div>
+
+      <div class="posts-list-heading">
+        <h3 class="sub-reel-heading">Recent Essays</h3>
+        <a href="/posts/" class="view-all-text">View all {allPosts.length} posts →</a>
+      </div>
+
+      <div class="posts-reel-grid">
         {featuredPosts.map((post) => (
           <PostCard post={post} readingTime={getReadingTime(post.body || '')} />
         ))}
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Section: What I'm Building -->
-  <section class="section-block" id="building">
-    <div class="container">
-      <div class="section-header">
-        <div>
-          <span class="section-eyebrow">Products & Tools</span>
-          <h2 class="section-title">What I'm Building</h2>
-        </div>
-        <a href="/building/" class="view-all-link">
-          <span>All projects</span>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-            <polyline points="12 5 19 12 12 19"></polyline>
-          </svg>
-        </a>
+    <!-- REEL 04: Digital Nomad Journey & Places -->
+    <section id="reel-04" class="reel-section">
+      <FilmSectionHeader
+        num="04"
+        title="Nomad Journey: Places That Made Me Rich"
+        meta="Travel · 10+ Hubs"
+      />
+
+      <div class="nomad-train-container">
+        <!-- SVG Train & Travel Track -->
+        <svg viewBox="0 0 900 140" class="vintage-svg" fill="none" stroke="#111111" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="0" y1="120" x2="900" y2="120" />
+          <g stroke-width="1.2">
+            <line x1="30" y1="120" x2="30" y2="130" /><line x1="100" y1="120" x2="100" y2="130" /><line x1="170" y1="120" x2="170" y2="130" /><line x1="240" y1="120" x2="240" y2="130" /><line x1="310" y1="120" x2="310" y2="130" /><line x1="380" y1="120" x2="380" y2="130" /><line x1="450" y1="120" x2="450" y2="130" /><line x1="520" y1="120" x2="520" y2="130" /><line x1="590" y1="120" x2="590" y2="130" /><line x1="660" y1="120" x2="660" y2="130" /><line x1="730" y1="120" x2="730" y2="130" /><line x1="800" y1="120" x2="800" y2="130" />
+          </g>
+          <g style="animation:trainChug 6s ease-in-out infinite">
+            <path d="M30 110 v-40 q0 -8 8 -8 h30 v-18 h8 v18 h6 v-24 h30 v24 h8 v48 z" />
+            <circle cx="50" cy="112" r="8" /><circle cx="85" cy="112" r="8" /><circle cx="120" cy="112" r="8" />
+            <line x1="128" y1="90" x2="148" y2="90" />
+            <!-- Carriage 1 -->
+            <rect x="148" y="58" width="130" height="52" rx="3" />
+            <text x="160" y="90" fill="#111111" stroke="none" style="font-family:'Courier Prime',monospace; font-size:10px">UDAIPUR/BLR</text>
+            <circle cx="178" cy="112" r="6" /><circle cx="248" cy="112" r="6" />
+            <line x1="278" y1="90" x2="298" y2="90" />
+            <!-- Carriage 2 -->
+            <rect x="298" y="58" width="130" height="52" rx="3" />
+            <text x="310" y="90" fill="#111111" stroke="none" style="font-family:'Courier Prime',monospace; font-size:10px">CANCUN/MEX</text>
+            <circle cx="328" cy="112" r="6" /><circle cx="398" cy="112" r="6" />
+            <line x1="428" y1="90" x2="448" y2="90" />
+            <!-- Carriage 3 -->
+            <rect x="448" y="58" width="130" height="52" rx="3" />
+            <text x="460" y="90" fill="#111111" stroke="none" style="font-family:'Courier Prime',monospace; font-size:10px">KOH PHANGAN</text>
+            <circle cx="478" cy="112" r="6" /><circle cx="548" cy="112" r="6" />
+            <line x1="578" y1="90" x2="598" y2="90" />
+            <!-- Carriage 4 -->
+            <rect x="598" y="58" width="130" height="52" rx="3" />
+            <text x="610" y="90" fill="#111111" stroke="none" style="font-family:'Courier Prime',monospace; font-size:10px">BANGKOK (3mo)</text>
+            <circle cx="628" cy="112" r="6" /><circle cx="698" cy="112" r="6" />
+            <line x1="728" y1="90" x2="748" y2="90" />
+            <!-- Carriage 5 -->
+            <rect x="748" y="58" width="130" height="52" rx="3" />
+            <text x="760" y="90" fill="#111111" stroke="none" style="font-family:'Courier Prime',monospace; font-size:10px">DA NANG (1mo)</text>
+            <circle cx="778" cy="112" r="6" /><circle cx="848" cy="112" r="6" />
+          </g>
+        </svg>
+        <div class="fig-caption">Fig. 3 — The nomad route: 10+ destinations, team offsites, and long deep-work stays</div>
       </div>
 
-      <div class="projects-grid">
-        {featuredProjects.map((project) => (
-          <ProjectCard project={project} />
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- Section: Research Lab -->
-  <section class="section-block" id="research">
-    <div class="container">
-      <div class="section-header">
-        <div>
-          <span class="section-eyebrow">Interactive Lab</span>
-          <h2 class="section-title">Research & Visual Reports</h2>
-        </div>
-        <a href="/research/" class="view-all-link">
-          <span>Explore research lab</span>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-            <polyline points="12 5 19 12 12 19"></polyline>
-          </svg>
-        </a>
-      </div>
-
-      <div class="research-grid">
-        {featuredResearch.map((item) => (
-          <ResearchCard item={item} />
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- Section: Sabbatical & Nomad Snapshot -->
-  <section class="section-block" id="journey">
-    <div class="container">
-      <div class="journey-card lab-card">
-        <div class="journey-content">
-          <span class="section-eyebrow">Journey</span>
-          <h3 class="journey-title">From Kota to Early Startups & Nomading</h3>
-          <p class="journey-text">
-            Growing up in Rajasthan, dropping out of college to join Signzy, building video neural upscaling at Vectorly (MIT startup acquired by Hopin), and shipping video ML at StreamYard — to digital nomad life in South East Asia and building independent tools in the open.
-          </p>
-          <div class="journey-actions">
-            <a href="/timeline/" class="btn btn-secondary">
-              <span>Explore Interactive Timeline</span>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </a>
-            <a href="/about/" class="btn btn-ghost">
-              <span>Read About Story</span>
-            </a>
+      <div class="nomad-cards-grid">
+        {nomadPlaces.map((place) => (
+          <div class="nomad-place-card">
+            <span class="vintage-tag vintage-tag-ink">{place.tag}</span>
+            <h4 class="place-name">{place.name}</h4>
+            <p class="place-desc">{place.desc}</p>
           </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- REEL 05: Backstory Callout (Small Town Kid to Cutting-Edge AI) -->
+    <section id="reel-05" class="reel-section">
+      <FilmSectionHeader
+        num="05"
+        title="Field Story: The Backstory"
+        meta="Essay · Sabbatical Log"
+      />
+
+      <div class="backstory-callout film-card">
+        <h2 class="reel-heading">"How I Went from a Small Town Kid to Working on Cutting-Edge AI"</h2>
+        <p class="reel-body">
+          "Growing up in a small town in Rajasthan, raised by my kickass single mom and elder sister... falling hard for C++ programming in 11th grade, Kota pressure cooker, dropping out of college to join Signzy, building video neural upscaling at Vectorly to Hopin, and taking time to learn how to build with purpose."
+        </p>
+        <div class="backstory-actions">
+          <a href="/posts/sabbatical/" class="btn-vintage btn-vintage-ink">
+            Read Full Essay on Site →
+          </a>
+          <a href="https://medium.com/@saurabhnandwana/how-i-went-from-a-small-town-kid-to-working-on-cutting-edge-ai-99792b88f760" target="_blank" rel="noreferrer" class="btn-vintage btn-vintage-paper">
+            Read on Medium →
+          </a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Newsletter -->
-  <div class="container">
+    <!-- REEL 06: Field Dispatch / Newsletter -->
     <Newsletter />
   </div>
 </BaseLayout>
 
 <style>
-  .section-block {
-    padding: 3.5rem 0;
+  .index-page-wrapper {
+    padding-bottom: 5rem;
   }
 
-  .section-header {
+  .index-title-row {
     display: flex;
-    align-items: flex-end;
     justify-content: space-between;
-    gap: 1rem;
-    margin-bottom: 2rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid var(--border-subtle);
+    align-items: baseline;
+    gap: 12px;
+    border-bottom: 3px solid #111111;
+    padding-bottom: 10px;
+    margin-bottom: 1rem;
   }
 
-  .section-eyebrow {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    color: var(--accent);
+  .index-heading {
+    font-size: clamp(24px, 4vw, 32px);
+  }
+
+  .index-subtitle {
+    font-size: 11px;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    letter-spacing: 0.06em;
-    display: block;
-    margin-bottom: 0.35rem;
+    color: var(--text-muted);
   }
 
-  .section-title {
-    font-size: 1.85rem;
-    font-weight: 750;
-    color: var(--text-primary);
+  .index-category-label {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    padding: 16px 6px 6px;
   }
 
-  .view-all-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.35rem;
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--text-secondary);
-    transition: color var(--transition-fast);
-  }
-
-  .view-all-link:hover {
-    color: var(--accent-light);
-  }
-
-  .posts-grid, .projects-grid, .research-grid {
+  .index-grid {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 0;
+    margin-bottom: 1.5rem;
+  }
+
+  .index-row {
+    display: flex;
+    gap: 14px;
+    align-items: baseline;
+    border: none;
+    border-bottom: 1px dashed rgba(17, 17, 17, 0.3);
+    padding: 14px 6px;
+    transition: background 0.1s ease;
+  }
+
+  .index-row:hover {
+    background: #111111;
+    color: #F4F2ED !important;
+  }
+
+  .index-row:hover .row-title,
+  .index-row:hover .row-sub,
+  .index-row:hover .row-num {
+    color: #F4F2ED !important;
+  }
+
+  .row-num {
+    font-family: var(--font-typewriter-display);
+    font-size: 20px;
+    width: 32px;
+    color: var(--text-ink);
+  }
+
+  .row-content {
+    display: grid;
+    gap: 2px;
+  }
+
+  .row-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-ink);
+  }
+
+  .row-sub {
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  .reel-section {
+    padding-top: clamp(34px, 6vw, 70px);
+  }
+
+  .reel-content-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: clamp(22px, 4vw, 42px);
+  }
+
+  .reel-main-col {
+    flex: 1 1 340px;
+    display: grid;
+    gap: 16px;
+    align-content: start;
+  }
+
+  .reel-sidebar-col {
+    flex: 0 1 280px;
+    align-self: start;
+  }
+
+  .reel-heading {
+    font-family: var(--font-typewriter-display);
+    font-size: clamp(23px, 3.5vw, 30px);
+  }
+
+  .reel-body {
+    font-size: 16.5px;
+    line-height: 1.7;
+    color: var(--text-body);
+  }
+
+  .timeline-quick-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 12px 0;
+  }
+
+  .track-item {
+    border-left: 3px solid #111111;
+    padding-left: 14px;
+  }
+
+  .track-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  .track-company {
+    font-family: var(--font-typewriter-display);
+    font-size: 18px;
+  }
+
+  .track-period {
+    font-size: 11px;
+    color: var(--text-muted);
+    font-family: var(--font-typewriter);
+  }
+
+  .track-role {
+    font-size: 12.5px;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .track-desc {
+    font-size: 14.5px;
+    line-height: 1.55;
+    color: var(--text-body);
+  }
+
+  .vintage-svg {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 2px solid #111111;
+    background: #FAF8F5;
+    padding: 8px;
+    box-shadow: 4px 4px 0 rgba(17, 17, 17, 0.15);
+  }
+
+  .fig-caption {
+    font-size: 10.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    padding-top: 8px;
+  }
+
+  .projects-reel-grid, .research-reel-grid, .posts-reel-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 1.5rem;
+    margin-top: 1.25rem;
   }
 
-  .journey-card {
-    background: linear-gradient(135deg, var(--bg-card) 0%, #151922 100%);
-    border: 1px solid var(--border-medium);
-    padding: 2.5rem;
+  .posts-list-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-top: 2.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #111111;
   }
 
-  .journey-content {
-    max-width: 720px;
+  .sub-reel-heading {
+    font-family: var(--font-typewriter-display);
+    font-size: 22px;
   }
 
-  .journey-title {
-    font-size: 1.65rem;
-    font-weight: 750;
-    margin-bottom: 0.85rem;
+  .view-all-text {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    color: var(--text-ink);
   }
 
-  .journey-text {
-    font-size: 1.05rem;
-    line-height: 1.65;
-    color: var(--text-secondary);
+  .nomad-train-container {
+    overflow: hidden;
     margin-bottom: 1.75rem;
   }
 
-  .journey-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
+  .nomad-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
   }
 
-  @media (min-width: 768px) {
-    .posts-grid, .projects-grid, .research-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
+  .nomad-place-card {
+    border-top: 3px solid #111111;
+    padding-top: 12px;
+    display: grid;
+    gap: 6px;
+    align-content: start;
+  }
+
+  .place-name {
+    font-family: var(--font-typewriter-display);
+    font-size: 18px;
+    margin: 2px 0;
+  }
+
+  .place-desc {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--text-body);
+  }
+
+  .backstory-callout {
+    padding: clamp(24px, 4vw, 36px);
+    display: grid;
+    gap: 14px;
+    background: #FAF8F5;
+  }
+
+  .backstory-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 8px;
   }
 </style>

@@ -25,29 +25,17 @@ const sortedPosts = posts.sort((a, b) => b.data.date.valueOf() - a.data.date.val
 ---
 
 <BaseLayout
-  title={`Posts tagged "${tagName}"`}
-  description={`All articles and research notes tagged with "${tagName}" on unfoundbox.`}
+  title={`Tag: #${tagName}`}
+  description={`Dispatches and notes tagged #${tagName} on unfoundbox.`}
 >
-  <div class="tags-page container">
-    <header class="page-header">
-      <div class="back-row">
-        <a href="/posts/" class="back-link">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="19" y1="12" x2="5" y2="12"></line>
-            <polyline points="12 19 5 12 12 5"></polyline>
-          </svg>
-          <span>All writing</span>
-        </a>
-      </div>
-
-      <span class="page-eyebrow">Tag Archive</span>
-      <h1 class="page-title">#{tagName}</h1>
-      <p class="page-subtitle">
-        {posts.length} {posts.length === 1 ? 'post' : 'posts'} found in this topic.
-      </p>
+  <div class="tags-archive-page container">
+    <header class="tags-header">
+      <a href="/posts/" class="back-link">← All Dispatches</a>
+      <h1 class="tags-title">#{tagName}</h1>
+      <p class="tags-sub">{posts.length} {posts.length === 1 ? 'dispatch' : 'dispatches'} recorded.</p>
     </header>
 
-    <div class="posts-list-grid">
+    <div class="posts-grid-layout">
       {sortedPosts.map((post) => (
         <PostCard post={post} readingTime={getReadingTime(post.body || '')} />
       ))}
@@ -56,64 +44,39 @@ const sortedPosts = posts.sort((a, b) => b.data.date.valueOf() - a.data.date.val
 </BaseLayout>
 
 <style>
-  .tags-page {
-    padding: 3.5rem 0 6rem;
+  .tags-archive-page {
+    padding: 3.5rem 1.5rem 6rem;
   }
 
-  .page-header {
-    margin-bottom: 3.5rem;
-    max-width: 800px;
-  }
-
-  .back-row {
-    margin-bottom: 1.5rem;
+  .tags-header {
+    margin-bottom: 3rem;
   }
 
   .back-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
-    color: var(--text-muted);
-    transition: color var(--transition-fast);
-  }
-
-  .back-link:hover {
-    color: var(--accent-light);
-  }
-
-  .page-eyebrow {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    color: var(--accent);
+    font-size: 13px;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.06em;
-    display: block;
-    margin-bottom: 0.5rem;
+    color: var(--text-ink);
+    border-bottom: 2px solid var(--text-ink) !important;
+    display: inline-block;
+    margin-bottom: 12px;
   }
 
-  .page-title {
-    font-size: clamp(2.2rem, 5vw, 3.2rem);
-    font-weight: 800;
-    margin-bottom: 0.5rem;
-    color: var(--accent-light);
+  .tags-title {
+    font-family: var(--font-typewriter-display);
+    font-size: clamp(32px, 6vw, 48px);
+    margin-bottom: 6px;
   }
 
-  .page-subtitle {
-    font-size: 1.1rem;
-    color: var(--text-secondary);
+  .tags-sub {
+    font-size: 15px;
+    color: var(--text-muted);
   }
 
-  .posts-list-grid {
+  .posts-grid-layout {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 1.5rem;
-  }
-
-  @media (min-width: 768px) {
-    .posts-list-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
   }
 </style>

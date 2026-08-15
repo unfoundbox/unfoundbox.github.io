@@ -1,155 +1,123 @@
 ---
-// Minimalist high-craft email capture & RSS widget
+// Minimalist typewriter field dispatch form
 ---
 
-<section class="newsletter-card lab-card">
-  <div class="newsletter-inner">
-    <div class="newsletter-content">
-      <div class="newsletter-badge">
-        <span class="badge-dot"></span>
-        <span>The unfoundbox Dispatch</span>
-      </div>
-      <h3 class="newsletter-title">Subscribe to the research notes</h3>
-      <p class="newsletter-desc">
-        Deep dives on local WebGPU AI, emerging web standards, and lessons from early-stage startups. No spam, ever.
-      </p>
+<section class="newsletter-box film-card" id="subscribe">
+  <div class="newsletter-header">
+    <div class="newsletter-badge">
+      <span class="badge-rec-dot"></span>
+      <span>REEL DISPATCH · UNFOUNDBOX</span>
     </div>
-
-    <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing! Subscriptions are connected.');">
-      <div class="input-group">
-        <input 
-          type="email" 
-          placeholder="your.email@domain.com" 
-          required 
-          class="email-input" 
-          aria-label="Email address for newsletter"
-        />
-        <button type="submit" class="btn btn-primary">
-          <span>Subscribe</span>
-        </button>
-      </div>
-      <div class="rss-fallback">
-        <span>Prefer RSS?</span>
-        <a href="/rss.xml" class="rss-link-text">Add /rss.xml to your reader →</a>
-      </div>
-    </form>
+    <h3 class="newsletter-title">Subscribe to the field logs</h3>
+    <p class="newsletter-desc">
+      Raw working notes from the edge of local AI, WebGPU shaders, video pipelines, and startup building. Delivered when there's something real to report.
+    </p>
   </div>
+
+  <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed! Welcome to the dispatch.');">
+    <div class="form-row">
+      <input 
+        type="email" 
+        placeholder="your.email@domain.com" 
+        required 
+        class="vintage-input" 
+        aria-label="Email address"
+      />
+      <button type="submit" class="btn-vintage btn-vintage-ink">
+        Join Dispatch →
+      </button>
+    </div>
+    <div class="rss-line">
+      <span>Prefer RSS reader?</span>
+      <a href="/rss.xml" class="rss-link">Add /rss.xml to feed →</a>
+    </div>
+  </form>
 </section>
 
 <style>
-  .newsletter-card {
-    background: linear-gradient(180deg, var(--bg-card) 0%, #171b24 100%);
-    border: 1px solid var(--border-medium);
-    padding: 2.5rem;
-    margin: 3.5rem 0;
-  }
-
-  .newsletter-inner {
-    display: flex;
-    flex-direction: column;
-    gap: 1.75rem;
+  .newsletter-box {
+    background: var(--bg-paper);
+    border: 3px solid #111111;
+    box-shadow: 8px 8px 0 rgba(17, 17, 17, 0.2);
+    padding: clamp(24px, 4vw, 36px);
+    margin: 3.5rem 0 2rem;
   }
 
   .newsletter-badge {
     display: inline-flex;
     align-items: center;
-    gap: 0.45rem;
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    color: var(--accent);
+    gap: 6px;
+    font-size: 11px;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: 0.75rem;
+    color: var(--text-muted);
+    margin-bottom: 8px;
   }
 
-  .badge-dot {
-    width: 6px;
-    height: 6px;
-    background: var(--accent);
-    border-radius: 50%;
+  .badge-rec-dot {
+    width: 7px;
+    height: 7px;
+    background: #111111;
+    display: inline-block;
+    animation: blink 1.2s step-end infinite;
   }
 
   .newsletter-title {
-    font-size: 1.6rem;
-    font-weight: 750;
-    color: var(--text-primary);
-    margin-bottom: 0.5rem;
+    font-family: var(--font-typewriter-display);
+    font-size: clamp(22px, 3.5vw, 32px);
+    margin-bottom: 8px;
   }
 
   .newsletter-desc {
-    font-size: 0.95rem;
-    color: var(--text-secondary);
-    max-width: 540px;
-    line-height: 1.55;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-body);
+    max-width: 580px;
+    margin-bottom: 20px;
   }
 
-  .newsletter-form {
+  .form-row {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 10px;
+    max-width: 500px;
+    margin-bottom: 12px;
   }
 
-  .input-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    max-width: 480px;
+  .vintage-input {
+    background: var(--bg-paper);
+    border: 2px solid #111111;
+    padding: 12px 14px;
+    font-family: var(--font-typewriter);
+    font-size: 14px;
+    color: var(--text-ink);
   }
 
-  .email-input {
-    background: var(--bg-deep);
-    border: 1px solid var(--border-medium);
-    border-radius: var(--radius-md);
-    padding: 0.75rem 1rem;
-    color: var(--text-primary);
-    font-family: var(--font-sans);
-    font-size: 0.92rem;
-    transition: border-color var(--transition-fast);
-  }
-
-  .email-input:focus {
-    border-color: var(--accent);
+  .vintage-input:focus {
     outline: none;
+    border-color: #111111;
+    background: #ffffff;
   }
 
-  .email-input::placeholder {
+  .rss-line {
+    font-size: 12px;
     color: var(--text-muted);
+    letter-spacing: 0.05em;
   }
 
-  .rss-fallback {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.82rem;
-    color: var(--text-muted);
-    font-family: var(--font-mono);
+  .rss-link {
+    color: var(--text-ink);
+    font-weight: 700;
+    margin-left: 4px;
+    border-bottom: 1px solid #111111 !important;
   }
 
-  .rss-link-text {
-    color: var(--accent-light);
-    text-decoration: underline;
-  }
-
-  @media (min-width: 640px) {
-    .input-group {
+  @media (min-width: 600px) {
+    .form-row {
       flex-direction: row;
     }
-    .email-input {
+    .vintage-input {
       flex-grow: 1;
-    }
-  }
-
-  @media (min-width: 860px) {
-    .newsletter-inner {
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .newsletter-content {
-      max-width: 50%;
-    }
-    .newsletter-form {
-      min-width: 380px;
     }
   }
 </style>

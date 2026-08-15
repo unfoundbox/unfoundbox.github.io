@@ -24,7 +24,7 @@ const {
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://unfoundbox.com');
 const currentPath = Astro.url.pathname;
-const fullTitle = title === siteConfig.title ? `${siteConfig.title} — ${siteConfig.author}` : `${title} — ${siteConfig.title}`;
+const fullTitle = title === siteConfig.title ? `${siteConfig.title} · ${siteConfig.author}` : `${title} · ${siteConfig.title}`;
 const ogImageURL = new URL(image, Astro.site || 'https://unfoundbox.com').toString();
 
 const schemaData = type === 'article' ? {
@@ -49,14 +49,14 @@ const schemaData = type === 'article' ? {
   'author': {
     '@type': 'Person',
     'name': siteConfig.author,
-    'jobTitle': 'Engineer & Founder',
+    'jobTitle': '0→1 Engineer',
     'url': siteConfig.url,
-    'knowsAbout': ['Local AI', 'WebGPU', 'Web Standards', 'Video Infra', 'Startups'],
+    'knowsAbout': ['Local AI', 'WebGPU', 'Video Infra', 'Startups', 'Katana', 'MotionVector'],
     'sameAs': [
       siteConfig.social.github,
       siteConfig.social.twitter,
       siteConfig.social.linkedin,
-      siteConfig.social.instagram,
+      siteConfig.social.medium,
     ],
   },
 };
@@ -70,7 +70,7 @@ const schemaData = type === 'article' ? {
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />
-    <meta name="theme-color" content="#0b0c0e" />
+    <meta name="theme-color" content="#111111" />
 
     <!-- OpenGraph / Social -->
     <meta property="og:type" content={type} />
@@ -110,7 +110,9 @@ const schemaData = type === 'article' ? {
     </script>
   </head>
   <body>
-    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <!-- Film grain & scanlines -->
+    <div class="film-grain-overlay"></div>
+    <div class="scanline-overlay"></div>
 
     <Header currentPath={currentPath} />
 
@@ -119,102 +121,5 @@ const schemaData = type === 'article' ? {
     </main>
 
     <Footer />
-
-    <!-- Interactive Code Copy Script -->
-    <script>
-      function setupCodeCopy() {
-        const preBlocks = document.querySelectorAll('pre');
-        preBlocks.forEach((pre) => {
-          if (pre.querySelector('.copy-button')) return;
-          
-          const button = document.createElement('button');
-          button.className = 'copy-button';
-          button.setAttribute('aria-label', 'Copy code to clipboard');
-          button.innerHTML = `
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-            </svg>
-          `;
-          
-          pre.style.position = 'relative';
-          pre.appendChild(button);
-
-          button.addEventListener('click', async () => {
-            const code = pre.querySelector('code')?.innerText || pre.innerText;
-            try {
-              await navigator.clipboard.writeText(code);
-              button.classList.add('copied');
-              button.innerHTML = `
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-              `;
-              setTimeout(() => {
-                button.classList.remove('copied');
-                button.innerHTML = `
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                  </svg>
-                `;
-              }, 2000);
-            } catch (err) {
-              console.error('Failed to copy text: ', err);
-            }
-          });
-        });
-      }
-
-      document.addEventListener('DOMContentLoaded', setupCodeCopy);
-      setupCodeCopy();
-    </script>
   </body>
 </html>
-
-<style is:global>
-  .skip-link {
-    position: absolute;
-    top: -40px;
-    left: 1rem;
-    background: var(--accent);
-    color: var(--bg-deep);
-    padding: 0.5rem 1rem;
-    font-weight: 700;
-    border-radius: var(--radius-sm);
-    z-index: 1000;
-    transition: top var(--transition-fast);
-  }
-
-  .skip-link:focus {
-    top: 1rem;
-  }
-
-  .copy-button {
-    position: absolute;
-    top: 0.75rem;
-    right: 0.75rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 2rem;
-    height: 2rem;
-    background: var(--bg-elevated);
-    border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-sm);
-    color: var(--text-muted);
-    cursor: pointer;
-    transition: all var(--transition-fast);
-    opacity: 0.7;
-  }
-
-  pre:hover .copy-button {
-    opacity: 1;
-  }
-
-  .copy-button:hover {
-    background: var(--bg-card-hover);
-    color: var(--text-primary);
-    border-color: var(--border-medium);
-  }
-</style>

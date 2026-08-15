@@ -6,298 +6,188 @@ interface Props {
 }
 
 const { currentPath = '/' } = Astro.props;
-
-const navLinks = [
-  { name: 'Writing', href: '/posts/' },
-  { name: 'Research', href: '/research/' },
-  { name: 'Building', href: '/building/' },
-  { name: 'Timeline', href: '/timeline/' },
-  { name: 'About', href: '/about/' },
-];
 ---
 
-<header class="site-header">
-  <div class="container header-container">
-    <a href="/" class="brand-logo" aria-label="unfoundbox home">
-      <span class="logo-text">unfoundbox</span>
-      <span class="logo-dot"></span>
+<div class="warning-tape">
+  <span class="warning-tape-badge">
+    FIELD DISPATCHES ✱ LOCAL AI · WEBGPU VIDEO INFRA · NOMAD LOGS ✱ BUILDING IN THE OPEN
+  </span>
+</div>
+
+<header class="sticky-nav">
+  <div class="nav-inner">
+    <a href="/" class="rec-brand">
+      <span class="rec-dot"></span>
+      <span class="rec-text">REC · {siteConfig.author}</span>
     </a>
 
-    <nav class="desktop-nav" aria-label="Main Navigation">
-      <ul class="nav-list">
-        {navLinks.map((link) => {
-          const isActive = currentPath === link.href || (link.href !== '/' && currentPath.startsWith(link.href));
-          return (
-            <li>
-              <a href={link.href} class={`nav-link ${isActive ? 'active' : ''}`}>
-                {link.name}
-              </a>
-            </li>
-          );
-        })}
-      </ul>
+    <nav class="nav-links-desktop">
+      <a href="/#index" class="nav-item">Index</a>
+      <a href="/#track-record" class="nav-item">Track Record</a>
+      <a href="/#building" class="nav-item">Ventures</a>
+      <a href="/#research" class="nav-item">Research</a>
+      <a href="/#nomad-journey" class="nav-item">Nomad Story</a>
+      <a href="/posts/sabbatical/" class="nav-item">Backstory</a>
+      <a href="/#subscribe" class="nav-item">Dispatch</a>
+      <a href={siteConfig.social.twitter} target="_blank" rel="noreferrer" class="nav-item nav-ext">X</a>
+      <a href={siteConfig.social.github} target="_blank" rel="noreferrer" class="nav-item nav-ext">GitHub</a>
+      <a href={siteConfig.social.linkedin} target="_blank" rel="noreferrer" class="nav-item nav-ext">LinkedIn</a>
     </nav>
 
-    <div class="header-actions">
-      <a href="/rss.xml" class="rss-link" title="RSS Feed" aria-label="RSS Feed">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M4 11a9 9 0 0 1 9 9"></path>
-          <path d="M4 4a16 16 0 0 1 16 16"></path>
-          <circle cx="5" cy="19" r="1"></circle>
-        </svg>
-      </a>
-
-      <button id="mobile-menu-btn" class="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
-        <svg class="icon-open" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="4" y1="6" x2="20" y2="6"></line>
-          <line x1="4" y1="12" x2="20" y2="12"></line>
-          <line x1="4" y1="18" x2="20" y2="18"></line>
-        </svg>
-        <svg class="icon-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="18" y1="6" x2="6" y2="18"></line>
-          <line x1="6" y1="6" x2="18" y2="18"></line>
-        </svg>
-      </button>
-    </div>
+    <button id="nav-toggle-btn" class="nav-toggle-mobile" aria-label="Toggle Menu">
+      <span>MENU</span>
+    </button>
   </div>
 
-  <!-- Mobile Drawer Menu -->
-  <div id="mobile-menu" class="mobile-menu" aria-hidden="true">
-    <div class="container mobile-nav-inner">
-      <ul class="mobile-nav-list">
-        {navLinks.map((link) => (
-          <li>
-            <a href={link.href} class="mobile-nav-link">
-              {link.name}
-            </a>
-          </li>
-        ))}
-      </ul>
-      <div class="mobile-meta">
-        <span class="mobile-status">● Status: Building in the open</span>
-        <div class="mobile-socials">
-          <a href={siteConfig.social.github} target="_blank" rel="noreferrer">GitHub</a>
-          <a href={siteConfig.social.twitter} target="_blank" rel="noreferrer">X (Twitter)</a>
-          <a href={siteConfig.social.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
-        </div>
+  <div id="mobile-drawer" class="mobile-drawer" aria-hidden="true">
+    <div class="mobile-drawer-inner">
+      <a href="/#index" class="mob-item">Index</a>
+      <a href="/#track-record" class="mob-item">01 Track Record (Signzy, Vectorly, Hopin, StreamYard)</a>
+      <a href="/#building" class="mob-item">02 Ventures (Katana, MotionVector, Launchy, Lookaround)</a>
+      <a href="/#research" class="mob-item">03 Research Lab (WebGPU, AI Map, Data Centers, Gemma)</a>
+      <a href="/#nomad-journey" class="mob-item">04 Nomad Story (Rajasthan → Cancun → SE Asia)</a>
+      <a href="/posts/sabbatical/" class="mob-item">05 Full Backstory (Small Town Kid to Cutting-Edge AI)</a>
+      <a href="/#subscribe" class="mob-item">06 Dispatch / Newsletter</a>
+      <div class="mob-socials">
+        <a href={siteConfig.social.twitter} target="_blank" rel="noreferrer">X (Twitter)</a>
+        <a href={siteConfig.social.github} target="_blank" rel="noreferrer">GitHub</a>
+        <a href={siteConfig.social.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
       </div>
     </div>
   </div>
 </header>
 
 <style>
-  .site-header {
+  .sticky-nav {
     position: sticky;
     top: 0;
-    left: 0;
-    right: 0;
-    height: 4rem;
-    background: var(--bg-glass);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border-subtle);
-    z-index: 100;
+    z-index: 50;
+    background: #111111;
+    color: #F4F2ED;
+    border-bottom: 2px solid #111111;
   }
 
-  .header-container {
+  .nav-inner {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    height: 100%;
+    align-items: center;
+    gap: 12px;
+    padding: 10px clamp(14px, 3vw, 22px);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
   }
 
-  .brand-logo {
+  .rec-brand {
     display: flex;
     align-items: center;
-    gap: 0.25rem;
-    font-family: var(--font-heading);
-    font-weight: 750;
-    font-size: 1.15rem;
-    color: var(--text-primary);
-    letter-spacing: -0.02em;
+    gap: 8px;
+    color: #F4F2ED;
+    border-bottom: none !important;
+    font-weight: 700;
   }
 
-  .logo-text {
-    transition: color var(--transition-fast);
-  }
-
-  .brand-logo:hover .logo-text {
-    color: var(--accent-light);
-  }
-
-  .logo-dot {
-    width: 6px;
-    height: 6px;
-    background: var(--accent);
-    border-radius: 50%;
+  .rec-dot {
+    width: 9px;
+    height: 9px;
+    background: #F4F2ED;
     display: inline-block;
+    animation: blink 1.4s step-end infinite;
   }
 
-  .desktop-nav {
+  .nav-links-desktop {
     display: none;
+    gap: clamp(10px, 1.8vw, 18px);
+    flex-wrap: wrap;
   }
 
-  .nav-list {
-    display: flex;
-    align-items: center;
-    gap: 1.75rem;
-    list-style: none;
+  .nav-item {
+    color: #F4F2ED;
+    border-bottom: 1px solid rgba(244, 242, 237, 0.4) !important;
+    transition: all 0.15s ease;
   }
 
-  .nav-link {
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: var(--text-secondary);
-    padding: 0.35rem 0;
-    position: relative;
-    transition: color var(--transition-fast);
+  .nav-item:hover {
+    color: #F4F2ED;
+    border-bottom-color: #F4F2ED !important;
   }
 
-  .nav-link:hover {
-    color: var(--text-primary);
+  .nav-ext {
+    color: rgba(244, 242, 237, 0.7);
   }
 
-  .nav-link.active {
-    color: var(--accent-light);
-    font-weight: 600;
-  }
-
-  .nav-link.active::after {
-    content: '';
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: var(--accent);
-    border-radius: 2px;
-  }
-
-  .header-actions {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
-
-  .rss-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 2rem;
-    height: 2rem;
-    border-radius: var(--radius-sm);
-    color: var(--text-muted);
-    transition: all var(--transition-fast);
-  }
-
-  .rss-link:hover {
-    color: var(--accent);
-    background: var(--accent-dim);
-  }
-
-  .mobile-toggle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .nav-toggle-mobile {
+    display: block;
     background: transparent;
-    border: none;
-    color: var(--text-primary);
+    border: 1px solid #F4F2ED;
+    color: #F4F2ED;
+    padding: 4px 8px;
+    font-family: var(--font-typewriter);
+    font-size: 10.5px;
+    letter-spacing: 0.14em;
     cursor: pointer;
-    padding: 0.35rem;
-    border-radius: var(--radius-sm);
   }
 
-  .mobile-toggle .icon-close {
+  .mobile-drawer {
     display: none;
+    background: #111111;
+    border-top: 1px dashed rgba(244, 242, 237, 0.3);
+    padding: 18px clamp(14px, 3vw, 22px) 24px;
   }
 
-  .mobile-toggle.is-open .icon-open {
-    display: none;
-  }
-
-  .mobile-toggle.is-open .icon-close {
+  .mobile-drawer.is-open {
     display: block;
   }
 
-  .mobile-menu {
-    position: fixed;
-    top: 4rem;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: var(--bg-deep);
-    display: none;
-    flex-direction: column;
-    padding-top: 2rem;
-    z-index: 99;
-    border-top: 1px solid var(--border-subtle);
-  }
-
-  .mobile-menu.is-active {
-    display: flex;
-  }
-
-  .mobile-nav-list {
-    list-style: none;
+  .mobile-drawer-inner {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 12px;
   }
 
-  .mobile-nav-link {
-    font-size: 1.35rem;
-    font-family: var(--font-heading);
-    font-weight: 600;
-    color: var(--text-primary);
-    display: block;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid var(--border-subtle);
+  .mob-item {
+    color: #F4F2ED;
+    font-size: 12px;
+    border-bottom: 1px dashed rgba(244, 242, 237, 0.25) !important;
+    padding-bottom: 6px;
+    line-height: 1.5;
   }
 
-  .mobile-meta {
-    margin-top: 3rem;
+  .mob-socials {
     display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
+    gap: 14px;
+    margin-top: 8px;
+    font-size: 11.5px;
   }
 
-  .mobile-status {
-    font-size: 0.8rem;
-    font-family: var(--font-mono);
-    color: var(--accent);
+  .mob-socials a {
+    color: #F4F2ED;
   }
 
-  .mobile-socials {
-    display: flex;
-    gap: 1.25rem;
-    font-size: 0.9rem;
-    color: var(--text-secondary);
-  }
-
-  @media (min-width: 768px) {
-    .desktop-nav {
-      display: block;
+  @media (min-width: 900px) {
+    .nav-links-desktop {
+      display: flex;
     }
-    .mobile-toggle {
+    .nav-toggle-mobile {
       display: none;
     }
-    .mobile-menu {
+    .mobile-drawer {
       display: none !important;
     }
   }
 </style>
 
 <script>
-  const menuBtn = document.getElementById('mobile-menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-
-  if (menuBtn && mobileMenu) {
-    menuBtn.addEventListener('click', () => {
-      const isOpen = menuBtn.classList.toggle('is-open');
-      mobileMenu.classList.toggle('is-active', isOpen);
-      menuBtn.setAttribute('aria-expanded', String(isOpen));
-      mobileMenu.setAttribute('aria-hidden', String(!isOpen));
-      document.body.style.overflow = isOpen ? 'hidden' : '';
+  const toggleBtn = document.getElementById('nav-toggle-btn');
+  const drawer = document.getElementById('mobile-drawer');
+  if (toggleBtn && drawer) {
+    toggleBtn.addEventListener('click', () => {
+      drawer.classList.toggle('is-open');
+    });
+    drawer.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        drawer.classList.remove('is-open');
+      });
     });
   }
 </script>

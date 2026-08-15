@@ -1,0 +1,43 @@
+---
+// Infinitely scrolling typewriter film ticker
+---
+
+<div class="ticker-container" aria-hidden="true">
+  <div class="ticker-track">
+    <div class="ticker-content">
+      <span>C++ in 11th grade ✱ dropped out to build signzy ✱ vectorly acqui-hired by hopin ✱ streamyard video infra ✱ 3 months in bangkok ✱ webgpu local inference ✱ katana.video ✱ motionvector studio ✱ shipped on a tuesday ✱</span>
+    </div>
+    <div class="ticker-content">
+      <span>C++ in 11th grade ✱ dropped out to build signzy ✱ vectorly acqui-hired by hopin ✱ streamyard video infra ✱ 3 months in bangkok ✱ webgpu local inference ✱ katana.video ✱ motionvector studio ✱ shipped on a tuesday ✱</span>
+    </div>
+  </div>
+</div>
+
+<style>
+  .ticker-container {
+    overflow: hidden;
+    background: #111111;
+    color: #F4F2ED;
+    border-top: 3px solid #111111;
+    border-bottom: 3px solid #111111;
+    padding: 10px 0;
+    font-size: 12.5px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    animation: flick 7s linear infinite;
+  }
+
+  .ticker-track {
+    display: flex;
+    width: 200%;
+    animation: marq 28s linear infinite;
+  }
+
+  .ticker-content {
+    width: 50%;
+    display: flex;
+    gap: 30px;
+    padding-right: 30px;
+  }
+</style>

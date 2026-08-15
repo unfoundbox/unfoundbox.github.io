@@ -5,60 +5,64 @@ import { siteConfig } from '../data/site';
 
 <BaseLayout
   title="About Saurabh Nandwana"
-  description="Background, career journey from Rajasthan to startups and video infrastructure, nomad lifestyle, and current engineering focus."
+  description="Story and background of Saurabh Nandwana — engineer, founder of unfoundbox, nomad in SE Asia."
 >
   <div class="about-page container-narrow">
-    <header class="about-header">
-      <img src="/avatar.jpg" alt={siteConfig.author} class="about-avatar" />
-      <div>
-        <h1 class="about-title">Saurabh Nandwana</h1>
-        <p class="about-role">Engineer & Builder · Founder of unfoundbox</p>
-        <div class="about-location">
-          <span class="geo-dot"></span>
-          <span>Based in Udaipur, India & Nomading in SE Asia</span>
+    <header class="about-header film-card">
+      <div class="header-prompt">
+        <span>&gt; whoami --verbose</span>
+      </div>
+      <div class="about-header-main">
+        <img src="/avatar.jpg" alt={siteConfig.author} class="about-portrait" />
+        <div class="about-header-text">
+          <h1 class="about-name">{siteConfig.author}</h1>
+          <p class="about-tagline">{siteConfig.tagline}</p>
+          <div class="about-status-row">
+            <span class="vintage-tag vintage-tag-ink">Status: Building in public</span>
+            <span class="vintage-tag">{siteConfig.location}</span>
+          </div>
         </div>
       </div>
     </header>
 
-    <div class="prose about-prose">
+    <div class="prose">
       <p>
-        Hey there! I'm Saurabh. I’ve spent the last decade as an early-stage startup engineer and founder working across fintech, video compression, applied machine learning, and high-scale browser infrastructure.
+        Hey there! I’m Saurabh. I’m an early-stage startup engineer and builder with a deep interest in applied machine learning, client-side WebGPU acceleration, and high-scale browser video platforms.
       </p>
 
-      <h2>Background & Path</h2>
+      <h2>The Backstory &amp; Path</h2>
       <p>
-        I grew up in a small town in Rajasthan, discovered C++ in high school, and went to Kota for IIT-JEE prep before heading to BIT Bangalore for engineering. After realizing the traditional lecture hall wasn't teaching me how to actually build software, I took a leap, dropped out, and joined <a href="https://www.signzy.com" target="_blank" rel="noreferrer">Signzy</a> at the seed stage.
+        I grew up in a small town in Rajasthan, raised by my single mom and elder sister. In 11th grade, I fell in love with C++ programming and decided to make software my life's craft.
       </p>
       <p>
-        At Signzy, I worked directly with the founding team building digital KYC pipelines and computer vision extraction algorithms. Later, I joined <a href="https://sambhattacharyya.com/vectorly" target="_blank" rel="noreferrer">Vectorly</a> — an MIT-backed video compression startup — where we built client-side neural video upscaling engines in WebGL and WASM. Vectorly was acqui-hired by <a href="https://hopin.com" target="_blank" rel="noreferrer">Hopin</a> during the peak of the virtual events boom.
+        After IIT-JEE prep in Kota and landing at BIT Bangalore for telecommunications, I realized traditional rote coursework was disconnected from the fast-evolving startup ecosystem. I took a leap, dropped out of engineering, and joined <strong>Signzy</strong> at the seed stage.
       </p>
       <p>
-        At Hopin and subsequently <a href="https://streamyard.com" target="_blank" rel="noreferrer">StreamYard</a>, I worked on applied ML, automated clip extraction, WebCodecs/WebRTC live broadcast infrastructure, and developer SDKs used by millions of live stream creators worldwide.
+        At Signzy, I worked directly with the founders building digital KYC engines and real-time computer vision document extraction. Later, I joined <strong>Vectorly</strong> — an MIT Sandbox startup developing client-side neural video upscaling in WASM and WebGL. Vectorly was acqui-hired by <strong>Hopin</strong> during the height of the virtual events boom.
+      </p>
+      <p>
+        At Hopin and <strong>StreamYard</strong>, I worked across applied ML, LLM-based smart clip detection, and WebRTC/WebCodecs broadcast infrastructure handling millions of live streams.
       </p>
 
-      <h2>Current Focus</h2>
-      <p>
-        I’m currently operating as an independent builder and researcher, focused on:
-      </p>
+      <h2>What I'm Building Now</h2>
       <ul>
-        <li><strong>Local AI on WebGPU:</strong> Running structured small language models and vision models directly on client hardware without cloud round-trips.</li>
-        <li><strong>Modern Web Platforms:</strong> Leveraging WebCodecs, WebGPU, WebTransport, and 3D Gaussian splatting to bring desktop-grade workflows to the browser.</li>
-        <li><strong>Independent Tools:</strong> Shipping products like <a href="https://launchy.video" target="_blank" rel="noreferrer">Launchy.video</a> (automated launch videos) and <a href="https://lookaround.space" target="_blank" rel="noreferrer">Lookaround.space</a> (navigable 3D web environments).</li>
+        <li><strong>Katana (katana.video):</strong> Hardware-accelerated browser video super-resolution running locally via WebGPU compute shaders and WebCodecs.</li>
+        <li><strong>MotionVector:</strong> Programmatic creative motion tools, video generation pipelines, and web 3D engines.</li>
+        <li><strong>Lookaround (lookaround.space):</strong> Navigable 3D WebGL / Gaussian splat environments running without installation in browsers.</li>
+        <li><strong>Launchy (launchy.video):</strong> Automated product launch video generation.</li>
       </ul>
 
       <h2>Digital Nomad Life</h2>
       <p>
-        When I'm not writing code or experimenting with neural nets, I spend time exploring South East Asia — living out of Bangkok, Da Nang, Koh Phangan, and my hometown of Udaipur.
+        I spend part of each year nomading across South East Asia — living out of Bangkok, Da Nang, Koh Phangan, and my hometown of Udaipur.
       </p>
 
       <h2>Connect</h2>
-      <p>
-        I'm always open to discussing new ideas, collaborating on edge AI experiments, or chatting about startup engineering:
-      </p>
       <ul>
         <li><strong>X (Twitter):</strong> <a href={siteConfig.social.twitter} target="_blank" rel="noreferrer">@unfoundbox</a></li>
         <li><strong>GitHub:</strong> <a href={siteConfig.social.github} target="_blank" rel="noreferrer">github.com/unfoundbox</a></li>
         <li><strong>LinkedIn:</strong> <a href={siteConfig.social.linkedin} target="_blank" rel="noreferrer">linkedin.com/in/saurabh-nandwana</a></li>
+        <li><strong>Medium:</strong> <a href={siteConfig.social.medium} target="_blank" rel="noreferrer">medium.com/@saurabhnandwana</a></li>
       </ul>
     </div>
   </div>
@@ -66,59 +70,55 @@ import { siteConfig } from '../data/site';
 
 <style>
   .about-page {
-    padding: 3.5rem 0 6rem;
+    padding: 3.5rem 1.5rem 6rem;
   }
 
   .about-header {
-    display: flex;
-    align-items: center;
-    gap: 1.75rem;
-    margin-bottom: 3rem;
-    padding-bottom: 2rem;
-    border-bottom: 1px solid var(--border-subtle);
+    margin-bottom: 2.5rem;
+    padding: clamp(20px, 3.5vw, 32px);
+    background: #FAF8F5;
   }
 
-  .about-avatar {
-    width: 88px;
-    height: 88px;
-    border-radius: 50%;
-    border: 2px solid var(--border-medium);
-  }
-
-  .about-title {
-    font-size: clamp(1.8rem, 4vw, 2.5rem);
-    font-weight: 800;
-    margin-bottom: 0.25rem;
-  }
-
-  .about-role {
-    font-family: var(--font-heading);
-    font-size: 1rem;
-    color: var(--accent-light);
-    margin-bottom: 0.35rem;
-  }
-
-  .about-location {
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
+  .header-prompt {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
     color: var(--text-muted);
+    margin-bottom: 12px;
   }
 
-  .geo-dot {
-    width: 6px;
-    height: 6px;
-    background: #10b981;
-    border-radius: 50%;
+  .about-header-main {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
   }
 
-  @media (max-width: 640px) {
-    .about-header {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 1rem;
-    }
+  .about-portrait {
+    width: 90px;
+    height: 90px;
+    border: 3px solid #111111;
+    object-fit: cover;
+    box-shadow: 4px 4px 0 rgba(17, 17, 17, 0.2);
+    margin: 0;
+  }
+
+  .about-name {
+    font-family: var(--font-typewriter-display);
+    font-size: clamp(28px, 4.5vw, 38px);
+    line-height: 1.1;
+    margin-bottom: 4px;
+  }
+
+  .about-tagline {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+  }
+
+  .about-status-row {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
   }
 </style>
