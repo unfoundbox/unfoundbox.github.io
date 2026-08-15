@@ -12,7 +12,7 @@ import { getCollection } from 'astro:content';
 import { projects } from '../data/projects';
 import { researchItems } from '../data/research';
 import { timelineMilestones, nomadPlaces } from '../data/timeline';
-import { nomadPhotos } from '../data/photos';
+import { nomadPhotos, instagramMoments } from '../data/photos';
 import { getReadingTime } from '../utils/readingTime';
 
 const allPosts = await getCollection('posts', ({ data }) => !data.draft);
@@ -278,6 +278,11 @@ const featuredPosts = sortedPosts.slice(0, 4);
 
       <!-- Photo Reel Contact Sheet -->
       <PhotoReel photos={nomadPhotos} />
+
+      <div class="insta-sub-header">
+        <h4 class="sub-reel-heading">Instagram &amp; Field Rolls (@_unfoundbox)</h4>
+      </div>
+      <PhotoReel photos={instagramMoments} />
     </section>
 
     <!-- REEL 05: Backstory Callout (Small Town Kid to Cutting-Edge AI) -->
@@ -295,7 +300,10 @@ const featuredPosts = sortedPosts.slice(0, 4);
         </p>
         <div class="backstory-actions">
           <a href="/posts/sabbatical/" class="btn-vintage btn-vintage-ink">
-            Read Full Essay on Site →
+            Read Full Illustrated Essay →
+          </a>
+          <a href="https://saurabhnandwana.substack.com/p/how-i-went-from-a-small-town-kid" target="_blank" rel="noreferrer" class="btn-vintage btn-vintage-paper">
+            Read on Substack →
           </a>
           <a href="https://medium.com/@saurabhnandwana/how-i-went-from-a-small-town-kid-to-working-on-cutting-edge-ai-99792b88f760" target="_blank" rel="noreferrer" class="btn-vintage btn-vintage-paper">
             Read on Medium →
@@ -520,6 +528,11 @@ const featuredPosts = sortedPosts.slice(0, 4);
   .nomad-train-container {
     overflow: hidden;
     margin-bottom: 1.75rem;
+  }
+
+  .insta-sub-header {
+    margin-top: 2rem;
+    margin-bottom: -1.5rem;
   }
 
   .nomad-cards-grid {
