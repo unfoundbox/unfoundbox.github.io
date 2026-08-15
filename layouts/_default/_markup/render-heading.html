@@ -1,9 +1,0 @@
-{{- /* render-heading.html — Demote a leading content H1 to H2 so each post has
-       exactly one H1 (the template's .Title). The post body markdown often
-       repeats the title as `# Title`; rendering it as <h1> creates a duplicate
-       H1 (SEO/a11y defect). Levels 2-6 render normally. */ -}}
-{{- $level := .Level -}}
-{{- if eq $level 1 -}}
-  {{- $level = 2 -}}
-{{- end -}}
-<h{{ $level }}{{ with .Anchor }} id="{{ . }}"{{ end }}>{{ .Text | safeHTML }}</h{{ $level }}>

@@ -1,14 +1,28 @@
-# unfoundbox
+# unfoundbox.com
 
-[![Hugo Version](https://img.shields.io/badge/Hugo-0.121.2-ff4088?logo=hugo)](https://gohugo.io)
-
-A technical blog documenting my journey through startup development and career evolution, built with modern web technologies.
+The personal website and technical lab of **Saurabh Nandwana** — documenting research notes on local AI, WebGPU, video infrastructure, and building products.
 
 ## 🛠 Tech Stack
-- **Framework**: [Hugo](https://gohugo.io) (Static Site Generator)
-- **Hosting**: [Namecheap](https://namecheap.com) (Global DNS)
-- **Styling**: SCSS + [hugo-blog-awesome](https://github.com/hugo-sid/hugo-blog-awesome)
-- **Syntax Highlighting**: Chroma (Built-in Hugo)
-- **Comments**: [Utterances](https://utteranc.es/) (GitHub-based)
 
-[Live Demo](https://unfoundbox.com) • [View Posts](/posts)
+- **Framework**: [Astro 5](https://astro.build) (Static Site Generation, zero JS by default)
+- **Authoring**: [MDX](https://mdxjs.com) (Markdown with embedded interactive components)
+- **Syntax Highlighting**: Shiki (`vitesse-dark`)
+- **Feeds & SEO**: `@astrojs/rss`, `@astrojs/sitemap`, OpenGraph & Schema.org JSON-LD
+- **Design System**: Editorial Tech Lab (Obsidian dark theme, warm amber accents, vanilla CSS)
+- **Hosting**: GitHub Pages via GitHub Actions
+
+## 🚀 Development Loop
+
+```bash
+# Install dependencies
+pnpm install
+
+# Start local dev server
+pnpm dev
+
+# Build production static site
+pnpm build
+
+# Preview production build
+pnpm preview
+```

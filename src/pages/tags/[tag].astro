@@ -1,0 +1,119 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostCard from '../../components/PostCard.astro';
+import { getReadingTime } from '../../utils/readingTime';
+
+export async function getStaticPaths() {
+  const allPosts = await getCollection('posts', ({ data }) => !data.draft);
+  const uniqueTags = Array.from(new Set(allPosts.flatMap((post) => post.data.tags || [])));
+
+  return uniqueTags.map((tag) => {
+    const slugTag = tag.toLowerCase().replace(/\s+/g, '-');
+    const filteredPosts = allPosts.filter((post) =>
+      post.data.tags?.some((t) => t.toLowerCase().replace(/\s+/g, '-') === slugTag)
+    );
+    return {
+      params: { tag: slugTag },
+      props: { tagName: tag, posts: filteredPosts },
+    };
+  });
+}
+
+const { tagName, posts } = Astro.props;
+const sortedPosts = posts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<BaseLayout
+  title={`Posts tagged "${tagName}"`}
+  description={`All articles and research notes tagged with "${tagName}" on unfoundbox.`}
+>
+  <div class="tags-page container">
+    <header class="page-header">
+      <div class="back-row">
+        <a href="/posts/" class="back-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          <span>All writing</span>
+        </a>
+      </div>
+
+      <span class="page-eyebrow">Tag Archive</span>
+      <h1 class="page-title">#{tagName}</h1>
+      <p class="page-subtitle">
+        {posts.length} {posts.length === 1 ? 'post' : 'posts'} found in this topic.
+      </p>
+    </header>
+
+    <div class="posts-list-grid">
+      {sortedPosts.map((post) => (
+        <PostCard post={post} readingTime={getReadingTime(post.body || '')} />
+      ))}
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .tags-page {
+    padding: 3.5rem 0 6rem;
+  }
+
+  .page-header {
+    margin-bottom: 3.5rem;
+    max-width: 800px;
+  }
+
+  .back-row {
+    margin-bottom: 1.5rem;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    transition: color var(--transition-fast);
+  }
+
+  .back-link:hover {
+    color: var(--accent-light);
+  }
+
+  .page-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .page-title {
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    color: var(--accent-light);
+  }
+
+  .page-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+  }
+
+  .posts-list-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .posts-list-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

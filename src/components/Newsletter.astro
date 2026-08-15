@@ -1,0 +1,155 @@
+---
+// Minimalist high-craft email capture & RSS widget
+---
+
+<section class="newsletter-card lab-card">
+  <div class="newsletter-inner">
+    <div class="newsletter-content">
+      <div class="newsletter-badge">
+        <span class="badge-dot"></span>
+        <span>The unfoundbox Dispatch</span>
+      </div>
+      <h3 class="newsletter-title">Subscribe to the research notes</h3>
+      <p class="newsletter-desc">
+        Deep dives on local WebGPU AI, emerging web standards, and lessons from early-stage startups. No spam, ever.
+      </p>
+    </div>
+
+    <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing! Subscriptions are connected.');">
+      <div class="input-group">
+        <input 
+          type="email" 
+          placeholder="your.email@domain.com" 
+          required 
+          class="email-input" 
+          aria-label="Email address for newsletter"
+        />
+        <button type="submit" class="btn btn-primary">
+          <span>Subscribe</span>
+        </button>
+      </div>
+      <div class="rss-fallback">
+        <span>Prefer RSS?</span>
+        <a href="/rss.xml" class="rss-link-text">Add /rss.xml to your reader →</a>
+      </div>
+    </form>
+  </div>
+</section>
+
+<style>
+  .newsletter-card {
+    background: linear-gradient(180deg, var(--bg-card) 0%, #171b24 100%);
+    border: 1px solid var(--border-medium);
+    padding: 2.5rem;
+    margin: 3.5rem 0;
+  }
+
+  .newsletter-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+  }
+
+  .newsletter-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.75rem;
+  }
+
+  .badge-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+  }
+
+  .newsletter-title {
+    font-size: 1.6rem;
+    font-weight: 750;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+  }
+
+  .newsletter-desc {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    max-width: 540px;
+    line-height: 1.55;
+  }
+
+  .newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    max-width: 480px;
+  }
+
+  .email-input {
+    background: var(--bg-deep);
+    border: 1px solid var(--border-medium);
+    border-radius: var(--radius-md);
+    padding: 0.75rem 1rem;
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    font-size: 0.92rem;
+    transition: border-color var(--transition-fast);
+  }
+
+  .email-input:focus {
+    border-color: var(--accent);
+    outline: none;
+  }
+
+  .email-input::placeholder {
+    color: var(--text-muted);
+  }
+
+  .rss-fallback {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+  }
+
+  .rss-link-text {
+    color: var(--accent-light);
+    text-decoration: underline;
+  }
+
+  @media (min-width: 640px) {
+    .input-group {
+      flex-direction: row;
+    }
+    .email-input {
+      flex-grow: 1;
+    }
+  }
+
+  @media (min-width: 860px) {
+    .newsletter-inner {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .newsletter-content {
+      max-width: 50%;
+    }
+    .newsletter-form {
+      min-width: 380px;
+    }
+  }
+</style>

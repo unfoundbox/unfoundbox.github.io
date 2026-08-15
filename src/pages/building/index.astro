@@ -1,0 +1,102 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import { projects } from '../../data/projects';
+---
+
+<BaseLayout
+  title="What I'm Building"
+  description="Startup products, open-source projects, and technical experiments built by Saurabh Nandwana."
+>
+  <div class="building-page container">
+    <header class="page-header">
+      <span class="page-eyebrow">Portfolio & Tinkers</span>
+      <h1 class="page-title">What I'm Building</h1>
+      <p class="page-subtitle">
+        A collection of startup applications, video processing engines, interactive 3D spaces, and open-source experiments built in public.
+      </p>
+    </header>
+
+    <div class="projects-grid">
+      {projects.map((project) => (
+        <ProjectCard project={project} />
+      ))}
+    </div>
+
+    <section class="open-source-note lab-card">
+      <h3 class="note-title">Open Source & Experiments</h3>
+      <p class="note-desc">
+        Explore more prototypes, shaders, WebCodecs scripts, and maker builds on GitHub:
+      </p>
+      <a href="https://github.com/unfoundbox" target="_blank" rel="noreferrer" class="btn btn-secondary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+        </svg>
+        <span>github.com/unfoundbox</span>
+      </a>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .building-page {
+    padding: 3.5rem 0 6rem;
+  }
+
+  .page-header {
+    margin-bottom: 3.5rem;
+    max-width: 780px;
+  }
+
+  .page-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .page-title {
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    font-weight: 800;
+    margin-bottom: 1rem;
+  }
+
+  .page-subtitle {
+    font-size: 1.15rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 3.5rem;
+  }
+
+  .open-source-note {
+    padding: 2.25rem;
+    background: var(--bg-surface);
+  }
+
+  .note-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .note-desc {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .projects-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

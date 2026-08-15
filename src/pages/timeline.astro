@@ -1,0 +1,216 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { timelineMilestones } from '../data/timeline';
+---
+
+<BaseLayout
+  title="Career & Nomad Timeline"
+  description="Chronological journey of Saurabh Nandwana — startups, acquisitions, layoffs, nomad life in SE Asia, and independent building."
+>
+  <div class="timeline-page container-narrow">
+    <header class="page-header">
+      <span class="page-eyebrow">Milestones</span>
+      <h1 class="page-title">Career & Nomad Timeline</h1>
+      <p class="page-subtitle">
+        A chronological breakdown of 8+ years across early-stage startups, video compression, acqui-hires, sabbaticals, and nomading across South East Asia.
+      </p>
+    </header>
+
+    <div class="timeline-container">
+      {timelineMilestones.map((milestone) => (
+        <div class="timeline-item">
+          <div class="timeline-marker">
+            <span class="marker-dot"></span>
+            <span class="marker-line"></span>
+          </div>
+
+          <div class="timeline-content lab-card">
+            <div class="milestone-top">
+              <span class="milestone-period">{milestone.period}</span>
+              <span class="milestone-location">{milestone.location}</span>
+            </div>
+
+            <h3 class="milestone-role">{milestone.role}</h3>
+            
+            <h4 class="milestone-company">
+              {milestone.companyUrl ? (
+                <a href={milestone.companyUrl} target="_blank" rel="noreferrer">
+                  {milestone.company}
+                </a>
+              ) : (
+                <span>{milestone.company}</span>
+              )}
+            </h4>
+
+            <p class="milestone-desc">{milestone.description}</p>
+
+            <ul class="milestone-highlights">
+              {milestone.highlights.map((highlight) => (
+                <li>{highlight}</li>
+              ))}
+            </ul>
+
+            <div class="milestone-tags">
+              {milestone.tags.map((tag) => (
+                <span class="tag-badge tag-badge-secondary">{tag}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .timeline-page {
+    padding: 3.5rem 0 6rem;
+  }
+
+  .page-header {
+    margin-bottom: 3.5rem;
+  }
+
+  .page-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .page-title {
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    font-weight: 800;
+    margin-bottom: 1rem;
+  }
+
+  .page-subtitle {
+    font-size: 1.15rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+  }
+
+  .timeline-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    position: relative;
+  }
+
+  .timeline-item {
+    display: flex;
+    gap: 1.75rem;
+    position: relative;
+  }
+
+  .timeline-marker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20px;
+    flex-shrink: 0;
+  }
+
+  .marker-dot {
+    width: 14px;
+    height: 14px;
+    background: var(--bg-deep);
+    border: 3px solid var(--accent);
+    border-radius: 50%;
+    margin-top: 1.5rem;
+    z-index: 2;
+  }
+
+  .marker-line {
+    width: 2px;
+    flex-grow: 1;
+    background: var(--border-subtle);
+    margin-top: 0.5rem;
+  }
+
+  .timeline-item:last-child .marker-line {
+    display: none;
+  }
+
+  .timeline-content {
+    flex-grow: 1;
+    padding: 1.75rem;
+  }
+
+  .milestone-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .milestone-period {
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  .milestone-location {
+    color: var(--text-muted);
+  }
+
+  .milestone-role {
+    font-size: 1.3rem;
+    font-weight: 750;
+    color: var(--text-primary);
+    margin-bottom: 0.15rem;
+  }
+
+  .milestone-company {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--accent-light);
+    margin-bottom: 0.85rem;
+  }
+
+  .milestone-company a {
+    color: var(--accent-light);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .milestone-desc {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+  }
+
+  .milestone-highlights {
+    list-style: disc;
+    padding-left: 1.25rem;
+    margin-bottom: 1.25rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+  }
+
+  .milestone-highlights li {
+    margin-bottom: 0.35rem;
+  }
+
+  .milestone-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+
+  @media (max-width: 640px) {
+    .timeline-item {
+      gap: 1rem;
+    }
+    .milestone-top {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.25rem;
+    }
+  }
+</style>

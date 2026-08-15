@@ -1,0 +1,113 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostCard from '../../components/PostCard.astro';
+import { getCollection } from 'astro:content';
+import { getReadingTime } from '../../utils/readingTime';
+
+const allPosts = await getCollection('posts', ({ data }) => !data.draft);
+const sortedPosts = allPosts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+// Collect all unique tags
+const allTags = Array.from(new Set(allPosts.flatMap((post) => post.data.tags || []))).sort();
+---
+
+<BaseLayout
+  title="Writing & Research Notes"
+  description="All essays, working notes, and research dispatches by Saurabh Nandwana across local AI, WebGPU, video infrastructure, and startups."
+>
+  <div class="posts-page container">
+    <header class="page-header">
+      <span class="page-eyebrow">Archive</span>
+      <h1 class="page-title">Writing & Research Notes</h1>
+      <p class="page-subtitle">
+        Deep dives, architecture notes, and field observations on local AI, emerging web APIs, and shipping real software.
+      </p>
+
+      {allTags.length > 0 && (
+        <div class="tags-filter-bar">
+          <span class="filter-label">Filter by topic:</span>
+          <div class="filter-tags">
+            {allTags.map((tag) => (
+              <a href={`/tags/${tag.toLowerCase().replace(/\s+/g, '-')}/`} class="tag-badge">
+                {tag}
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+    </header>
+
+    <div class="posts-list-grid">
+      {sortedPosts.map((post) => (
+        <PostCard post={post} readingTime={getReadingTime(post.body || '')} />
+      ))}
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .posts-page {
+    padding: 3.5rem 0 6rem;
+  }
+
+  .page-header {
+    margin-bottom: 3.5rem;
+    max-width: 800px;
+  }
+
+  .page-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .page-title {
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    font-weight: 800;
+    margin-bottom: 1rem;
+  }
+
+  .page-subtitle {
+    font-size: 1.15rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+  }
+
+  .tags-filter-bar {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  .filter-label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+  }
+
+  .filter-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .posts-list-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .posts-list-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

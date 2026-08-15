@@ -1,0 +1,158 @@
+---
+import type { Project } from '../data/projects';
+
+interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props;
+---
+
+<div class="project-card lab-card">
+  <div class="card-top">
+    <div class="project-title-row">
+      <h3 class="project-name">
+        {project.url ? (
+          <a href={project.url} target={project.url.startsWith('http') ? '_blank' : undefined} rel={project.url.startsWith('http') ? 'noreferrer' : undefined}>
+            {project.name}
+          </a>
+        ) : (
+          <span>{project.name}</span>
+        )}
+      </h3>
+
+      {project.badge && (
+        <span class="project-badge">{project.badge}</span>
+      )}
+    </div>
+
+    <p class="project-tagline">{project.tagline}</p>
+  </div>
+
+  <p class="project-desc">{project.description}</p>
+
+  <div class="project-tags">
+    {project.tags.map((tag) => (
+      <span class="tag-badge tag-badge-secondary">{tag}</span>
+    ))}
+  </div>
+
+  <div class="card-links">
+    {project.url && (
+      <a href={project.url} target={project.url.startsWith('http') ? '_blank' : undefined} rel={project.url.startsWith('http') ? 'noreferrer' : undefined} class="action-link">
+        <span>Launch / View</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+          <polyline points="15 3 21 3 21 9"></polyline>
+          <line x1="10" y1="14" x2="21" y2="3"></line>
+        </svg>
+      </a>
+    )}
+    {project.githubUrl && (
+      <a href={project.githubUrl} target="_blank" rel="noreferrer" class="action-link github">
+        <span>GitHub</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+        </svg>
+      </a>
+    )}
+  </div>
+</div>
+
+<style>
+  .project-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .card-top {
+    margin-bottom: 0.75rem;
+  }
+
+  .project-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .project-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+
+  .project-name a {
+    color: var(--text-primary);
+    transition: color var(--transition-fast);
+  }
+
+  .project-name a:hover {
+    color: var(--accent-light);
+  }
+
+  .project-badge {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--accent-light);
+    background: var(--accent-dim);
+    border: 1px solid var(--border-accent);
+    padding: 0.15rem 0.5rem;
+    border-radius: var(--radius-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .project-tagline {
+    font-size: 0.85rem;
+    font-family: var(--font-mono);
+    color: var(--accent);
+  }
+
+  .project-desc {
+    font-size: 0.92rem;
+    line-height: 1.55;
+    color: var(--text-secondary);
+    margin-bottom: 1.25rem;
+    flex-grow: 1;
+  }
+
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .card-links {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  .action-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    transition: color var(--transition-fast);
+  }
+
+  .action-link:hover {
+    color: var(--accent-light);
+  }
+
+  .action-link.github {
+    color: var(--text-muted);
+  }
+
+  .action-link.github:hover {
+    color: var(--text-primary);
+  }
+</style>

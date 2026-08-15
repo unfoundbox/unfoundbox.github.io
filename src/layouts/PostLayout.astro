@@ -1,0 +1,284 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import ReadingProgress from '../components/ReadingProgress.astro';
+import TableOfContents from '../components/TableOfContents.astro';
+import Newsletter from '../components/Newsletter.astro';
+import { siteConfig } from '../data/site';
+
+interface Heading {
+  depth: number;
+  slug: string;
+  text: string;
+}
+
+interface Props {
+  title: string;
+  description?: string;
+  date: Date;
+  tags?: string[];
+  coverImage?: string;
+  headings?: Heading[];
+  readingTime?: string;
+}
+
+const {
+  title,
+  description,
+  date,
+  tags = [],
+  coverImage,
+  headings = [],
+  readingTime,
+} = Astro.props;
+
+const formattedDate = new Intl.DateTimeFormat('en-GB', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+}).format(date);
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  type="article"
+  publishDate={date}
+  tags={tags}
+  image={coverImage || '/avatar.jpg'}
+>
+  <ReadingProgress />
+
+  <article class="post-article">
+    <header class="post-header container-narrow">
+      <div class="header-nav">
+        <a href="/posts/" class="back-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          <span>All writing</span>
+        </a>
+
+        {tags.length > 0 && (
+          <div class="post-tags">
+            {tags.map((tag) => (
+              <a href={`/tags/${tag.toLowerCase().replace(/\s+/g, '-')}/`} class="tag-badge">
+                {tag}
+              </a>
+            ))}
+          </div>
+        )}
+      </div>
+
+      <h1 class="article-title">{title}</h1>
+
+      {description && <p class="article-subtitle">{description}</p>}
+
+      <div class="article-author-row">
+        <img src="/avatar.jpg" alt={siteConfig.author} class="author-avatar" />
+        <div class="author-info">
+          <span class="author-name">{siteConfig.author}</span>
+          <div class="article-meta">
+            <time datetime={date.toISOString()}>{formattedDate}</time>
+            {readingTime && (
+              <>
+                <span class="meta-dot">·</span>
+                <span>{readingTime}</span>
+              </>
+            )}
+          </div>
+        </div>
+      </div>
+    </header>
+
+    {coverImage && (
+      <div class="container cover-container">
+        <img src={coverImage} alt={title} class="article-cover" />
+      </div>
+    )}
+
+    <div class="container-narrow">
+      {headings.length > 0 && <TableOfContents headings={headings} />}
+
+      <div class="prose">
+        <slot />
+      </div>
+
+      <div class="article-footer-author lab-card">
+        <img src="/avatar.jpg" alt={siteConfig.author} class="author-footer-avatar" />
+        <div class="author-footer-content">
+          <h4 class="author-footer-name">Written by {siteConfig.author}</h4>
+          <p class="author-footer-bio">
+            Engineer & builder (ex-Hopin, ex-StreamYard, Vectorly). Writing on local AI, WebGPU, video infrastructure, and building products.
+          </p>
+          <div class="author-footer-socials">
+            <a href={siteConfig.social.twitter} target="_blank" rel="noreferrer">Follow on X</a>
+            <a href={siteConfig.social.github} target="_blank" rel="noreferrer">GitHub</a>
+            <a href={siteConfig.social.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+
+      <Newsletter />
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .post-article {
+    padding: 3rem 0 5rem;
+  }
+
+  .post-header {
+    margin-bottom: 2.5rem;
+  }
+
+  .header-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.75rem;
+    flex-wrap: wrap;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    transition: color var(--transition-fast);
+  }
+
+  .back-link:hover {
+    color: var(--accent-light);
+  }
+
+  .post-tags {
+    display: flex;
+    gap: 0.35rem;
+    flex-wrap: wrap;
+  }
+
+  .article-title {
+    font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+    font-weight: 800;
+    line-height: 1.18;
+    letter-spacing: -0.03em;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+  }
+
+  .article-subtitle {
+    font-size: 1.25rem;
+    line-height: 1.55;
+    color: var(--text-secondary);
+    margin-bottom: 1.75rem;
+  }
+
+  .article-author-row {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  .author-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid var(--border-medium);
+  }
+
+  .author-info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .author-name {
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 650;
+    color: var(--text-primary);
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+
+  .meta-dot {
+    color: var(--border-medium);
+  }
+
+  .cover-container {
+    margin: 2rem auto 3rem;
+  }
+
+  .article-cover {
+    width: 100%;
+    max-height: 480px;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-subtle);
+  }
+
+  .article-footer-author {
+    margin-top: 4rem;
+    padding: 1.75rem;
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+  }
+
+  .author-footer-avatar {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    border: 1px solid var(--border-medium);
+    flex-shrink: 0;
+  }
+
+  .author-footer-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.35rem;
+    color: var(--text-primary);
+  }
+
+  .author-footer-bio {
+    font-size: 0.9rem;
+    line-height: 1.55;
+    color: var(--text-secondary);
+    margin-bottom: 0.85rem;
+  }
+
+  .author-footer-socials {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.85rem;
+    font-family: var(--font-mono);
+  }
+
+  .author-footer-socials a {
+    color: var(--accent);
+  }
+
+  .author-footer-socials a:hover {
+    color: var(--accent-light);
+    text-decoration: underline;
+  }
+
+  @media (max-width: 640px) {
+    .article-footer-author {
+      flex-direction: column;
+    }
+  }
+</style>

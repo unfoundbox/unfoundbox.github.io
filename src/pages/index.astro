@@ -1,0 +1,217 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import PostCard from '../components/PostCard.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import ResearchCard from '../components/ResearchCard.astro';
+import Newsletter from '../components/Newsletter.astro';
+import { getCollection } from 'astro:content';
+import { projects } from '../data/projects';
+import { researchItems } from '../data/research';
+import { getReadingTime } from '../utils/readingTime';
+
+// Fetch all posts, sort by date descending
+const allPosts = await getCollection('posts', ({ data }) => !data.draft);
+const sortedPosts = allPosts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const featuredPosts = sortedPosts.slice(0, 4);
+const featuredProjects = projects.filter((p) => p.featured).slice(0, 4);
+const featuredResearch = researchItems.slice(0, 4);
+---
+
+<BaseLayout>
+  <Hero />
+
+  <!-- Section: Featured Writing -->
+  <section class="section-block" id="writing">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="section-eyebrow">Essays & Notes</span>
+          <h2 class="section-title">Selected Writing</h2>
+        </div>
+        <a href="/posts/" class="view-all-link">
+          <span>View all {allPosts.length} posts</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+      </div>
+
+      <div class="posts-grid">
+        {featuredPosts.map((post) => (
+          <PostCard post={post} readingTime={getReadingTime(post.body || '')} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: What I'm Building -->
+  <section class="section-block" id="building">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="section-eyebrow">Products & Tools</span>
+          <h2 class="section-title">What I'm Building</h2>
+        </div>
+        <a href="/building/" class="view-all-link">
+          <span>All projects</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+      </div>
+
+      <div class="projects-grid">
+        {featuredProjects.map((project) => (
+          <ProjectCard project={project} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Research Lab -->
+  <section class="section-block" id="research">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="section-eyebrow">Interactive Lab</span>
+          <h2 class="section-title">Research & Visual Reports</h2>
+        </div>
+        <a href="/research/" class="view-all-link">
+          <span>Explore research lab</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+      </div>
+
+      <div class="research-grid">
+        {featuredResearch.map((item) => (
+          <ResearchCard item={item} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Sabbatical & Nomad Snapshot -->
+  <section class="section-block" id="journey">
+    <div class="container">
+      <div class="journey-card lab-card">
+        <div class="journey-content">
+          <span class="section-eyebrow">Journey</span>
+          <h3 class="journey-title">From Kota to Early Startups & Nomading</h3>
+          <p class="journey-text">
+            Growing up in Rajasthan, dropping out of college to join Signzy, building video neural upscaling at Vectorly (MIT startup acquired by Hopin), and shipping video ML at StreamYard — to digital nomad life in South East Asia and building independent tools in the open.
+          </p>
+          <div class="journey-actions">
+            <a href="/timeline/" class="btn btn-secondary">
+              <span>Explore Interactive Timeline</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+            <a href="/about/" class="btn btn-ghost">
+              <span>Read About Story</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <div class="container">
+    <Newsletter />
+  </div>
+</BaseLayout>
+
+<style>
+  .section-block {
+    padding: 3.5rem 0;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .section-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .section-title {
+    font-size: 1.85rem;
+    font-weight: 750;
+    color: var(--text-primary);
+  }
+
+  .view-all-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    transition: color var(--transition-fast);
+  }
+
+  .view-all-link:hover {
+    color: var(--accent-light);
+  }
+
+  .posts-grid, .projects-grid, .research-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .journey-card {
+    background: linear-gradient(135deg, var(--bg-card) 0%, #151922 100%);
+    border: 1px solid var(--border-medium);
+    padding: 2.5rem;
+  }
+
+  .journey-content {
+    max-width: 720px;
+  }
+
+  .journey-title {
+    font-size: 1.65rem;
+    font-weight: 750;
+    margin-bottom: 0.85rem;
+  }
+
+  .journey-text {
+    font-size: 1.05rem;
+    line-height: 1.65;
+    color: var(--text-secondary);
+    margin-bottom: 1.75rem;
+  }
+
+  .journey-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .posts-grid, .projects-grid, .research-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>
