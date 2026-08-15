@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PhotoReel from '../components/PhotoReel.astro';
+import { nomadPhotos } from '../data/photos';
 import { siteConfig } from '../data/site';
 ---
 
@@ -56,6 +58,8 @@ import { siteConfig } from '../data/site';
       <p>
         I spend part of each year nomading across South East Asia — living out of Bangkok, Da Nang, Koh Phangan, and my hometown of Udaipur.
       </p>
+
+      <PhotoReel photos={nomadPhotos} />
 
       <h2>Connect</h2>
       <ul>

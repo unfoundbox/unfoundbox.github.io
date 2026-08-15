@@ -7,10 +7,12 @@ import PostCard from '../components/PostCard.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import ResearchCard from '../components/ResearchCard.astro';
 import Newsletter from '../components/Newsletter.astro';
+import PhotoReel from '../components/PhotoReel.astro';
 import { getCollection } from 'astro:content';
 import { projects } from '../data/projects';
 import { researchItems } from '../data/research';
 import { timelineMilestones, nomadPlaces } from '../data/timeline';
+import { nomadPhotos } from '../data/photos';
 import { getReadingTime } from '../utils/readingTime';
 
 const allPosts = await getCollection('posts', ({ data }) => !data.draft);
@@ -273,6 +275,9 @@ const featuredPosts = sortedPosts.slice(0, 4);
           </div>
         ))}
       </div>
+
+      <!-- Photo Reel Contact Sheet -->
+      <PhotoReel photos={nomadPhotos} />
     </section>
 
     <!-- REEL 05: Backstory Callout (Small Town Kid to Cutting-Edge AI) -->
